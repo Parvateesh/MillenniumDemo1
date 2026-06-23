@@ -1,0 +1,272 @@
+/* ── Menu page ── */
+.menu-categories { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.menu-tab {
+  padding: 0.8rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 50px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.menu-tab.active, .menu-tab:hover {
+  background: var(--neon-pink);
+  color: white;
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 20px rgba(255, 46, 147, 0.4);
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.menu-item {
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  transition: var(--transition);
+}
+.menu-item:hover { border-color: var(--neon-yellow); transform: translateY(-3px); }
+.menu-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+.menu-item-name { font-family: 'Bowlby One', cursive; font-size: 1.2rem; }
+.menu-item-price { color: var(--neon-yellow); font-weight: 700; white-space: nowrap; }
+.menu-item-desc { font-size: 0.9rem; color: var(--text-dim); line-height: 1.5; }
+
+/* ── Leagues page ── */
+.league-table {
+  background: var(--bg-card);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.league-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr auto;
+  gap: 1rem;
+  padding: 1.5rem;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.2s ease;
+}
+.league-row:last-child { border-bottom: none; }
+.league-row:hover { background: rgba(255, 46, 147, 0.05); }
+.league-row.header {
+  background: linear-gradient(90deg, rgba(255, 46, 147, 0.15), rgba(0, 240, 255, 0.15));
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon-cyan);
+}
+.league-name { font-family: 'Bowlby One', cursive; font-size: 1.1rem; }
+.league-day { color: var(--text-dim); font-size: 0.95rem; }
+.league-status {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.status-open  { background: rgba(57, 255, 20, 0.15);  color: var(--neon-green);  border: 1px solid var(--neon-green); }
+.status-soon  { background: rgba(255, 230, 0, 0.15);  color: var(--neon-yellow); border: 1px solid var(--neon-yellow); }
+.status-full  { background: rgba(255, 100, 100, 0.15); color: #ff6464;           border: 1px solid #ff6464; }
+
+/* ── Pro Shop page ── */
+.pro-shop-hero {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-mid));
+  border-radius: 24px;
+  padding: 4rem;
+  border: 1px solid var(--line);
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.pro-shop-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 60%; height: 200%;
+  background: radial-gradient(circle, var(--neon-cyan) 0%, transparent 70%);
+  opacity: 0.1;
+  pointer-events: none;
+}
+.gold-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  color: #1a0a35;
+  border-radius: 50px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+}
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.brand-tile {
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: var(--transition);
+}
+.brand-tile:hover {
+  background: rgba(255, 46, 147, 0.1);
+  border-color: var(--neon-pink);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ── About page ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-visual {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--neon-pink) 0%, var(--neon-purple) 50%, var(--neon-cyan) 100%);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bowlby One', cursive;
+  font-size: 12rem;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 10px 60px rgba(0,0,0,0.4);
+}
+.about-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 230, 0, 0.4), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(0, 240, 255, 0.4), transparent 40%);
+  pointer-events: none;
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.about-stat-num { font-family: 'Bowlby One', cursive; font-size: 2.5rem; color: var(--neon-cyan); line-height: 1; }
+.about-stat-label { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0.5rem; }
+
+/* ── Contact / Book pages ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+.contact-info { display: flex; flex-direction: column; gap: 2rem; }
+.contact-item {
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  transition: var(--transition);
+}
+.contact-item:hover { border-color: rgba(0, 240, 255, 0.3); transform: translateX(4px); }
+.contact-icon { font-size: 1.8rem; flex-shrink: 0; }
+.contact-label { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--neon-cyan); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.4rem; }
+.contact-value { font-size: 1.05rem; color: white; }
+.contact-value a { color: white; text-decoration: none; }
+.contact-value a:hover { color: var(--neon-pink); }
+.contact-form {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 2.5rem;
+}
+.form-group { margin-bottom: 1.5rem; }
+.form-group label {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.6rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--neon-pink);
+  background: rgba(255, 46, 147, 0.08);
+  box-shadow: 0 0 20px rgba(255, 46, 147, 0.15);
+}
+.form-group select option { background: var(--bg-mid); }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* ── Hours ── */
+.hours-list { list-style: none; padding: 0; }
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.95rem;
+}
+.hours-list li:last-child { border-bottom: none; }
+.hours-list .day { color: var(--text-dim); font-family: 'Space Mono', monospace; font-size: 0.85rem; text-transform: uppercase; }
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-visual { aspect-ratio: 1; font-size: 8rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .league-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .league-row.header { display: none; }
+  .pro-shop-hero { padding: 2rem; }
+}

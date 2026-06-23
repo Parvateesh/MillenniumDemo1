@@ -1,0 +1,101 @@
+/* ── Neon cursor glow trail ── */
+.cursor-glow {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 46, 147, 0.7) 0%, transparent 70%);
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: screen;
+}
+.cursor-glow.cursor-hover {
+  width: 40px; height: 40px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.6) 0%, transparent 70%);
+}
+
+/* ── Confetti particle ── */
+.confetti-piece {
+  position: fixed;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: confettiFall var(--dur, 1s) ease forwards;
+}
+@keyframes confettiFall {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--dx, 0px), var(--dy, 300px)) rotate(var(--rot, 360deg)); opacity: 0; }
+}
+
+/* ── Strike flash overlay ── */
+.strike-flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 230, 0, 0.3), transparent 60%);
+  pointer-events: none;
+  z-index: 9990;
+  animation: strikeFlash 0.6s ease forwards;
+}
+@keyframes strikeFlash {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ── STRIKE! text popup ── */
+.strike-popup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-family: 'Bowlby One', cursive;
+  font-size: clamp(3rem, 10vw, 7rem);
+  color: var(--neon-yellow);
+  text-shadow: 0 0 30px var(--neon-yellow), 0 0 60px rgba(255, 230, 0, 0.5);
+  pointer-events: none;
+  z-index: 9995;
+  white-space: nowrap;
+  animation: strikePopup 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes strikePopup {
+  0%   { transform: translate(-50%, -50%) scale(0) rotate(-10deg); opacity: 0; }
+  40%  { transform: translate(-50%, -50%) scale(1.1) rotate(3deg); opacity: 1; }
+  70%  { transform: translate(-50%, -50%) scale(1) rotate(-1deg); opacity: 1; }
+  100% { transform: translate(-50%, -60%) scale(0.8) rotate(0deg); opacity: 0; }
+}
+
+/* ── Stagger delay helpers ── */
+[data-animate]:nth-child(1) { transition-delay: 0.05s; }
+[data-animate]:nth-child(2) { transition-delay: 0.12s; }
+[data-animate]:nth-child(3) { transition-delay: 0.19s; }
+[data-animate]:nth-child(4) { transition-delay: 0.26s; }
+[data-animate]:nth-child(5) { transition-delay: 0.33s; }
+
+/* ── Score counter (easter egg) ── */
+.score-counter {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--neon-pink);
+  border-radius: 16px;
+  padding: 0.8rem 1.4rem;
+  z-index: 500;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  box-shadow: 0 0 20px rgba(255, 46, 147, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.score-counter.visible { opacity: 1; transform: translateY(0); }
+.score-counter .score-num {
+  font-family: 'Bowlby One', cursive;
+  font-size: 2rem;
+  color: var(--neon-yellow);
+  display: block;
+  line-height: 1;
+}

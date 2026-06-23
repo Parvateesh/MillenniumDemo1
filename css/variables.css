@@ -1,0 +1,19 @@
+:root {
+  --neon-pink: #ff2e93;
+  --neon-cyan: #00f0ff;
+  --neon-yellow: #ffe600;
+  --neon-purple: #9d4edd;
+  --neon-green: #39ff14;
+  --bg-deep: #0a0118;
+  --bg-mid: #14072d;
+  --bg-card: #1a0a35;
+  --text: #ffffff;
+  --text-dim: #b8a3d6;
+  --line: rgba(255, 255, 255, 0.1);
+  --transition: all 0.3s ease;
+
+  /* Fixed header heights — update here if nav/banner size changes */
+  --banner-h: 30px;
+  --nav-h: 96px;
+  --header-h: calc(var(--banner-h) + var(--nav-h)); /* 126px */
+}

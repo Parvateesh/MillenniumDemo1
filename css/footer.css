@@ -1,0 +1,81 @@
+footer {
+  background: var(--bg-mid);
+  border-top: 1px solid var(--line);
+  padding: 4rem 2rem 2rem;
+  margin-top: 6rem;
+  position: relative;
+  z-index: 5;
+}
+.footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand {
+  font-family: 'Bowlby One', cursive;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+.footer-tagline { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 320px; }
+.socials { display: flex; gap: 0.8rem; }
+.social-link {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+.social-link:hover {
+  background: var(--neon-pink);
+  border-color: var(--neon-pink);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(255, 46, 147, 0.5);
+}
+.footer-col h4 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon-cyan);
+  margin-bottom: 1.2rem;
+}
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col li { margin-bottom: 0.7rem; }
+.footer-col a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.footer-col a:hover { color: white; }
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+}

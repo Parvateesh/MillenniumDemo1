@@ -1,66 +1,114 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="hero">
+        <div className="floating-pins">
+          <div className="pin" title="Click me!">🎳</div>
+          <div className="pin" title="Click me!">🎳</div>
+          <div className="pin" title="Click me!">🎳</div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="hero-content">
+          <span className="hero-tag">Open Tonight Until 12 AM</span>
+          <h1>
+            <span className="word">Eat.</span>
+            <span className="word">Drink.</span>
+            <span className="word">Bowl.</span>
+            <span className="word">Repeat.</span>
+          </h1>
+          <p className="lede">32 lanes. A full bar. Arcade games. F1 simulator. The only Ebonite Gold pro shop in central Arkansas. North Little Rock&apos;s home for Friday nights, kids&apos; birthdays, and corporate parties since 2003.</p>
+          <div className="hero-ctas">
+            <Link className="btn btn-primary" href="/book" data-confetti="">Reserve a Lane <span className="btn-arrow">→</span></Link>
+            <Link className="btn btn-secondary" href="/parties">Plan a Party <span className="btn-arrow">→</span></Link>
+          </div>
+          <div className="hero-stats">
+            <div><div className="hero-stat-num" data-count="32">0</div><div className="hero-stat-label">Lanes</div></div>
+            <div><div className="hero-stat-num" data-count="22">0</div><div className="hero-stat-label">Years Strong</div></div>
+            <div><div className="hero-stat-num" data-count="4.2" data-suffix="★">0</div><div className="hero-stat-label">1,076 Reviews</div></div>
+            <div><div className="hero-stat-num">2 AM</div><div className="hero-stat-label">Fri/Sat Late</div></div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <div className="marquee">
+        <div className="marquee-inner">
+          {[0, 1].map((i) => (
+            <span key={i}>
+              <b>Shuffle Board</b><span className="marquee-sep">◆</span>
+              <b>Fooseball</b><span className="marquee-sep">◆</span>
+              <b>Air Hockey</b><span className="marquee-sep">◆</span>
+              <b>Pool</b><span className="marquee-sep">◆</span>
+              <b>Fresh Kitchen</b><span className="marquee-sep">◆</span>
+              <b>Bar</b><span className="marquee-sep">◆</span>
+              <b>32 Lanes</b><span className="marquee-sep">◆</span>
+              <b>Arcade</b><span className="marquee-sep">◆</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <section className="block">
+        <div className="container">
+          <div className="section-eyebrow">What&apos;s Inside</div>
+          <h2 className="section-title">More Than Just <span className="accent">Bowling</span></h2>
+          <p className="section-lede">Five reasons this is the best entertainment center in central Arkansas — and why people drive in from Little Rock, Maumelle, Sherwood, and Cabot every weekend.</p>
+          <div className="experiences">
+            <div className="exp-card" data-animate=""><div className="exp-icon">🎳</div><h3>32 Pro Lanes</h3><p>State-of-the-art automatic scoring, glow lighting, kid bumpers, league-grade equipment. Casual or competitive — pick your vibe.</p></div>
+            <div className="exp-card" data-animate=""><div className="exp-icon">🍻</div><h3>Full Bar</h3><p>Cold beer on tap, handcrafted cocktails, premium spirits. Happy hour weeknights. 21+ after 10 PM Fridays and Saturdays.</p></div>
+            <div className="exp-card" data-animate=""><div className="exp-icon">🕹️</div><h3>Arcade &amp; F1 Sim</h3><p>Pool tables, shuffleboard, skee-ball, classic and modern arcade games. Plus a full Formula 1 racing simulator nobody else in the metro has.</p></div>
+            <div className="exp-card" data-animate=""><div className="exp-icon">🎉</div><h3>Private Parties</h3><p>Birthday packages from $179. Corporate buyouts. School field trips. Lock-ins. We handle setup, food, and the fun — you just show up.</p></div>
+            <div className="exp-card" data-animate=""><div className="exp-icon">🏆</div><h3>Bowl 101 Pro Shop</h3><p>The only Ebonite Gold Exclusive pro shop in central Arkansas. Custom drilling, expert fitting, all major brands. Ranked 5.0 on Google.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="block" style={{ background: 'linear-gradient(180deg,transparent,rgba(157,78,221,0.05))' }}>
+        <div className="container">
+          <div className="section-eyebrow">Honest Pricing</div>
+          <h2 className="section-title">Roll For As Little As <span className="accent">$2.99</span></h2>
+          <p className="section-lede">No hidden fees. No surge pricing. What you see is what you pay.</p>
+          <div className="pricing-grid">
+            <div className="price-card featured" data-animate="">
+              <div className="price-day">Tuesday + Sunday</div>
+              <div className="price-amount">$2.99</div>
+              <div className="price-unit">per game / per person — all day</div>
+              <ul className="price-features"><li>Shoe rental: $2.99</li><li>All ages welcome</li><li>No reservation needed</li><li>Walk-in priority</li></ul>
+            </div>
+            <div className="price-card" data-animate="">
+              <div className="price-day">Mon — Fri / Daytime</div>
+              <div className="price-amount">$24<span style={{ fontSize: '1.5rem' }}>.99</span></div>
+              <div className="price-unit">per lane / per hour — 9 AM to 5 PM</div>
+              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Senior Strikes: $5/game Tue/Thu AM</li><li>Homeschool PE: Wed mornings</li></ul>
+            </div>
+            <div className="price-card" data-animate="">
+              <div className="price-day">Evenings + Weekends</div>
+              <div className="price-amount">$33<span style={{ fontSize: '1.5rem' }}>.99</span></div>
+              <div className="price-unit">per lane / per hour — after 5 PM</div>
+              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Glow Bowl Fridays</li><li>Late night Fri/Sat to 2 AM</li></ul>
+            </div>
+            <div className="price-card" data-animate="">
+              <div className="price-day">Specials</div>
+              <div className="price-amount">10%<span style={{ fontSize: '1.5rem' }}> off</span></div>
+              <div className="price-unit">military, first responders, students</div>
+              <ul className="price-features"><li>Active duty, retired, reserves</li><li>Police, fire, EMS</li><li>Valid student ID</li><li>Show ID at counter — every visit</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="reviews-strip">
+        <div className="container">
+          <div className="section-eyebrow">Loved By Locals</div>
+          <h2 className="section-title">1,076 Google <span className="accent">Reviews</span></h2>
+          <div className="google-badge"><span className="stars">★★★★½</span><span>4.2 / 5 on Google · 22 years in NLR</span></div>
+          <div className="reviews-grid">
+            <div className="review-card" data-animate=""><div className="review-stars">★★★★★</div><p className="review-text">&quot;Such a fun time for our 4 yr old&apos;s birthday. Bowling, pizza, ice cream… what more could you want! The arcade is also a big hit, naturally. Would recommend.&quot;</p><div className="review-author">— Birthday Party Family</div></div>
+            <div className="review-card" data-animate=""><div className="review-stars">★★★★★</div><p className="review-text">&quot;The staff is warm and welcoming. The pizza was really quite delicious. Steven at the concessions bar goes the extra mile to be helpful. Definitely will return.&quot;</p><div className="review-author">— Returning Regular</div></div>
+            <div className="review-card" data-animate=""><div className="review-stars">★★★★★</div><p className="review-text">&quot;Great place for our school&apos;s field trip. Kids had a blast! The team made setup easy and everyone was on a lane and bowling within minutes.&quot;</p><div className="review-author">— Sherwood Elementary Teacher</div></div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

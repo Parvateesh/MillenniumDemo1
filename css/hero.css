@@ -1,0 +1,160 @@
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 4rem 2rem;
+  overflow: hidden;
+  padding-top: calc(var(--header-h) + 2rem);
+}
+
+.hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 50px;
+  background: rgba(0, 240, 255, 0.05);
+  margin-bottom: 2rem;
+  animation: tagPulse 3s ease infinite;
+}
+.hero-tag::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--neon-cyan);
+  animation: dotBlink 1.5s ease infinite;
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+@keyframes tagPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4); }
+  50%       { box-shadow: 0 0 30px 0 rgba(0, 240, 255, 0); }
+}
+
+.hero h1 {
+  font-family: 'Bowlby One', cursive;
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.hero h1 .word {
+  display: inline-block;
+  background: linear-gradient(180deg, #fff 0%, #fff 60%, var(--neon-pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(255, 46, 147, 0.3));
+  margin-right: 0.3em;
+}
+.hero h1 .word:nth-child(2) {
+  background: linear-gradient(180deg, #fff 0%, #fff 60%, var(--neon-cyan) 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.3));
+}
+.hero h1 .word:nth-child(3) {
+  background: linear-gradient(180deg, #fff 0%, #fff 60%, var(--neon-yellow) 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(255, 230, 0, 0.3));
+}
+
+.hero p.lede {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--text-dim);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Floating bowling pins */
+.floating-pins {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.pin {
+  position: absolute;
+  font-size: 4rem;
+  opacity: 0.18;
+  animation: pinFloat 8s ease-in-out infinite;
+  cursor: pointer;
+  pointer-events: all;
+  transition: opacity 0.3s ease;
+  user-select: none;
+}
+.pin:nth-child(1) { top: 15%; right: 10%; animation-delay: 0s; }
+.pin:nth-child(2) { top: 40%; right: 25%; animation-delay: 2s; font-size: 3rem; }
+.pin:nth-child(3) { top: 70%; right: 8%;  animation-delay: 4s; font-size: 5rem; }
+.pin:hover { opacity: 0.6; }
+.pin.struck { animation: pinStrike 0.5s ease forwards !important; }
+
+@keyframes pinFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50%       { transform: translateY(-30px) rotate(5deg); }
+}
+@keyframes pinStrike {
+  0%   { transform: scale(1) rotate(0deg); opacity: 0.18; }
+  30%  { transform: scale(1.5) rotate(-30deg); opacity: 0.9; }
+  60%  { transform: scale(0.8) rotate(45deg); opacity: 0.5; }
+  100% { transform: scale(0) rotate(90deg); opacity: 0; }
+}
+
+/* Hero stats strip */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+.hero-stat-num {
+  font-family: 'Bowlby One', cursive;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  :root { --nav-h: 72px; }
+  .hero { min-height: 80vh; padding: 3rem 1.5rem; padding-top: calc(var(--header-h) + 1.5rem); }
+  .hero h1 { font-size: clamp(2.5rem, 12vw, 5rem); }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
