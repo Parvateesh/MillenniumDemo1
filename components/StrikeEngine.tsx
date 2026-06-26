@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 // Animation Engine States
-type EngineState = 'LINE' | 'MORPH' | 'ROLL' | 'STRIKE' | 'CLEANUP' | 'COLLAPSE';
+type EngineState = 'IDLE' | 'ROLL' | 'STRIKE' | 'CLEANUP';
 
 interface Palette {
   primary: string;
@@ -40,7 +40,7 @@ export default function StrikeEngine() {
     let height = container.clientHeight;
 
     // Track state in refs for frame loop access
-    let engineState: EngineState = 'LINE';
+    let engineState: EngineState = 'IDLE';
     let stateTime = 0;
     let shakeAmount = 0;
     let autoLoop = true;
@@ -60,19 +60,13 @@ export default function StrikeEngine() {
       centerX = w * 0.5;
     }
 
-    // Project 3D vector coordinates into 2D Screen space with horizontal alignment
-    function project(x3d: number, y3d: number, z3d: number, morphProgress = 1) {
-      const flatY = height * 0.50;
+    // Project 3D vector coordinates into 2D Screen space
+    function project(x3d: number, y3d: number, z3d: number) {
       const targetY = Y_foreground - z3d * (Y_foreground - Y_horizon) - y3d * (1 - z3d * 0.8);
-      const yScreen = flatY * (1 - morphProgress) + targetY * morphProgress;
-
       const laneWidth = W_lane_front * (1 - z3d) + W_lane_back * z3d;
       const targetX = centerX + x3d * laneWidth;
-      const flatX = centerX + x3d * W_lane_front * 0.1;
-      const xScreen = flatX * (1 - morphProgress) + targetX * morphProgress;
-
-      const scale = ((1 - z3d) * 1.5 + 0.35) * morphProgress;
-      return { x: xScreen, y: yScreen, scale };
+      const scale = ((1 - z3d) * 1.5 + 0.35);
+      return { x: targetX, y: targetY, scale };
     }
 
     // Pin Physics Object
@@ -153,9 +147,9 @@ export default function StrikeEngine() {
         }
       }
 
-      draw(morphProgress: number) {
+      draw() {
         if (!this.active) return;
-        const pt = project(this.x3d, this.y3d, this.z3d, morphProgress);
+        const pt = project(this.x3d, this.y3d, this.z3d);
         if (pt.scale <= 0) return;
 
         ctx!.save();
@@ -231,15 +225,14 @@ export default function StrikeEngine() {
       },
 
       update(dt: number) {
-        if (!this.active) return;
+        if (!this.active || engineState === 'IDLE') return;
         this.x3d = 0;
         this.z3d += this.vz * dt;
         this.rotation += 4.5 * dt;
       },
 
       draw() {
-        if (!this.active) return;
-        const pt = project(this.x3d, this.y3d, this.z3d, 1);
+        const pt = project(this.x3d, this.y3d, this.z3d);
         if (pt.scale <= 0) return;
 
         const r = 16 * pt.scale;
@@ -416,10 +409,10 @@ export default function StrikeEngine() {
       engineState = nextState;
       stateTime = 0;
 
-      if (nextState === 'MORPH') {
+      if (nextState === 'IDLE') {
         pins.forEach(p => p.reset());
         ball.reset();
-        ball.active = false;
+        ball.active = true;
       } else if (nextState === 'ROLL') {
         ball.reset();
       } else if (nextState === 'STRIKE') {
@@ -430,15 +423,15 @@ export default function StrikeEngine() {
     }
 
     function triggerStrike() {
-      if (engineState === 'LINE') {
-        transitionTo('MORPH');
-      } else if (engineState === 'MORPH' || engineState === 'COLLAPSE') {
+      if (engineState === 'IDLE') {
         transitionTo('ROLL');
       } else if (engineState === 'STRIKE' || engineState === 'CLEANUP') {
-        transitionTo('MORPH');
+        transitionTo('IDLE');
         setTimeout(() => transitionTo('ROLL'), 150);
       }
     }
+
+    // Set references
     triggerStrikeRef.current = triggerStrike;
 
     // Animation Loop
@@ -455,14 +448,8 @@ export default function StrikeEngine() {
       }
 
       switch (engineState) {
-        case 'LINE':
-          if (autoLoop && stateTime > 3.0) {
-            transitionTo('MORPH');
-          }
-          break;
-
-        case 'MORPH':
-          if (stateTime > 1.2) {
+        case 'IDLE':
+          if (autoLoop && stateTime > 4.5) {
             transitionTo('ROLL');
           }
           break;
@@ -485,13 +472,7 @@ export default function StrikeEngine() {
         case 'CLEANUP':
           pins.forEach(p => p.update(dt));
           if (stateTime > 0.8) {
-            transitionTo('COLLAPSE');
-          }
-          break;
-
-        case 'COLLAPSE':
-          if (stateTime > 1.2) {
-            transitionTo('LINE');
+            transitionTo('IDLE');
           }
           break;
       }
@@ -510,101 +491,99 @@ export default function StrikeEngine() {
         ctx!.translate(sx, sy);
       }
 
-      let morph = 0;
-      if (engineState === 'MORPH') {
-        morph = Math.min(stateTime / 1.0, 1.0);
-      } else if (engineState === 'ROLL' || engineState === 'STRIKE' || engineState === 'CLEANUP') {
-        morph = 1.0;
-      } else if (engineState === 'COLLAPSE') {
-        morph = Math.max(1.0 - (stateTime / 1.0), 0);
-      }
-
       // Layer 1: Lane perspective guidelines
-      if (morph > 0) {
-        ctx!.save();
-        ctx!.globalAlpha = morph;
+      ctx!.save();
+      const glStart = project(-0.55, 0, 0);
+      const glEnd = project(-0.55, 0, 1);
+      const grStart = project(0.55, 0, 0);
+      const grEnd = project(0.55, 0, 1);
 
-        const glStart = project(-0.55, 0, 0, morph);
-        const glEnd = project(-0.55, 0, 1, morph);
-        const grStart = project(0.55, 0, 0, morph);
-        const grEnd = project(0.55, 0, 1, morph);
+      ctx!.strokeStyle = palette.primary + '30';
+      ctx!.lineWidth = 6;
+      ctx!.beginPath();
+      ctx!.moveTo(glStart.x, glStart.y); ctx!.lineTo(glEnd.x, glEnd.y);
+      ctx!.moveTo(grStart.x, grStart.y); ctx!.lineTo(grEnd.x, grEnd.y);
+      ctx!.stroke();
 
-        ctx!.strokeStyle = palette.primary + '30';
-        ctx!.lineWidth = 6;
+      ctx!.strokeStyle = palette.primary;
+      ctx!.lineWidth = 1.5;
+      ctx!.stroke();
+
+      // Inner Board Seams
+      ctx!.strokeStyle = palette.secondary + '15';
+      ctx!.lineWidth = 1.0;
+      const boards = [-0.35, -0.18, 0, 0.18, 0.35];
+      boards.forEach(bx => {
+        const bStart = project(bx, 0, 0);
+        const bEnd = project(bx, 0, 1);
         ctx!.beginPath();
-        ctx!.moveTo(glStart.x, glStart.y); ctx!.lineTo(glEnd.x, glEnd.y);
-        ctx!.moveTo(grStart.x, grStart.y); ctx!.lineTo(grEnd.x, grEnd.y);
+        ctx!.moveTo(bStart.x, bStart.y);
+        ctx!.lineTo(bEnd.x, bEnd.y);
         ctx!.stroke();
+      });
 
-        ctx!.strokeStyle = palette.primary;
-        ctx!.lineWidth = 1.5;
-        ctx!.stroke();
+      // Curved neon back arch & deep pit (replacing the flat horizontal line)
+      const hStart = project(-0.55, 0, 1);
+      const hEnd = project(0.55, 0, 1);
+      const ctrlX = centerX;
+      const ctrlY = hStart.y - 16; // Curves upwards by 16px to create depth
 
-        // Inner Board Seams
-        ctx!.strokeStyle = palette.secondary + '15';
-        ctx!.lineWidth = 1.0;
-        const boards = [-0.35, -0.18, 0, 0.18, 0.35];
-        boards.forEach(bx => {
-          const bStart = project(bx, 0, 0, morph);
-          const bEnd = project(bx, 0, 1, morph);
-          ctx!.beginPath();
-          ctx!.moveTo(bStart.x, bStart.y);
-          ctx!.lineTo(bEnd.x, bEnd.y);
-          ctx!.stroke();
-        });
+      // Draw dark recess pit behind the lane end
+      ctx!.fillStyle = '#05000c';
+      ctx!.beginPath();
+      ctx!.moveTo(hStart.x, hStart.y);
+      ctx!.quadraticCurveTo(ctrlX, ctrlY, hEnd.x, hEnd.y);
+      ctx!.lineTo(hEnd.x, hEnd.y + 10);
+      ctx!.lineTo(hStart.x, hStart.y + 10);
+      ctx!.closePath();
+      ctx!.fill();
 
-        // Horizon end line
-        const hStart = project(-0.55, 0, 1, morph);
-        const hEnd = project(0.55, 0, 1, morph);
-        ctx!.strokeStyle = palette.primary;
-        ctx!.lineWidth = 2.0;
-        ctx!.beginPath();
-        ctx!.moveTo(hStart.x, hStart.y);
-        ctx!.lineTo(hEnd.x, hEnd.y);
-        ctx!.stroke();
+      // Radial cyan neon glow in the center of the pit behind pins
+      const pitGlow = ctx!.createRadialGradient(centerX, hStart.y - 6, 2, centerX, hStart.y - 6, 40);
+      pitGlow.addColorStop(0, palette.secondary + '20'); // soft neon cyan
+      pitGlow.addColorStop(1, 'transparent');
+      ctx!.fillStyle = pitGlow;
+      ctx!.beginPath();
+      ctx!.arc(centerX, hStart.y - 6, 40, 0, Math.PI * 2);
+      ctx!.fill();
 
-        ctx!.restore();
-      }
+      // Glowing pink neon arch trim
+      ctx!.strokeStyle = palette.primary + '40';
+      ctx!.lineWidth = 5;
+      ctx!.beginPath();
+      ctx!.moveTo(hStart.x, hStart.y);
+      ctx!.quadraticCurveTo(ctrlX, ctrlY, hEnd.x, hEnd.y);
+      ctx!.stroke();
 
-      // Layer 2: Idle Line
-      if (morph < 1.0) {
-        ctx!.save();
-        ctx!.globalAlpha = 1.0 - morph;
-        const midY = height * 0.50;
+      ctx!.strokeStyle = palette.primary;
+      ctx!.lineWidth = 1.8;
+      ctx!.beginPath();
+      ctx!.moveTo(hStart.x, hStart.y);
+      ctx!.quadraticCurveTo(ctrlX, ctrlY, hEnd.x, hEnd.y);
+      ctx!.stroke();
 
-        ctx!.strokeStyle = palette.primary + '40';
-        ctx!.lineWidth = 8;
-        ctx!.beginPath();
-        ctx!.moveTo(0, midY);
-        ctx!.lineTo(width, midY);
-        ctx!.stroke();
+      ctx!.restore();
 
-        ctx!.strokeStyle = '#ffffff';
-        ctx!.lineWidth = 2.0;
-        ctx!.stroke();
-        ctx!.restore();
-      }
-
-      // Layer 3: Pins
-      if (morph > 0.35 && engineState !== 'COLLAPSE') {
+      // Layer 2: Pins
+      if (engineState !== 'CLEANUP' || stateTime < 0.8) {
         ctx!.save();
         if (engineState === 'CLEANUP') {
           ctx!.globalAlpha = Math.max(1.0 - (stateTime / 0.8), 0);
         }
         const sortedPins = [...pins].sort((a, b) => b.z3d - a.z3d);
-        sortedPins.forEach(p => p.draw(morph));
+        sortedPins.forEach(p => p.draw());
         ctx!.restore();
       }
 
-      // Layer 4: Ball
-      if (engineState === 'ROLL') {
+      // Layer 3: Ball
+      if (engineState === 'ROLL' || engineState === 'IDLE') {
         ball.draw();
       }
 
-      // Layer 5: Particles
+      // Layer 4: Particles
       sparks.forEach(s => s.draw());
 
-      // Layer 6: Neon STRIKE text
+      // Layer 5: Neon STRIKE text
       if (engineState === 'STRIKE' || engineState === 'CLEANUP') {
         ctx!.save();
         const textAlpha = engineState === 'STRIKE' ? Math.min(stateTime / 0.2, 1.0) : Math.max(1.0 - (stateTime / 0.8), 0);
@@ -634,6 +613,9 @@ export default function StrikeEngine() {
     canvas.height = height * window.devicePixelRatio;
     ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     updateLayout(width, height);
+
+    // Initial state setup
+    transitionTo('IDLE');
 
     // Resize Observer
     const resizeObserver = new ResizeObserver((entries) => {
