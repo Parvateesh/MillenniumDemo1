@@ -66,25 +66,44 @@
 }
 .league-row {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr 1fr auto;
-  gap: 1rem;
-  padding: 1.5rem;
+  grid-template-columns: 2.5fr 1.8fr 1.2fr 1fr 120px;
+  gap: 1.5rem;
+  padding: 1.25rem 2rem;
   align-items: center;
   border-bottom: 1px solid var(--line);
   transition: background 0.2s ease;
 }
 .league-row:last-child { border-bottom: none; }
 .league-row:hover { background: rgba(255, 46, 147, 0.05); }
+.league-row > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
 .league-row.header {
-  background: linear-gradient(90deg, rgba(255, 46, 147, 0.15), rgba(0, 240, 255, 0.15));
-  font-family: 'Space Mono', monospace;
+  background: linear-gradient(90deg, rgba(255, 46, 147, 0.12), rgba(0, 240, 255, 0.12));
+  font-family: var(--font-space-mono), monospace;
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: var(--neon-cyan);
+  border-bottom: 1px solid var(--line);
 }
-.league-name { font-family: 'Bowlby One', cursive; font-size: 1.1rem; }
-.league-day { color: var(--text-dim); font-size: 0.95rem; }
+.league-name {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.league-day {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.league-row > div:nth-child(3) {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+}
 .league-status {
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -295,7 +314,59 @@
   .about-visual { aspect-ratio: 1; font-size: 8rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
   .form-row { grid-template-columns: 1fr; }
-  .league-row { grid-template-columns: 1fr; gap: 0.5rem; }
-  .league-row.header { display: none; }
+  .league-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+    padding: 1.5rem;
+  }
+  .league-row.header {
+    display: none;
+  }
+  .league-row > div:nth-child(1) {
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+  .league-row > div:nth-child(2)::before {
+    content: 'Schedule: ';
+    color: var(--text-dim);
+    font-family: var(--font-space-mono), monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+  }
+  .league-row > div:nth-child(3)::before {
+    content: 'Skill Level: ';
+    color: var(--text-dim);
+    font-family: var(--font-space-mono), monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+  }
+  .league-row > div:nth-child(4) {
+    display: flex;
+    align-items: center;
+  }
+  .league-row > div:nth-child(4)::before {
+    content: 'Status: ';
+    color: var(--text-dim);
+    font-family: var(--font-space-mono), monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+  }
+  .league-row > div:nth-child(5) {
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .league-row > div:nth-child(5) .btn-mini {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem;
+  }
   .pro-shop-hero { padding: 2rem; }
 }
