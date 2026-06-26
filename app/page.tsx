@@ -10,7 +10,7 @@ export default function HomePage() {
           <div className="pin" title="Click me!">🎳</div>
         </div>
         <div className="hero-content">
-          <span className="hero-tag">Open Tonight Until 12 AM</span>
+          <span className="hero-tag">Open Fri &amp; Sat Until 2 AM</span>
           <h1>
             <span className="word">Eat.</span>
             <span className="word">Drink.</span>

@@ -24,7 +24,7 @@ export default function AboutPage() {
                 <div><div className="about-stat-num" data-count="2003">0</div><div className="about-stat-label">Year founded</div></div>
                 <div><div className="about-stat-num" data-count="32">0</div><div className="about-stat-label">Lanes</div></div>
                 <div><div className="about-stat-num" data-count="1076">0</div><div className="about-stat-label">Google reviews</div></div>
-                <div><div className="about-stat-num">12 AM</div><div className="about-stat-label">Open late nightly</div></div>
+                <div><div className="about-stat-num">2 AM</div><div className="about-stat-label">Fri &amp; Sat Late</div></div>
               </div>
             </div>
           </div>
