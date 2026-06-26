@@ -7,7 +7,7 @@ export const metadata = {
 export default function LeaguesPage() {
   return (
     <>
-      <section className="hero" style={{ minHeight: '50vh' }}>
+      <section className="hero hero-md">
         <div className="hero-content">
           <span className="hero-tag">Leagues + Tournaments</span>
           <h1><span className="word">Roll</span> <span className="word">With</span> <span className="word">Us.</span></h1>
@@ -28,8 +28,8 @@ export default function LeaguesPage() {
             <div className="league-row"><div className="league-name">Saturday Youth (8–17)</div><div className="league-day">Sat · 10:00 AM</div><div>Youth</div><div><span className="league-status status-open">Open</span></div><div><Link className="btn-mini" href="/book">Join</Link></div></div>
             <div className="league-row"><div className="league-name">Sunday Scotch Doubles</div><div className="league-day">Sun · 6:00 PM</div><div>Couples / Pairs</div><div><span className="league-status status-open">Open</span></div><div><Link className="btn-mini" href="/book">Join</Link></div></div>
           </div>
-          <div style={{ marginTop: '4rem', textAlign: 'center' }}>
-            <p style={{ color: 'var(--text-dim)', marginBottom: '1.5rem' }}>Want to start your own league? Got a question about an existing one?</p>
+          <div className="league-cta">
+            <p>Want to start your own league? Got a question about an existing one?</p>
             <Link className="btn btn-primary" href="/contact">Talk to League Coordinator →</Link>
           </div>
         </div>

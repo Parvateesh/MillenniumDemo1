@@ -15,14 +15,15 @@ footer {
   margin-bottom: 3rem;
 }
 .footer-brand {
-  font-family: 'Bowlby One', cursive;
-  font-size: 1.8rem;
-  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
-  line-height: 1.1;
+  display: flex;
+  align-items: center;
+}
+.footer-brand img {
+  height: 56px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(255, 46, 147, 0.4));
 }
 .footer-tagline { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 320px; }
 .socials { display: flex; gap: 0.8rem; }

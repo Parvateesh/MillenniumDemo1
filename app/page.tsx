@@ -5,9 +5,9 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="floating-pins">
-          <div className="pin" title="Click me!">🎳</div>
-          <div className="pin" title="Click me!">🎳</div>
-          <div className="pin" title="Click me!">🎳</div>
+          <div className="pin" title="Click me!" role="button" tabIndex={0}>🎳</div>
+          <div className="pin" title="Click me!" role="button" tabIndex={0}>🎳</div>
+          <div className="pin" title="Click me!" role="button" tabIndex={0}>🎳</div>
         </div>
         <div className="hero-content">
           <span className="hero-tag">Open Fri &amp; Sat Until 2 AM</span>
@@ -36,7 +36,7 @@ export default function HomePage() {
           {[0, 1].map((i) => (
             <span key={i}>
               <b>Shuffle Board</b><span className="marquee-sep">◆</span>
-              <b>Fooseball</b><span className="marquee-sep">◆</span>
+              <b>Foosball</b><span className="marquee-sep">◆</span>
               <b>Air Hockey</b><span className="marquee-sep">◆</span>
               <b>Pool</b><span className="marquee-sep">◆</span>
               <b>Fresh Kitchen</b><span className="marquee-sep">◆</span>
@@ -63,7 +63,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="block" style={{ background: 'linear-gradient(180deg,transparent,rgba(157,78,221,0.05))' }}>
+      <section className="block pricing-section">
         <div className="container">
           <div className="section-eyebrow">Honest Pricing</div>
           <h2 className="section-title">Roll For As Little As <span className="accent">$2.99</span></h2>
@@ -77,19 +77,19 @@ export default function HomePage() {
             </div>
             <div className="price-card" data-animate="">
               <div className="price-day">Mon — Fri / Daytime</div>
-              <div className="price-amount">$24<span style={{ fontSize: '1.5rem' }}>.99</span></div>
+              <div className="price-amount">$24<span className="price-sub">.99</span></div>
               <div className="price-unit">per lane / per hour — 9 AM to 5 PM</div>
               <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Senior Strikes: $5/game Tue/Thu AM</li><li>Homeschool PE: Wed mornings</li></ul>
             </div>
             <div className="price-card" data-animate="">
               <div className="price-day">Evenings + Weekends</div>
-              <div className="price-amount">$33<span style={{ fontSize: '1.5rem' }}>.99</span></div>
+              <div className="price-amount">$33<span className="price-sub">.99</span></div>
               <div className="price-unit">per lane / per hour — after 5 PM</div>
               <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Glow Bowl Fridays</li><li>Late night Fri/Sat to 2 AM</li></ul>
             </div>
             <div className="price-card" data-animate="">
               <div className="price-day">Specials</div>
-              <div className="price-amount">10%<span style={{ fontSize: '1.5rem' }}> off</span></div>
+              <div className="price-amount">10%<span className="price-sub"> off</span></div>
               <div className="price-unit">military, first responders, students</div>
               <ul className="price-features"><li>Active duty, retired, reserves</li><li>Police, fire, EMS</li><li>Valid student ID</li><li>Show ID at counter — every visit</li></ul>
             </div>

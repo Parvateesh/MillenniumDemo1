@@ -1,17 +1,18 @@
-import Link from 'next/link';
+  import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
     <footer>
       <div className="footer-grid">
         <div>
-          <div className="footer-brand">MILLENNIUM<br />BOWL</div>
+          <div className="footer-brand"><Image src="/logo.png" alt="Millennium Bowl" width={190} height={56} /></div>
           <p className="footer-tagline">North Little Rock&apos;s home for strikes, parties, and Friday nights since 2003.</p>
           <div className="socials">
-            <a href="#" className="social-link" title="Facebook">f</a>
-            <a href="#" className="social-link" title="Instagram">📷</a>
-            <a href="#" className="social-link" title="TikTok">♪</a>
-            <a href="#" className="social-link" title="YouTube">▶</a>
+            <a href="https://facebook.com/millenniumbowllr" className="social-link" title="Facebook" target="_blank" rel="noopener">f</a>
+            <a href="https://instagram.com/millenniumbowllr" className="social-link" title="Instagram" target="_blank" rel="noopener">📷</a>
+            <a href="https://tiktok.com/@millenniumbowllr" className="social-link" title="TikTok" target="_blank" rel="noopener">♪</a>
+            <a href="https://youtube.com/@millenniumbowllr" className="social-link" title="YouTube" target="_blank" rel="noopener">▶</a>
           </div>
         </div>
         <div className="footer-col">
@@ -45,7 +46,7 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <div>© 2026 Millennium Bowl · 7200 Counts Massie Rd, NLR AR 72113</div>
-        <div>Built with 🎳 by your future marketing partner</div>
+        <div>Built with 🎳</div>
       </div>
     </footer>
   );

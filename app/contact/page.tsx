@@ -27,13 +27,13 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="hero" style={{ minHeight: '30vh', paddingBottom: '2rem' }}>
+      <section className="hero hero-xs hero-contact">
         <div className="hero-content">
           <span className="hero-tag">Get In Touch</span>
           <h1><span className="word">Say</span> <span className="word">Hi.</span></h1>
         </div>
       </section>
-      <section className="block" style={{ paddingTop: '2rem' }}>
+      <section className="block contact-block">
         <div className="container">
           <div className="contact-grid">
             <div className="contact-info">
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 <div className="contact-icon">🕒</div>
                 <div>
                   <div className="contact-label">Hours</div>
-                  <ul className="hours-list" style={{ marginTop: '0.5rem' }}>
+                  <ul className="hours-list">
                     <li><span className="day">Mon–Thu</span><span>9 AM — 12 AM</span></li>
                     <li><span className="day">Fri</span><span>9 AM — 2 AM</span></li>
                     <li><span className="day">Sat</span><span>9 AM — 2 AM</span></li>
@@ -54,7 +54,7 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="contact-form" data-animate="">
-              <h3 style={{ fontFamily: "'Bowlby One',cursive", fontSize: '1.6rem', marginBottom: '1.5rem' }}>Send Us a Message</h3>
+              <h3 className="form-heading">Send Us a Message</h3>
               <form id="contactForm" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group"><label>First Name</label><input type="text" required /></div>
@@ -69,8 +69,8 @@ export default function ContactPage() {
                 <div className="form-group"><label>Message</label><textarea required placeholder="Tell us what you need..."></textarea></div>
                 <button
                   type="submit"
-                  className="btn btn-primary"
-                  style={{ width: '100%', justifyContent: 'center', ...btnStyle }}
+                  className="btn btn-primary btn-full"
+                  style={btnStyle}
                   disabled={btnDisabled}
                 >
                   {btnText}

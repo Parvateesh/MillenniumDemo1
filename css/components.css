@@ -346,3 +346,44 @@ section.block {
   section.block { padding: 4rem 1.5rem; }
   .marquee-inner { font-size: 0.72rem; letter-spacing: 0.12em; }
 }
+
+/* ── Hero size variants (replacing inline minHeight) ── */
+.hero-sm { min-height: 40vh !important; }
+.hero-xs { min-height: 30vh !important; }
+.hero-md { min-height: 50vh !important; }
+
+/* ── Pricing ── */
+.price-sub { font-size: 1.5rem; }
+.pricing-section { background: linear-gradient(180deg,transparent,rgba(157,78,221,0.05)); }
+
+/* ── Event card featured (replacing inline styles) ── */
+.event-card.featured { border-color: var(--neon-pink); box-shadow: 0 0 30px rgba(255,46,147,0.2); }
+.event-card-bg.featured { color: var(--neon-pink); }
+.event-tag.featured { color: var(--neon-pink); border-color: var(--neon-pink); }
+
+/* ── About page ── */
+.about-text { color: var(--text-dim); font-size: 1.05rem; line-height: 1.7; }
+.about-text + .about-text { margin-top: 1.5rem; }
+.about-differentiators { margin-top: 6rem; }
+.about-differentiators .experiences { margin-top: 2rem; }
+
+/* ── Pro shop ── */
+.pro-shop-desc { color: var(--text-dim); font-size: 1.1rem; max-width: 700px; line-height: 1.6; }
+.pro-shop-actions { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+.pro-shop-services { margin-top: 3rem; }
+
+/* ── Contact / Book ── */
+.form-container { max-width: 700px; }
+.form-heading { font-family: 'Bowlby One', cursive; font-size: 1.6rem; margin-bottom: 1.5rem; }
+.btn-full { width: 100%; justify-content: center; }
+.form-note { text-align: center; margin-top: 1rem; color: var(--text-dim); font-size: 0.85rem; }
+.form-note a { color: var(--neon-cyan); }
+.contact-block { padding-top: 2rem; }
+.hero-contact { padding-bottom: 2rem; }
+
+/* ── Leagues ── */
+.league-cta { margin-top: 4rem; text-align: center; }
+.league-cta p { color: var(--text-dim); margin-bottom: 1.5rem; }
+
+/* ── Corporate section (parties page) ── */
+.corporate-section { margin-top: 5rem; }

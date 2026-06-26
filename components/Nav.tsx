@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const links = [
@@ -39,9 +40,6 @@ export default function Nav() {
       showToast("🪩 Glow Bowl Mode ON — It's Friday Night!");
     } else {
       document.body.classList.remove('glow-mode');
-      if (glowOn === false && document.body.classList.contains('glow-mode') === false) {
-        // Only show "lights back on" if we actually toggled off (not on first render)
-      }
     }
   }, [glowOn]);
 
@@ -67,7 +65,7 @@ export default function Nav() {
     <>
       <nav className="nav">
         <div className="nav-inner">
-          <Link className="logo" href="/">MILLENNIUM<br />BOWL</Link>
+          <Link className="logo" href="/"><Image src="/logo.png" alt="Millennium Bowl" width={160} height={48} priority /></Link>
           <button
             className="mobile-toggle"
             id="mobileToggle"
@@ -82,6 +80,7 @@ export default function Nav() {
                 <Link
                   href={href}
                   className={pathname === href ? 'active' : ''}
+                  aria-current={pathname === href ? 'page' : undefined}
                 >
                   {label}
                 </Link>

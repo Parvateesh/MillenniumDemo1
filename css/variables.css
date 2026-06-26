@@ -12,8 +12,7 @@
   --line: rgba(255, 255, 255, 0.1);
   --transition: all 0.3s ease;
 
-  /* Fixed header heights — update here if nav/banner size changes */
-  --banner-h: 30px;
+  /* Fixed header heights — update here if nav size changes */
   --nav-h: 96px;
-  --header-h: calc(var(--banner-h) + var(--nav-h)); /* 126px */
+  --header-h: var(--nav-h);
 }

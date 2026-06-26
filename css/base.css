@@ -52,30 +52,6 @@ body::after {
 
 main { position: relative; z-index: 3; }
 
-/* Demo banner */
-.demo-banner {
-  background: linear-gradient(90deg, var(--neon-yellow), var(--neon-pink));
-  color: var(--bg-deep);
-  padding: 0.5rem 1rem;
-  text-align: center;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  /* Prevent text wrapping so height stays exactly --banner-h */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: var(--banner-h);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Page loading */
 .page-loading {
   display: flex;

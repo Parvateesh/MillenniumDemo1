@@ -7,7 +7,7 @@ export const metadata = {
 export default function PartiesPage() {
   return (
     <>
-      <section className="hero" style={{ minHeight: '50vh' }}>
+      <section className="hero hero-md">
         <div className="hero-content">
           <span className="hero-tag">Birthday + Corporate Events</span>
           <h1><span className="word">Throw</span> <span className="word">It</span> <span className="word">Here.</span></h1>
@@ -28,9 +28,9 @@ export default function PartiesPage() {
               <ul className="event-includes"><li>2 lanes for 90 minutes</li><li>Shoe rental for everyone</li><li>1 large pizza + drinks</li><li>Reserved party table</li><li>Dedicated party host</li></ul>
               <Link className="btn btn-secondary" href="/book">Reserve →</Link>
             </div>
-            <div className="event-card" data-animate="" style={{ borderColor: 'var(--neon-pink)', boxShadow: '0 0 30px rgba(255,46,147,0.2)' }}>
-              <div className="event-card-bg" style={{ color: 'var(--neon-pink)' }}>S</div>
-              <span className="event-tag" style={{ color: 'var(--neon-pink)', borderColor: 'var(--neon-pink)' }}>Silver — Most Popular</span>
+            <div className="event-card featured" data-animate="">
+              <div className="event-card-bg featured">S</div>
+              <span className="event-tag featured">Silver — Most Popular</span>
               <h3>Spare Package</h3>
               <div className="event-price">$249 / 12 kids</div>
               <ul className="event-includes"><li>3 lanes for 2 hours</li><li>Shoe rental for everyone</li><li>2 large pizzas + unlimited drinks</li><li>Arcade game card ($5/kid)</li><li>Reserved party room</li><li>Goodie bags</li></ul>
@@ -46,7 +46,7 @@ export default function PartiesPage() {
             </div>
           </div>
 
-          <div style={{ marginTop: '5rem' }}>
+          <div className="corporate-section">
             <div className="section-eyebrow">For Your Office</div>
             <h2 className="section-title">Corporate <span className="accent">Events</span></h2>
             <p className="section-lede">Team-building, holiday parties, client outings, fundraisers. Ten people or two hundred — we&apos;ve done it.</p>

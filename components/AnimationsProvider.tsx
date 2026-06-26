@@ -22,9 +22,14 @@ export default function AnimationsProvider() {
     glow.className = 'cursor-glow';
     document.body.appendChild(glow);
 
+    let rafId: number | null = null;
     const onMove = (e: MouseEvent) => {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+        rafId = null;
+      });
     };
     const onOver = (e: MouseEvent) => {
       const target = e.target as Element;

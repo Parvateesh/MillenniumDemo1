@@ -1,9 +1,29 @@
 import type { Metadata } from 'next';
+import { Bowlby_One, Space_Mono, Inter } from 'next/font/google';
 import './globals.css';
-import DemoBanner from '@/components/DemoBanner';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import AnimationsProvider from '@/components/AnimationsProvider';
+
+const bowlby = Bowlby_One({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-bowlby',
+});
+
+const spaceMono = Space_Mono({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-mono',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: 'Millennium Bowl — Eat. Drink. Bowl. | North Little Rock, AR',
@@ -13,18 +33,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`${bowlby.variable} ${spaceMono.variable} ${inter.variable}`}>
       <body>
         <div className="noise" />
-        <DemoBanner />
         <Nav />
         <main>{children}</main>
         <Footer />

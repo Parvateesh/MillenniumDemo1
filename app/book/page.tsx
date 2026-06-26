@@ -41,15 +41,15 @@ export default function BookPage() {
 
   return (
     <>
-      <section className="hero" style={{ minHeight: '30vh', paddingBottom: '2rem' }}>
+      <section className="hero hero-xs hero-contact">
         <div className="hero-content">
           <span className="hero-tag">Reserve Your Lane</span>
           <h1><span className="word">Book</span> <span className="word">It.</span></h1>
           <p className="lede">Pick your date, lane count, and party size. We&apos;ll confirm by text within 30 minutes during business hours.</p>
         </div>
       </section>
-      <section className="block" style={{ paddingTop: '2rem' }}>
-        <div className="container" style={{ maxWidth: '700px' }}>
+      <section className="block contact-block">
+        <div className="container form-container">
           <div className="contact-form" data-animate="">
             <form id="bookForm" onSubmit={handleSubmit}>
               <div className="form-row">
@@ -75,14 +75,14 @@ export default function BookPage() {
               <div className="form-group"><label>Anything Special? (Optional)</label><textarea placeholder="Birthday cake, food order, accessibility needs..."></textarea></div>
               <button
                 type="submit"
-                className="btn btn-primary"
-                style={{ width: '100%', justifyContent: 'center', ...btnStyle }}
+                className="btn btn-primary btn-full"
+                style={btnStyle}
                 disabled={btnDisabled}
                 data-confetti=""
               >
                 {btnText}
               </button>
-              <p style={{ textAlign: 'center', marginTop: '1rem', color: 'var(--text-dim)', fontSize: '0.85rem' }}>Or call us: <a href="tel:5017919150" style={{ color: 'var(--neon-cyan)' }}>(501) 791-9150</a></p>
+              <p className="form-note">Or call us: <a href="tel:5017919150">(501) 791-9150</a></p>
             </form>
           </div>
         </div>
