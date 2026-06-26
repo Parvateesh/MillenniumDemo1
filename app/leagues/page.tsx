@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import StrikeEngine from '@/components/StrikeEngine';
 
 export const metadata = {
   title: 'Leagues — Millennium Bowl',
@@ -31,6 +32,7 @@ export default function LeaguesPage() {
           <div className="league-cta">
             <p>Want to start your own league? Got a question about an existing one?</p>
             <Link className="btn btn-primary" href="/contact">Talk to League Coordinator →</Link>
+            <StrikeEngine />
           </div>
         </div>
       </section>
