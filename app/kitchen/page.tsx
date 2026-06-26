@@ -41,10 +41,9 @@ export default function KitchenPage() {
             {foodItems.map((item) => (
               <div
                 key={item.name}
-                className="menu-item"
+                className={`menu-item ${activeCat === 'all' || activeCat === item.cat ? 'visible' : 'hidden'}`}
                 data-cat={item.cat}
                 data-animate=""
-                style={{ display: activeCat === 'all' || activeCat === item.cat ? '' : 'none' }}
               >
                 <div className="menu-item-head">
                   <div className="menu-item-name">{item.name}</div>

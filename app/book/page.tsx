@@ -3,11 +3,12 @@
 import { useState, useEffect, FormEvent, useRef } from 'react';
 import { confettiBurst } from '@/lib/confetti';
 
+import ConfirmModal from '@/components/ConfirmModal';
+
 export default function BookPage() {
-  const [btnText, setBtnText] = useState('🎳 Reserve My Lane →');
-  const [btnDisabled, setBtnDisabled] = useState(false);
-  const [btnStyle, setBtnStyle] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dateRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (dateRef.current) {
@@ -22,21 +23,14 @@ export default function BookPage() {
     const btn = e.currentTarget.querySelector<HTMLButtonElement>('[type="submit"]');
     if (!btn) return;
     const rect = btn.getBoundingClientRect();
-    setBtnText("✓ Sent! We'll be in touch soon.");
-    setBtnDisabled(true);
-    setBtnStyle({ background: 'linear-gradient(135deg, var(--neon-green), #00cc44)' });
     confettiBurst(rect.left + rect.width / 2, rect.top, 50);
-    setTimeout(() => {
-      setBtnText('🎳 Reserve My Lane →');
-      setBtnDisabled(false);
-      setBtnStyle({});
-      (e.target as HTMLFormElement).reset();
-      if (dateRef.current) {
-        const today = new Date().toISOString().split('T')[0];
-        dateRef.current.min = today;
-        dateRef.current.value = today;
-      }
-    }, 4000);
+    setIsModalOpen(true);
+    formRef.current?.reset();
+    if (dateRef.current) {
+      const today = new Date().toISOString().split('T')[0];
+      dateRef.current.min = today;
+      dateRef.current.value = today;
+    }
   }
 
   return (
@@ -51,7 +45,7 @@ export default function BookPage() {
       <section className="block contact-block">
         <div className="container form-container">
           <div className="contact-form" data-animate="">
-            <form id="bookForm" onSubmit={handleSubmit}>
+            <form id="bookForm" ref={formRef} onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group"><label>Date</label><input type="date" required ref={dateRef} /></div>
                 <div className="form-group"><label>Time</label><input type="time" required /></div>
@@ -76,17 +70,22 @@ export default function BookPage() {
               <button
                 type="submit"
                 className="btn btn-primary btn-full"
-                style={btnStyle}
-                disabled={btnDisabled}
                 data-confetti=""
               >
-                {btnText}
+                🎳 Reserve My Lane →
               </button>
               <p className="form-note">Or call us: <a href="tel:5017919150">(501) 791-9150</a></p>
             </form>
           </div>
         </div>
       </section>
+      
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Reservation Sent!"
+        message="We've received your lane request. Our team will text you to confirm your booking within 30 minutes during business hours."
+      />
     </>
   );
 }

@@ -10,7 +10,7 @@ section.block {
 
 /* ── Section typography ── */
 .section-eyebrow {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-space-mono), monospace;
   font-size: 0.85rem;
   color: var(--neon-pink);
   text-transform: uppercase;
@@ -26,7 +26,7 @@ section.block {
   background: var(--neon-pink);
 }
 .section-title {
-  font-family: 'Bowlby One', cursive;
+  font-family: var(--font-bowlby), cursive;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1;
   margin-bottom: 1.5rem;
@@ -46,7 +46,7 @@ section.block {
 /* ── Buttons ── */
 .btn {
   padding: 1rem 2rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -387,3 +387,121 @@ section.block {
 
 /* ── Corporate section (parties page) ── */
 .corporate-section { margin-top: 5rem; }
+
+/* ── Success Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 1, 24, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease forwards;
+}
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--neon-pink);
+  box-shadow: 0 0 40px rgba(255, 46, 147, 0.3), inset 0 0 20px rgba(255, 46, 147, 0.1);
+  padding: 3rem 2.5rem;
+  border-radius: 28px;
+  width: 90%;
+  max-width: 480px;
+  text-align: center;
+  position: relative;
+  animation: scaleUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: var(--transition);
+}
+.modal-close:hover {
+  color: var(--neon-pink);
+  transform: rotate(90deg);
+}
+.modal-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.checkmark-circle {
+  width: 72px;
+  height: 72px;
+  border: 4px solid var(--neon-green);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+  animation: strokeCircle 0.5s ease forwards;
+}
+.checkmark-stem {
+  width: 4px;
+  height: 28px;
+  background-color: var(--neon-green);
+  position: absolute;
+  left: 36px;
+  top: 14px;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--neon-green);
+  animation: drawStem 0.3s ease forwards 0.4s;
+  opacity: 0;
+}
+.checkmark-kick {
+  width: 14px;
+  height: 4px;
+  background-color: var(--neon-green);
+  position: absolute;
+  left: 20px;
+  top: 34px;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--neon-green);
+  animation: drawKick 0.2s ease forwards 0.2s;
+  opacity: 0;
+}
+.modal-title {
+  font-family: var(--font-bowlby), cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, white, var(--text-dim));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.modal-message {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleUp {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes strokeCircle {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+@keyframes drawKick {
+  from { width: 0; opacity: 0; }
+  to { width: 14px; opacity: 1; }
+}
+@keyframes drawStem {
+  from { height: 0; opacity: 0; }
+  to { height: 28px; opacity: 1; }
+}

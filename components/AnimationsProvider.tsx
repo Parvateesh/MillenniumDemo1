@@ -6,15 +6,17 @@ import { confettiBurst } from '@/lib/confetti';
 
 export default function AnimationsProvider() {
   const pathname = usePathname();
-  const strikeCount = useRef(0);
-  const scoreVisible = useRef(false);
-  const scoreTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const logoClicks = useRef(0);
   const logoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cursorMounted = useRef(false);
 
   // Cursor glow — mount once
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    if (isTouch) return;
+
     if (cursorMounted.current) return;
     cursorMounted.current = true;
 
@@ -48,14 +50,7 @@ export default function AnimationsProvider() {
     };
   }, []);
 
-  // Score counter — mount once
-  useEffect(() => {
-    const scoreEl = document.createElement('div');
-    scoreEl.className = 'score-counter';
-    scoreEl.innerHTML = '<span class="score-num">0</span>STRIKES';
-    document.body.appendChild(scoreEl);
-    return () => scoreEl.remove();
-  }, []);
+
 
   // Per-route effects: scroll animations, count-up, pins, confetti, logo easter egg
   useEffect(() => {
@@ -122,25 +117,16 @@ export default function AnimationsProvider() {
       document.body.appendChild(flash);
       setTimeout(() => flash.remove(), 700);
 
+      const rect = pin.getBoundingClientRect();
       const popup = document.createElement('div');
       popup.className = 'strike-popup';
       popup.textContent = '🎳 STRIKE!';
+      popup.style.left = (rect.left + rect.width / 2) + 'px';
+      popup.style.top = (rect.top + window.scrollY - 20) + 'px';
       document.body.appendChild(popup);
       setTimeout(() => popup.remove(), 1300);
 
-      strikeCount.current++;
-      const scoreEl = document.querySelector('.score-counter');
-      const scoreNum = scoreEl?.querySelector('.score-num');
-      if (scoreNum) scoreNum.textContent = String(strikeCount.current);
-      if (scoreEl && !scoreVisible.current) {
-        scoreVisible.current = true;
-        scoreEl.classList.add('visible');
-      }
-      if (scoreTimer.current) clearTimeout(scoreTimer.current);
-      scoreTimer.current = setTimeout(() => {
-        scoreEl?.classList.remove('visible');
-        scoreVisible.current = false;
-      }, 3000);
+
 
       confettiBurst(e.clientX, e.clientY, 24);
 

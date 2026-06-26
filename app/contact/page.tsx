@@ -1,28 +1,21 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useRef } from 'react';
 import { confettiBurst } from '@/lib/confetti';
+import ConfirmModal from '@/components/ConfirmModal';
 
 export default function ContactPage() {
-  const [btnText, setBtnText] = useState('Send Message →');
-  const [btnDisabled, setBtnDisabled] = useState(false);
-  const [btnStyle, setBtnStyle] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const btn = e.currentTarget.querySelector<HTMLButtonElement>('[type="submit"]');
     if (!btn) return;
     const rect = btn.getBoundingClientRect();
-    setBtnText("✓ Sent! We'll be in touch soon.");
-    setBtnDisabled(true);
-    setBtnStyle({ background: 'linear-gradient(135deg, var(--neon-green), #00cc44)' });
     confettiBurst(rect.left + rect.width / 2, rect.top, 50);
-    setTimeout(() => {
-      setBtnText('Send Message →');
-      setBtnDisabled(false);
-      setBtnStyle({});
-      (e.target as HTMLFormElement).reset();
-    }, 4000);
+    setIsModalOpen(true);
+    formRef.current?.reset();
   }
 
   return (
@@ -55,7 +48,7 @@ export default function ContactPage() {
             </div>
             <div className="contact-form" data-animate="">
               <h3 className="form-heading">Send Us a Message</h3>
-              <form id="contactForm" onSubmit={handleSubmit}>
+              <form id="contactForm" ref={formRef} onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group"><label>First Name</label><input type="text" required /></div>
                   <div className="form-group"><label>Last Name</label><input type="text" required /></div>
@@ -70,16 +63,21 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   className="btn btn-primary btn-full"
-                  style={btnStyle}
-                  disabled={btnDisabled}
                 >
-                  {btnText}
+                  Send Message →
                 </button>
               </form>
             </div>
           </div>
         </div>
       </section>
+      
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Message Sent!"
+        message="Thank you for reaching out to Millennium Bowl. Our event team will review your message and get back to you shortly."
+      />
     </>
   );
 }

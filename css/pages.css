@@ -29,7 +29,21 @@
   background: var(--bg-card);
   border-radius: 16px;
   border: 1px solid var(--line);
-  transition: var(--transition);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.menu-item.hidden {
+  display: none;
+  opacity: 0;
+  transform: scale(0.92) translateY(8px);
+}
+.menu-item.visible {
+  display: flex;
+  flex-direction: column;
+  animation: menuItemFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes menuItemFadeIn {
+  from { opacity: 0; transform: scale(0.92) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 .menu-item:hover { border-color: var(--neon-yellow); transform: translateY(-3px); }
 .menu-item-head {
@@ -126,22 +140,37 @@
 }
 .brand-tile {
   padding: 1.5rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: 12px;
   text-align: center;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-space-mono), monospace;
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-dim);
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .brand-tile:hover {
-  background: rgba(255, 46, 147, 0.1);
-  border-color: var(--neon-pink);
   color: white;
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+}
+.brand-tile:nth-child(4n+1):hover {
+  border-color: var(--neon-pink);
+  box-shadow: 0 10px 25px -10px rgba(255, 46, 147, 0.5), inset 0 0 10px rgba(255, 46, 147, 0.1);
+}
+.brand-tile:nth-child(4n+2):hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 10px 25px -10px rgba(0, 240, 255, 0.5), inset 0 0 10px rgba(0, 240, 255, 0.1);
+}
+.brand-tile:nth-child(4n+3):hover {
+  border-color: var(--neon-yellow);
+  box-shadow: 0 10px 25px -10px rgba(255, 230, 0, 0.5), inset 0 0 10px rgba(255, 230, 0, 0.1);
+}
+.brand-tile:nth-child(4n):hover {
+  border-color: var(--neon-purple);
+  box-shadow: 0 10px 25px -10px rgba(157, 78, 221, 0.5), inset 0 0 10px rgba(157, 78, 221, 0.1);
 }
 
 /* ── About page ── */

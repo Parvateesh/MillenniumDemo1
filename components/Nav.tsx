@@ -87,14 +87,44 @@ export default function Nav() {
               </li>
             ))}
             <li>
-              <button
-                className="glow-toggle"
-                id="glowToggle"
-                title={glowOn ? 'Exit Glow Bowl Mode' : 'Glow Bowl Mode'}
-                onClick={toggleGlow}
-              >
-                🪩
-              </button>
+              <div className="glow-switch-container">
+                <button
+                  className={`glow-switch${glowOn ? ' active' : ''}`}
+                  id="glowToggle"
+                  title={glowOn ? 'Exit Glow Bowl Mode' : 'Glow Bowl Mode'}
+                  onClick={toggleGlow}
+                  role="switch"
+                  aria-checked={glowOn}
+                >
+                  <span className="glow-switch-text left">ON</span>
+                  <span className="glow-switch-text right">GLOW</span>
+                  <span className="glow-switch-handle">
+                    <svg className="ball-svg" viewBox="0 0 100 100">
+                      <defs>
+                        <radialGradient id="sphereOff" cx="35%" cy="30%" r="70%">
+                          <stop offset="0%" stopColor="#ffbdf5" />
+                          <stop offset="35%" stopColor="#e11d48" />
+                          <stop offset="70%" stopColor="#4c0519" />
+                          <stop offset="100%" stopColor="#120005" />
+                        </radialGradient>
+                        <radialGradient id="sphereOn" cx="35%" cy="30%" r="70%">
+                          <stop offset="0%" stopColor="#b6f9ff" />
+                          <stop offset="35%" stopColor="#0891b2" />
+                          <stop offset="70%" stopColor="#164e63" />
+                          <stop offset="100%" stopColor="#021c24" />
+                        </radialGradient>
+                      </defs>
+                      <circle cx="50" cy="50" r="46" fill={glowOn ? 'url(#sphereOn)' : 'url(#sphereOff)'} />
+                      <ellipse cx="34" cy="28" rx="12" ry="6" fill="rgba(255, 255, 255, 0.4)" transform="rotate(-20 34 28)" />
+                      <g className="finger-holes">
+                        <circle cx="44" cy="42" r="5" fill="#130721" />
+                        <circle cx="56" cy="42" r="5" fill="#130721" />
+                        <circle cx="50" cy="58" r="6" fill="#130721" />
+                      </g>
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </li>
             <li>
               <Link className="nav-cta" href="/book">🎳 Book Now</Link>

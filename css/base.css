@@ -2,7 +2,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   background: var(--bg-deep);
   color: var(--text);
   overflow-x: hidden;
@@ -188,15 +188,15 @@ body.glow-mode footer {
 }
 
 /* Glow toggle active state */
-body.glow-mode .glow-toggle {
-  background: #ff00ff;
-  border-color: #ff00ff;
-  box-shadow: 0 0 20px #ff00ff, 0 0 40px rgba(255, 0, 255, 0.5);
+body.glow-mode .glow-switch.active {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2);
   animation: glowPulse 1.5s ease infinite;
 }
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 20px #ff00ff, 0 0 40px rgba(255, 0, 255, 0.5); }
-  50%       { box-shadow: 0 0 30px #ff00ff, 0 0 60px rgba(255, 0, 255, 0.8); }
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2); }
+  50%       { box-shadow: 0 0 30px rgba(0, 240, 255, 0.8), 0 0 60px rgba(0, 240, 255, 0.4); }
 }
 
 /* Toast notification */
