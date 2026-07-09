@@ -43,7 +43,7 @@ export default function ProShopPage() {
                 </p>
               </div>
               <a
-                href="/api/proshop/redirect"
+                href="https://www.bowl101.net"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
