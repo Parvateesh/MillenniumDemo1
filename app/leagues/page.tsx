@@ -18,7 +18,7 @@ export default function LeaguesPage() {
       <section className="block">
         <div className="container">
           <div className="section-eyebrow">Current Leagues</div>
-          <h2 className="section-title">2025/2026 Winter <span className="accent">Season</span></h2>
+          <h2 className="section-title">2026/2027 Winter <span className="accent">Season</span></h2>
           <p className="section-lede">Sign up at the front desk or call <a href="tel:5017919150">(501) 791-9150</a>. League members get pro shop discounts and priority lane access during prime time.</p>
           <div className="league-table" data-animate="">
             <div className="league-row header">
