@@ -19,7 +19,7 @@ export default function HomePage() {
           </h1>
           <p className="lede">32 lanes. A full bar. Arcade games. F1 simulator. The only Ebonite Gold pro shop in central Arkansas. North Little Rock&apos;s home for Friday nights, kids&apos; birthdays, and corporate parties since 2003.</p>
           <div className="hero-ctas">
-            <Link className="btn btn-primary" href="/book" data-confetti="">Reserve a Lane <span className="btn-arrow">→</span></Link>
+            <span className="btn btn-primary" style={{ opacity: 0.6, cursor: 'not-allowed' }}>Coming Soon</span>
             <Link className="btn btn-secondary" href="/parties">Plan a Party <span className="btn-arrow">→</span></Link>
           </div>
           <div className="hero-stats">
