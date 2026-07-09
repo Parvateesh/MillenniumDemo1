@@ -14,15 +14,23 @@ type League = {
 };
 
 const LEAGUES: League[] = [
-  { id: 'monday-mixed', name: 'Monday Mixed', day: 'Mon · 7:00 PM', skill: 'All levels', status: 'open' },
-  { id: 'tuesday-senior', name: 'Tuesday Senior Strikes', day: 'Tue · 10:00 AM', skill: '55+', status: 'open' },
-  { id: 'wednesday-classic', name: 'Wednesday Classic', day: 'Wed · 7:00 PM', skill: 'Sanctioned', status: 'soon' },
-  { id: 'thursday-ladies', name: 'Thursday Ladies', day: 'Thu · 6:30 PM', skill: 'All levels', status: 'waitlist' },
-  { id: 'saturday-youth', name: 'Saturday Youth (8–17)', day: 'Sat · 10:00 AM', skill: 'Youth', status: 'open' },
-  { id: 'sunday-scotch', name: 'Sunday Scotch Doubles', day: 'Sun · 6:00 PM', skill: 'Couples / Pairs', status: 'open' },
+  { id: 'millennium-1st', name: 'Millennium 1st', day: 'Mon · 6:30 PM', skill: '4 person', status: 'open' },
+  { id: 'ball-buster', name: 'Ball Buster', day: 'Mon · 7:00 PM', skill: 'Any mix', status: 'open' },
+  { id: 'corps-of-eng', name: 'Corps of Engineering', day: 'Mon · 6:00 PM', skill: 'Any mix', status: 'open' },
+  { id: 'tuesday-4-league', name: 'Tuesday 4 League', day: 'Tue · 9:30 AM', skill: 'Ladies', status: 'open' },
+  { id: 'tuesday-mixed-4-some', name: 'Tuesday Mixed 4 Some', day: 'Tue · 6:30 PM', skill: 'Any mix', status: 'open' },
+  { id: 'tuesday-nite-mixed', name: 'Tuesday Nite Mixed', day: 'Tue · 6:30 PM', skill: 'Any mix', status: 'open' },
+  { id: 'lakeview-ladies', name: 'Lakeview Ladies', day: 'Wed · 9:30 AM', skill: 'Ladies', status: 'open' },
+  { id: 'wednesday-mixed-classic', name: 'Wednesday Mixed Classic', day: 'Wed · 6:30 PM', skill: 'Any mix', status: 'open' },
+  { id: 'millennium-mixed', name: 'Millennium Mixed', day: 'Wed · 6:30 PM', skill: 'Any mix', status: 'open' },
+  { id: 'sr-league', name: 'Sr League', day: 'Thu · 11:00 AM', skill: 'Any mix', status: 'open' },
+  { id: 'falcon-jet', name: 'Falcon Jet', day: 'Thu · 6:00 PM', skill: 'Any mix', status: 'open' },
+  { id: 'roosevelt-mixed', name: 'Roosevelt Mixed', day: 'Thu · 6:30 PM', skill: 'Any mix', status: 'open' },
+  { id: 'saturday-youth', name: 'Saturday Youth', day: 'Sat · 10:00 AM', skill: 'Youth', status: 'soon' },
+  { id: 'sunday-night-mixed', name: 'Sunday Night Mixed', day: 'Sun · 6:30 PM', skill: '3 person (1 any sex)', status: 'open' },
 ];
 
-const STATUS_LABEL: Record<string, string> = { open: 'Open', waitlist: 'Waitlist', soon: 'Starts 5/14' };
+const STATUS_LABEL: Record<string, string> = { open: 'Open', waitlist: 'Waitlist', soon: 'Starts Sep 12' };
 const STATUS_CLASS: Record<string, string> = {
   open: 'league-status status-open',
   waitlist: 'league-status status-full',
