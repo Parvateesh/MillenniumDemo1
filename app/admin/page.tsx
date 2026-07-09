@@ -7,6 +7,7 @@ const sections = [
   { href: '/admin/inventory/kitchen', icon: '🍕', label: 'Kitchen', desc: 'Food stock, ingredients, menu items' },
   { href: '/admin/inventory/bar', icon: '🍺', label: 'Bar', desc: 'Drinks, kegs, bottles, spirits' },
   { href: '/admin/lanes', icon: '🎿', label: 'Lanes', desc: 'All 32 lanes — status and availability' },
+  { href: '/admin/analytics', icon: '📊', label: 'Analytics', desc: 'Bowl 101 click-throughs from your website' },
 ];
 
 export default function AdminDashboard() {
