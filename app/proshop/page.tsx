@@ -22,32 +22,16 @@ export default function ProShopPage() {
             <p className="pro-shop-desc">5.0 stars on Google. Certified specialists for Columbia, Hammer, Track, Ebonite, and Turbo. Whether you&apos;re picking up your first ball or adjusting your arsenal for league night, this is where you go.</p>
 
             {/* Online store CTA */}
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(184,129,30,0.12), rgba(184,129,30,0.05))',
-              border: '1px solid rgba(184,129,30,0.35)',
-              borderRadius: '16px',
-              padding: '1.5rem 2rem',
-              margin: '2rem 0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '1.5rem',
-              flexWrap: 'wrap',
-            }}>
-              <div>
-                <div style={{ fontFamily: 'var(--font-bowlby, "Bowlby One", cursive)', fontSize: '1.15rem', marginBottom: '0.3rem' }}>
-                  Shop Online at Bowl101.net
-                </div>
-                <p style={{ color: 'var(--text-dim)', fontSize: '0.88rem', margin: 0 }}>
-                  Balls, bags, shoes, accessories — order online and pick up in-store at Millennium Bowl.
-                </p>
+            <div className="proshop-online-card">
+              <div className="proshop-online-card-text">
+                <h3>Shop Online at Bowl101.net</h3>
+                <p>Balls, bags, shoes, accessories — order online and pick up in-store at Millennium Bowl.</p>
               </div>
               <a
                 href="https://www.bowl101.net"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
-                style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
               >
                 🛒 Visit Bowl101.net →
               </a>

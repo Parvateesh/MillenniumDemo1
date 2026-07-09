@@ -347,6 +347,16 @@ section.block {
   .marquee-inner { font-size: 0.72rem; letter-spacing: 0.12em; }
 }
 
+/* Failsafe for small phones — force single column so grids never overflow */
+@media (max-width: 480px) {
+  section.block { padding: 3rem 1.2rem; }
+  .experiences,
+  .pricing-grid,
+  .reviews-grid,
+  .event-types { grid-template-columns: 1fr; }
+  .price-card.featured { transform: none; }
+}
+
 /* ── Hero size variants (replacing inline minHeight) ── */
 .hero-sm { min-height: 40vh !important; }
 .hero-xs { min-height: 30vh !important; }
@@ -369,6 +379,24 @@ section.block {
 
 /* ── Pro shop ── */
 .pro-shop-desc { color: var(--text-dim); font-size: 1.1rem; max-width: 700px; line-height: 1.6; }
+.proshop-online-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(184,129,30,0.12), rgba(184,129,30,0.05));
+  border: 1px solid rgba(184,129,30,0.35);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+.proshop-online-card-text h3 {
+  font-family: 'Bowlby One', cursive;
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+.proshop-online-card-text p { color: var(--text-dim); font-size: 0.88rem; margin: 0; }
 .pro-shop-actions { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
 .pro-shop-services { margin-top: 3rem; }
 

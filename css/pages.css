@@ -458,4 +458,6 @@
     padding: 0.7rem;
   }
   .pro-shop-hero { padding: 2rem; }
+  .proshop-online-card { flex-direction: column; align-items: stretch; }
+  .proshop-online-card .btn { width: 100%; justify-content: center; text-align: center; }
 }
