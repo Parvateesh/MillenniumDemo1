@@ -4,6 +4,7 @@ import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import AnimationsProvider from '@/components/AnimationsProvider';
+import { AuthProvider } from '@/lib/auth-context';
 
 const bowlby = Bowlby_One({
   weight: '400',
@@ -35,11 +36,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${bowlby.variable} ${spaceMono.variable} ${inter.variable}`}>
       <body>
-        <div className="noise" />
-        <Nav />
-        <main>{children}</main>
-        <Footer />
-        <AnimationsProvider />
+        <AuthProvider>
+          <div className="noise" />
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+          <AnimationsProvider />
+        </AuthProvider>
       </body>
     </html>
   );

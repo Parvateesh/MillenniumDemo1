@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/lib/auth-context';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -20,6 +21,7 @@ export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [glowOn, setGlowOn] = useState(false);
+  const { user } = useAuth();
 
   function openNav() {
     setMenuOpen(true);
@@ -125,6 +127,19 @@ export default function Nav() {
                   </span>
                 </button>
               </div>
+            </li>
+            <li>
+              {user ? (
+                <Link
+                  href="/account"
+                  className="nav-account"
+                  title={user.email ?? 'My Account'}
+                >
+                  {user.displayName ? user.displayName.split(' ')[0] : '👤 Account'}
+                </Link>
+              ) : (
+                <Link href="/login" className="nav-signin">Sign In</Link>
+              )}
             </li>
             <li>
               <Link className="nav-cta" href="/book">🎳 Book Now</Link>

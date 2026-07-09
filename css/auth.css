@@ -1,0 +1,151 @@
+/* ── Public auth pages (login / signup) ── */
+.auth-wrap {
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-mid);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 2.5rem;
+}
+
+.auth-logo {
+  font-family: 'Bowlby One', cursive;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: var(--neon-pink);
+  filter: drop-shadow(0 0 12px rgba(255, 46, 147, 0.5));
+  margin-bottom: 0.4rem;
+}
+
+.auth-sub {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.auth-form .form-group { margin-bottom: 1.2rem; }
+
+.auth-switch {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+}
+.auth-switch a { color: var(--neon-cyan); text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
+
+/* ── Account dashboard ── */
+.account-hero-name {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  margin-top: 0.5rem;
+  font-family: 'Space Mono', monospace;
+}
+
+.account-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.account-card {
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: var(--transition);
+  display: block;
+  color: var(--text);
+}
+.account-card:hover {
+  border-color: var(--neon-cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -12px rgba(0, 240, 255, 0.25);
+}
+.account-card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.account-card-title { font-family: 'Bowlby One', cursive; font-size: 1.2rem; margin-bottom: 0.4rem; }
+.account-card-desc { font-size: 0.85rem; color: var(--text-dim); }
+
+/* ── Reservations list ── */
+.reservations-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-dim);
+}
+.reservations-empty p { margin-bottom: 1.5rem; }
+
+.reservation-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.reservation-card.upcoming { border-left: 3px solid var(--neon-cyan); }
+.reservation-card.past { opacity: 0.7; }
+
+.reservation-date {
+  min-width: 80px;
+  text-align: center;
+  background: var(--bg-mid);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+.reservation-date-month { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); font-family: 'Space Mono', monospace; }
+.reservation-date-day { font-family: 'Bowlby One', cursive; font-size: 2rem; line-height: 1; }
+
+.reservation-details { flex: 1; min-width: 180px; }
+.reservation-type { font-family: 'Bowlby One', cursive; font-size: 1rem; margin-bottom: 0.3rem; }
+.reservation-meta { font-size: 0.82rem; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.badge-pending { background: rgba(255, 230, 0, 0.15); color: var(--neon-yellow); }
+.badge-confirmed { background: rgba(57, 255, 20, 0.15); color: var(--neon-green); }
+.badge-cancelled { background: rgba(255, 46, 147, 0.15); color: var(--neon-pink); }
+
+/* ── League registration ── */
+.league-reg-table { margin-bottom: 2rem; }
+.league-reg-row {
+  display: grid;
+  grid-template-columns: 1fr 160px 120px 100px 120px;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+  font-size: 0.9rem;
+}
+.league-reg-row.header {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  padding-bottom: 0.75rem;
+}
+.league-reg-name { font-weight: 600; }
+.badge-registered { background: rgba(57, 255, 20, 0.15); color: var(--neon-green); }
+
+@media (max-width: 700px) {
+  .league-reg-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .league-reg-row.header { display: none; }
+  .league-reg-row > *:nth-child(3) { display: none; }
+}
