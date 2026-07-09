@@ -21,7 +21,7 @@ export default function AboutPage() {
               <p className="about-text">Millennium Bowl opened off the Maumelle exit in 2003 with a simple idea: a real bowling center should be more than just lanes. It should be where your kid had their seventh birthday party, where your team built itself on Tuesday nights, and where your Friday started.</p>
               <p className="about-text">22 years later, we&apos;re still here. 32 lanes. A full bar. The only Ebonite Gold pro shop in central Arkansas. An F1 simulator nobody else has. And more than 1,000 Google reviews from the families, teams, and weekend warriors who keep coming back.</p>
               <div className="about-stats">
-                <div><div className="about-stat-num" data-count="2003">0</div><div className="about-stat-label">Year founded</div></div>
+                <div><div className="about-stat-num">2003</div><div className="about-stat-label">Year founded</div></div>
                 <div><div className="about-stat-num" data-count="32">0</div><div className="about-stat-label">Lanes</div></div>
                 <div><div className="about-stat-num" data-count="1076">0</div><div className="about-stat-label">Google reviews</div></div>
                 <div><div className="about-stat-num">2 AM</div><div className="about-stat-label">Fri &amp; Sat Late</div></div>

@@ -9,6 +9,8 @@ const navItems = [
   { href: '/admin/inventory/kitchen', label: '🍕 Kitchen' },
   { href: '/admin/inventory/bar', label: '🍺 Bar' },
   { href: '/admin/lanes', label: '🎿 Lanes' },
+  { href: '/admin/messages', label: '✉️ Messages' },
+  { href: '/admin/analytics', label: '📊 Analytics' },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
