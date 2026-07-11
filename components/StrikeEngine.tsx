@@ -24,18 +24,24 @@ export default function StrikeEngine() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef    = useRef<HTMLCanvasElement | null>(null);
   const triggerRef   = useRef<((aimed?: boolean) => void) | null>(null);
+  const onIdleRef    = useRef<(() => void) | null>(null);
   const streakRef    = useRef(0);
   const aimXRef      = useRef(0);
   const powerRef     = useRef(0);
   const isChargingRef = useRef(false);
   const chargeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const [hintVisible, setHintVisible]   = useState(true);
+  const [isIdle, setIsIdle]             = useState(true);
   const [streak, setStreak]             = useState(0);
   const [lastResult, setLastResult]     = useState<string | null>(null);
   const [stats, setStats]               = useState({ strikes: 0, gutters: 0, balls: 0, best: 0 });
   const [power, setPower]               = useState(0);
   const [isCharging, setIsCharging]     = useState(false);
+
+  // Wire idle callback so hint reappears between balls
+  useEffect(() => {
+    onIdleRef.current = () => setIsIdle(true);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -286,6 +292,7 @@ export default function StrikeEngine() {
       engineState = next; stateTime = 0;
       if (next === 'IDLE') {
         pins.forEach(p => p.reset()); ball.reset(); ball.active = true;
+        onIdleRef.current?.();
       } else if (next === 'ROLL') {
         ball.reset(isAutoRoll ? 0 : aimXRef.current, powerRef.current);
       } else if (next === 'STRIKE') {
@@ -606,7 +613,7 @@ export default function StrikeEngine() {
       e.stopPropagation();
       if (isChargingRef.current) {
         isChargingRef.current = false; setIsCharging(false);
-        setHintVisible(false);
+        setIsIdle(false);
         rollBall(false);
         powerRef.current = 0; setPower(0);
       }
@@ -633,7 +640,7 @@ export default function StrikeEngine() {
       e.preventDefault();
       if (isChargingRef.current) {
         isChargingRef.current = false; setIsCharging(false);
-        setHintVisible(false);
+        setIsIdle(false);
         rollBall(false);
         powerRef.current = 0; setPower(0);
       }
@@ -676,7 +683,7 @@ export default function StrikeEngine() {
   }, []);
 
   const handleLaunch = useCallback(() => {
-    setHintVisible(false);
+    setIsIdle(false);
     triggerRef.current?.(true);
   }, []);
 
@@ -687,7 +694,7 @@ export default function StrikeEngine() {
       <div ref={containerRef} className="strike-engine-container">
         <canvas ref={canvasRef} className="strike-engine-canvas" />
 
-        {hintVisible && !isCharging && (
+        {isIdle && !isCharging && (
           <div className="strike-engine-hint">
             <span className="hint-pulse">●</span>
             <span>Hover to aim · Hold to charge · Release to roll</span>
