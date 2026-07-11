@@ -10,6 +10,7 @@ const sections = [
   { href: '/admin/messages', icon: '✉️', label: 'Messages', desc: 'Contact form submissions from customers' },
   { href: '/admin/analytics', icon: '📊', label: 'Analytics', desc: 'Bowl 101 click-throughs from your website' },
   { href: '/admin/waitlist', icon: '🎳', label: 'Lane Waitlist', desc: 'Customers waiting for online lane booking' },
+  { href: '/admin/leagues', icon: '🏆', label: 'League Sign-Ups', desc: 'Players who filled out the league interest form' },
 ];
 
 export default function AdminDashboard() {

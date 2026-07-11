@@ -12,6 +12,7 @@ const navItems = [
   { href: '/admin/messages', label: '✉️ Messages' },
   { href: '/admin/analytics', label: '📊 Analytics' },
   { href: '/admin/waitlist', label: '🎳 Lane Waitlist' },
+  { href: '/admin/leagues', label: '🏆 League Sign-Ups' },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
