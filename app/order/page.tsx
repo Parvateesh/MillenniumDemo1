@@ -1,73 +1,77 @@
-'use client';
+import Link from 'next/link';
+import { foodItems } from '@/lib/menu-data';
+import OrderButton from '@/components/OrderButton';
 
-import { useEffect, useRef, useState } from 'react';
+export const metadata = { title: 'Order Food Online — Millennium Bowl' };
 
-const SQUARE_URL = 'https://millenniumbowl.square.site';
+const categories = [
+  { key: 'pizza', label: '🍕 Pizza', emoji: '🍕' },
+  { key: 'apps',  label: '🍗 Starters', emoji: '🍗' },
+  { key: 'mains', label: '🍔 Mains', emoji: '🍔' },
+];
 
 export default function OrderPage() {
-  const [blocked, setBlocked] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  useEffect(() => {
-    fetch('/api/order/track', { method: 'POST' }).catch(() => {});
-  }, []);
-
-  function handleLoad() {
-    setTimeout(() => {
-      try {
-        // Cross-origin content throws SecurityError → iframe loaded real content
-        void iframeRef.current?.contentWindow?.location.href;
-        // No throw → browser showing its own error/blank page → Square blocked framing
-        setBlocked(true);
-      } catch {
-        // SecurityError = real cross-origin content loaded successfully
-      }
-    }, 100);
-  }
-
   return (
     <>
-      {blocked ? (
-        <div className="order-fallback">
-          <div className="order-fallback-icon">🍕</div>
-          <h2 className="order-fallback-title">Order Food Online</h2>
-          <p className="order-fallback-sub">
-            Pizza, wings, burgers, nachos and more — fresh from our kitchen.
-            Order online and pick up at the counter.
+      <section className="hero hero-sm">
+        <div className="hero-content">
+          <span className="hero-tag">Order Online · Pickup at Counter</span>
+          <h1>
+            <span className="word">Fresh</span>{' '}
+            <span className="word">Kitchen.</span>{' '}
+            <span className="word">Order</span>{' '}
+            <span className="word">Now.</span>
+          </h1>
+          <p className="lede">
+            Browse the menu below, then tap <strong style={{ color: 'var(--neon-pink)' }}>Place Order</strong> to check out
+            securely on our Square store.
           </p>
-          <a
-            href={SQUARE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Open Menu &amp; Order Now →
-          </a>
-          <p className="order-fallback-note">🔒 Payments secured by Square</p>
-        </div>
-      ) : (
-        <div className="order-frame-wrap">
-          <div className="order-frame-bar">
-            <span className="order-frame-note">🔒 Payments secured by Square</span>
-            <a
-              href={SQUARE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="order-frame-link"
-            >
-              Open in new tab ↗
-            </a>
+          <div className="hero-ctas">
+            <OrderButton className="btn btn-primary" />
+            <Link href="/kitchen" className="btn btn-secondary">See Full Kitchen Menu</Link>
           </div>
-          <iframe
-            ref={iframeRef}
-            src={SQUARE_URL}
-            title="Order Food Online — Millennium Bowl"
-            className="order-frame"
-            allow="payment"
-            onLoad={handleLoad}
-          />
         </div>
-      )}
+      </section>
+
+      <section className="block">
+        <div className="container">
+          {categories.map(({ key, label }) => {
+            const items = foodItems.filter(i => i.cat === key);
+            return (
+              <div key={key} className="order-cat-section">
+                <h2 className="order-cat-title">{label}</h2>
+                <div className="order-item-grid">
+                  {items.map(item => (
+                    <div key={item.name} className="order-item-card" data-animate="">
+                      <div className="order-item-top">
+                        <div className="order-item-name">{item.name}</div>
+                        <div className="order-item-price">{item.price}</div>
+                      </div>
+                      <p className="order-item-desc">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+
+          <div className="order-checkout-bar" data-animate="">
+            <div className="order-checkout-text">
+              <div className="order-checkout-title">Ready to order?</div>
+              <div className="order-checkout-sub">
+                Click below to open our Square store — add items, choose pickup time, and pay securely.
+              </div>
+            </div>
+            <OrderButton />
+          </div>
+
+          <p className="order-powered-note">
+            🔒 Payments processed securely by{' '}
+            <a href="https://squareup.com" target="_blank" rel="noopener noreferrer">Square</a>
+            {' '}· Orders ready for pickup at the counter
+          </p>
+        </div>
+      </section>
     </>
   );
 }

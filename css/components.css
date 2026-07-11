@@ -545,66 +545,91 @@ section.block {
 }
 
 /* ── Order page ── */
-.order-frame-wrap {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - var(--header-h));
+.order-cat-section { margin-bottom: 3.5rem; }
+
+.order-cat-title {
+  font-family: 'Bowlby One', cursive;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
 }
-.order-frame-bar {
+
+.order-item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.order-item-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.order-item-card:hover {
+  border-color: rgba(255, 46, 147, 0.4);
+  transform: translateY(-2px);
+}
+
+.order-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+.order-item-name {
+  font-family: 'Bowlby One', cursive;
+  font-size: 1rem;
+  color: var(--text);
+}
+.order-item-price {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--neon-cyan);
+  white-space: nowrap;
+}
+.order-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Bottom checkout bar */
+.order-checkout-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.6rem 2rem;
-  background: var(--bg-mid);
-  border-bottom: 1px solid var(--line);
-  flex-shrink: 0;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(255, 46, 147, 0.12), rgba(157, 78, 221, 0.08));
+  border: 1px solid rgba(255, 46, 147, 0.35);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  margin-top: 1rem;
 }
-.order-frame-note {
-  font-size: 0.82rem;
+.order-checkout-title {
+  font-family: 'Bowlby One', cursive;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+.order-checkout-sub {
+  font-size: 0.88rem;
   color: var(--text-dim);
-}
-.order-frame-link {
-  font-size: 0.82rem;
-  color: var(--neon-cyan);
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-.order-frame-link:hover { opacity: 0.75; }
-.order-frame {
-  flex: 1;
-  width: 100%;
-  border: none;
-  background: #fff;
+  max-width: 460px;
+  line-height: 1.5;
 }
 
-/* Fallback when Square blocks iframe */
-.order-fallback {
-  min-height: calc(100vh - var(--header-h));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.order-powered-note {
   text-align: center;
-  padding: 4rem 2rem;
-  gap: 1.2rem;
-}
-.order-fallback-icon { font-size: 4rem; }
-.order-fallback-title {
-  font-family: 'Bowlby One', cursive;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  color: var(--text);
-}
-.order-fallback-sub {
-  color: var(--text-dim);
-  font-size: 1.05rem;
-  max-width: 480px;
-  line-height: 1.6;
-}
-.order-fallback-note {
   font-size: 0.82rem;
   color: var(--text-dim);
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
 }
+.order-powered-note a { color: var(--neon-cyan); text-decoration: none; }
 
 /* Kitchen / Menu order CTA banner */
 .order-cta-banner {
@@ -633,7 +658,8 @@ section.block {
 .order-cta-sub { font-size: 0.88rem; color: var(--text-dim); }
 
 @media (max-width: 600px) {
-  .order-frame-bar { padding: 0.5rem 1rem; }
+  .order-checkout-bar { flex-direction: column; align-items: flex-start; }
+  .order-checkout-bar .btn { width: 100%; justify-content: center; }
   .order-cta-banner { flex-direction: column; align-items: flex-start; }
   .order-cta-banner .btn { width: 100%; justify-content: center; }
 }
