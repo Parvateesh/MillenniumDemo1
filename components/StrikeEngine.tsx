@@ -44,6 +44,7 @@ export default function StrikeEngine() {
     let stateTime = 0;
     let shakeAmount = 0;
     let autoLoop = true;
+    let isVisible = !document.hidden;
 
     // Projective flat horizontal parameters (Exactly level with screen center)
     let Y_horizon = height * 0.50;
@@ -435,8 +436,12 @@ export default function StrikeEngine() {
     triggerStrikeRef.current = triggerStrike;
 
     // Animation Loop
-    let animId: number;
+    let animId = 0;
     function loop(timestamp: number) {
+      if (!isVisible) {
+        animId = 0;
+        return;
+      }
       const dt = Math.min((timestamp - lastFrameTime) / 1000, 0.1);
       lastFrameTime = timestamp;
 
@@ -638,11 +643,34 @@ export default function StrikeEngine() {
     };
     canvas.addEventListener('click', onClick);
 
+    function resumeLoop() {
+      if (isVisible && animId === 0) {
+        lastFrameTime = performance.now();
+        animId = requestAnimationFrame(loop);
+      }
+    }
+
+    const onVisibilityChange = () => {
+      isVisible = !document.hidden;
+      resumeLoop();
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        isVisible = entry.isIntersecting && !document.hidden;
+        resumeLoop();
+      }
+    }, { threshold: 0 });
+    io.observe(container);
+
     animId = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(animId);
       resizeObserver.disconnect();
+      io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       canvas.removeEventListener('click', onClick);
     };
   }, []);

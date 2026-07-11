@@ -1,6 +1,6 @@
 .nav {
   position: fixed;
-  top: 30px; left: 0; right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 1.25rem 2rem;
   background: rgba(10, 1, 24, 0.85);
@@ -25,6 +25,7 @@
   text-decoration: none;
   cursor: pointer;
   user-select: none;
+  flex-shrink: 0;
 }
 .logo img {
   height: 48px;
@@ -217,10 +218,9 @@
 }
 .nav-overlay.show { display: block; }
 
-@media (max-width: 900px) {
+@media (max-width: 1280px) {
   .nav {
     padding: 0.9rem 1.2rem;
-    top: 0;
     z-index: 160; /* must be above overlay (149) */
   }
 

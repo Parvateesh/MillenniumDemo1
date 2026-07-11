@@ -28,6 +28,7 @@ export default function Footer() {
           <ul>
             <li><Link href="/">Home</Link></li>
             <li><Link href="/about">About</Link></li>
+            <li><Link href="/menu">Full Menu</Link></li>
             <li><Link href="/kitchen">Kitchen</Link></li>
             <li><Link href="/bar">Bar</Link></li>
             <li><Link href="/proshop">Pro Shop</Link></li>
@@ -48,12 +49,12 @@ export default function Footer() {
             <li><Link href="/contact">Contact</Link></li>
             <li><a href="tel:5017919150">(501) 791-9150</a></li>
             <li><a href="mailto:info@millenniumbowllr.com">Email</a></li>
-            <li><a href="https://goo.gl/maps/e2pMZnEL93wHGSD88" target="_blank" rel="noopener">Directions</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=7200+Counts+Massie+Rd+North+Little+Rock+AR+72113" target="_blank" rel="noopener noreferrer">Directions</a></li>
           </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <div>© 2026 Millennium Bowl · 7200 Counts Massie Rd, NLR AR 72113</div>
+        <div>© {new Date().getFullYear()} Millennium Bowl · 7200 Counts Massie Rd, NLR AR 72113</div>
         <div>Built with 🎳</div>
       </div>
     </footer>
