@@ -18,6 +18,11 @@ export default function HomePage() {
             <span className="word">Repeat.</span>
           </h1>
           <p className="lede">32 lanes. A full bar. Arcade games. F1 simulator. The only Ebonite Gold pro shop in central Arkansas. North Little Rock&apos;s home for Friday nights, kids&apos; birthdays, and corporate parties since 2003.</p>
+          <div className="hero-deal-badge">
+            <span className="hero-deal-dot" />
+            <span>$2.99 per game every Tuesday &amp; Sunday — all day, walk-ins welcome</span>
+            <span className="hero-deal-price">$2.99</span>
+          </div>
           <div className="hero-ctas">
             <Link className="btn btn-primary" href="/menu">View Menu &amp; Order <span className="btn-arrow">→</span></Link>
             <Link className="btn btn-secondary" href="/parties">Plan a Party <span className="btn-arrow">→</span></Link>

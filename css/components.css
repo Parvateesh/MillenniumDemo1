@@ -229,23 +229,44 @@ section.block {
 }
 .price-card:hover { transform: translateY(-4px); border-color: rgba(255, 46, 147, 0.3); }
 .price-card.featured {
-  background: linear-gradient(180deg, rgba(255, 46, 147, 0.15), rgba(157, 78, 221, 0.15));
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 40px rgba(255, 46, 147, 0.2);
-  transform: scale(1.02);
+  background: linear-gradient(160deg, rgba(255, 230, 0, 0.1), rgba(255, 46, 147, 0.12), rgba(157, 78, 221, 0.1));
+  border-color: var(--neon-yellow);
+  box-shadow: 0 0 40px rgba(255, 230, 0, 0.2), 0 0 80px rgba(255, 46, 147, 0.1);
+  transform: scale(1.03);
+  animation: featuredCardPulse 3.5s ease infinite;
+}
+.price-card.featured:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 0 60px rgba(255, 230, 0, 0.35), 0 20px 60px -20px rgba(255, 46, 147, 0.3);
+}
+@keyframes featuredCardPulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(255, 230, 0, 0.2), 0 0 80px rgba(255, 46, 147, 0.1); }
+  50%       { box-shadow: 0 0 60px rgba(255, 230, 0, 0.35), 0 0 100px rgba(255, 46, 147, 0.15); }
+}
+.price-card.featured .price-day {
+  color: var(--neon-yellow);
+  filter: drop-shadow(0 0 6px rgba(255, 230, 0, 0.5));
+}
+.price-card.featured .price-amount {
+  background: linear-gradient(135deg, var(--neon-yellow), var(--neon-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 16px rgba(255, 230, 0, 0.4));
 }
 .price-card.featured::after {
-  content: '★ BEST DEAL';
+  content: '🎳 BEST DEAL';
   position: absolute;
   top: 1rem; right: 1rem;
   background: var(--neon-yellow);
   color: var(--bg-deep);
   font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 50px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 12px rgba(255, 230, 0, 0.5);
 }
 .price-day {
   font-family: 'Space Mono', monospace;
