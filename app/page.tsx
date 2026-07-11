@@ -24,8 +24,9 @@ export default function HomePage() {
             <span className="hero-deal-price">$2.99</span>
           </div>
           <div className="hero-ctas">
-            <Link className="btn btn-primary" href="/menu">View Menu &amp; Order <span className="btn-arrow">→</span></Link>
-            <Link className="btn btn-secondary" href="/parties">Plan a Party <span className="btn-arrow">→</span></Link>
+            <Link className="btn btn-primary" href="/book">Book a Lane <span className="btn-arrow">→</span></Link>
+            <Link className="btn btn-secondary" href="/menu">View Menu <span className="btn-arrow">→</span></Link>
+            <Link className="btn btn-ghost" href="/parties">Plan a Party</Link>
           </div>
           <div className="hero-stats">
             <div><div className="hero-stat-num" data-count="32">0</div><div className="hero-stat-label">Lanes</div></div>
@@ -99,6 +100,79 @@ export default function HomePage() {
               <ul className="price-features"><li>Active duty, retired, reserves</li><li>Police, fire, EMS</li><li>Valid student ID</li><li>Show ID at counter — every visit</li></ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="book-lane-section">
+        <div className="book-lane-inner">
+
+          {/* Lane Status Board */}
+          <div className="lane-board" data-animate="">
+            <div className="lane-board-header">
+              <span className="lane-board-title">Tonight&apos;s Lanes · Fri Jul 11</span>
+              <span className="live-badge"><span className="live-dot" />Live</span>
+            </div>
+            <div className="lane-rows">
+              <div className="lane-row">
+                <div className="lane-block open">1<div className="lane-ball" /></div>
+                <div className="lane-block open">2<div className="lane-ball" /></div>
+                <div className="lane-block taken">3</div>
+                <div className="lane-block taken">4</div>
+                <div className="lane-block open">5<div className="lane-ball" /></div>
+                <div className="lane-block taken">6</div>
+              </div>
+              <div className="lane-row">
+                <div className="lane-block taken">7</div>
+                <div className="lane-block glow">8<div className="lane-ball" /></div>
+                <div className="lane-block glow">9<div className="lane-ball" /></div>
+                <div className="lane-block open">10<div className="lane-ball" /></div>
+                <div className="lane-block taken">11</div>
+                <div className="lane-block taken">12</div>
+              </div>
+              <div className="lane-row">
+                <div className="lane-block open">13<div className="lane-ball" /></div>
+                <div className="lane-block taken">14</div>
+                <div className="lane-block taken">15</div>
+                <div className="lane-block open">16<div className="lane-ball" /></div>
+                <div className="lane-block open">17<div className="lane-ball" /></div>
+                <div className="lane-block taken">18</div>
+              </div>
+              <div className="lane-row">
+                <div className="lane-block taken">19</div>
+                <div className="lane-block taken">20</div>
+                <div className="lane-block glow">21<div className="lane-ball" /></div>
+                <div className="lane-block open">22<div className="lane-ball" /></div>
+                <div className="lane-block taken">23</div>
+                <div className="lane-block taken">24</div>
+              </div>
+            </div>
+            <div className="lane-board-legend">
+              <span className="legend-item"><span className="legend-dot open" />Open</span>
+              <span className="legend-item"><span className="legend-dot glow" />Glow Bowl</span>
+              <span className="legend-item"><span className="legend-dot taken" />In Use</span>
+            </div>
+          </div>
+
+          {/* CTA Content */}
+          <div>
+            <span className="book-cta-eyebrow">Reserve Your Lane</span>
+            <h2 className="book-cta-title">Lanes Fill Up<br />on <span className="accent-gold">Weekends</span></h2>
+            <p className="book-cta-sub">Friday and Saturday nights can book out by 7 PM. Lock in your time in under 60 seconds — no credit card needed to hold your lane.</p>
+            <div className="time-slots">
+              <span className="time-slot avail">Tonight · 6 PM ✓</span>
+              <span className="time-slot avail">Tonight · 7 PM ✓</span>
+              <span className="time-slot full">Tonight · 8 PM — Full</span>
+              <span className="time-slot avail">Tonight · 9 PM ✓</span>
+              <span className="time-slot avail">Tonight · 10 PM ✓</span>
+            </div>
+            <Link className="btn-book-lane" href="/book">
+              <span className="book-lane-icon">🎳</span>
+              Book a Lane Now
+              <span className="btn-arrow">→</span>
+            </Link>
+            <p className="book-phone-line">Prefer to call? <a href="tel:+15017919150">(501) 791-9150</a> — we&apos;ll set you up.</p>
+          </div>
+
         </div>
       </section>
 
