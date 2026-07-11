@@ -1,3 +1,276 @@
+/* ── Coming Soon / Roll to Reveal ── */
+.cs-wrap {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  gap: 0;
+}
+.cs-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--neon-pink);
+  margin-bottom: 2.5rem;
+}
+.cs-icon { font-size: 1.1rem; }
+
+/* Lane */
+.cs-lane-wrap {
+  position: relative;
+  width: 180px;
+  height: 280px;
+  margin: 0 auto 2rem;
+  flex-shrink: 0;
+}
+.cs-lane-left,
+.cs-lane-right {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(255,46,147,0.5) 0%, rgba(255,46,147,0.04) 100%);
+}
+.cs-lane-left  { left: 0; }
+.cs-lane-right { right: 0; }
+
+/* Pins */
+.cs-pins {
+  position: absolute;
+  top: 20px;
+  left: 0; right: 0;
+  height: 100px;
+}
+.cs-pin {
+  position: absolute;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.75);
+  box-shadow: 0 0 8px rgba(255,255,255,0.15);
+  transition: transform 0.55s cubic-bezier(0.34,1.2,0.64,1), opacity 0.45s ease;
+}
+.cs-pin.scattered {
+  transform: translate(var(--sx), var(--sy)) rotate(var(--sr));
+  opacity: 0;
+}
+
+/* Triangle positions (180px container, center = 90px, pin 16px wide) */
+/* Row 4 (back, 4 pins) */
+.cs-pin-1  { top: 0;   left: 30px; }
+.cs-pin-2  { top: 0;   left: 58px; }
+.cs-pin-3  { top: 0;   left: 86px; }
+.cs-pin-4  { top: 0;   left: 114px; }
+/* Row 3 (3 pins) */
+.cs-pin-5  { top: 24px; left: 44px; }
+.cs-pin-6  { top: 24px; left: 74px; }
+.cs-pin-7  { top: 24px; left: 104px; }
+/* Row 2 (2 pins) */
+.cs-pin-8  { top: 48px; left: 58px; }
+.cs-pin-9  { top: 48px; left: 90px; }
+/* Headpin */
+.cs-pin-10 { top: 74px; left: 74px; }
+
+/* Ball */
+.cs-ball {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25), rgba(0,240,255,0.15));
+  border: 2px solid rgba(0,240,255,0.7);
+  box-shadow: 0 0 16px rgba(0,240,255,0.3), inset 0 0 8px rgba(0,240,255,0.1);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+.cs-ball::before {
+  /* Finger holes */
+  content: '';
+  position: absolute;
+  top: 8px; left: 10px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(0,240,255,0.5);
+  box-shadow: 6px 2px 0 rgba(0,240,255,0.4);
+}
+.cs-ball:hover:not(.rolling) {
+  box-shadow: 0 0 28px rgba(0,240,255,0.55), inset 0 0 10px rgba(0,240,255,0.2);
+}
+.cs-ball.rolling {
+  animation: ballRollUp 1.35s cubic-bezier(0.4,0,0.6,1) forwards;
+}
+.cs-ball.guttered {
+  animation: ballGutter 1.2s ease forwards;
+}
+@keyframes ballRollUp {
+  0%   { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  100% { transform: translateX(-50%) translateY(-200px) rotate(720deg); }
+}
+@keyframes ballGutter {
+  0%   { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  40%  { transform: translateX(calc(-50% + 30px)) translateY(-80px) rotate(200deg); }
+  100% { transform: translateX(120px) translateY(-40px) rotate(400deg); opacity: 0.2; }
+}
+
+/* Idle prompt */
+.cs-prompt { margin-top: 0.5rem; }
+.cs-prompt-text {
+  font-size: 1rem;
+  color: var(--text-dim);
+  margin-bottom: 1.25rem;
+}
+
+/* Roll button */
+.cs-roll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  color: #fff;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(255,46,147,0.4);
+  transition: var(--transition);
+}
+.cs-roll-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 50px rgba(255,46,147,0.65);
+}
+.cs-roll-btn--sm {
+  padding: 0.7rem 1.6rem;
+  font-size: 0.82rem;
+}
+
+/* Rolling dots */
+.cs-rolling-msg {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  height: 32px;
+}
+.cs-rolling-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  animation: dotBounce 0.8s ease infinite;
+}
+.cs-rolling-dot:nth-child(2) { animation-delay: 0.15s; }
+.cs-rolling-dot:nth-child(3) { animation-delay: 0.30s; }
+@keyframes dotBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-8px); opacity: 1; }
+}
+
+/* STRIKE result */
+.cs-result-strike {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: strikeFadeIn 0.5s ease forwards;
+}
+@keyframes strikeFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.cs-strike-label {
+  font-family: var(--font-bowlby), cursive;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--neon-yellow);
+  filter: drop-shadow(0 0 30px rgba(255,230,0,0.6));
+  animation: strikePulse 0.8s ease 3;
+  letter-spacing: 0.04em;
+}
+@keyframes strikePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Teaser card */
+.cs-teaser-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,230,0,0.25);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 0 40px rgba(255,230,0,0.08);
+  animation: cardSlideUp 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.25s both;
+}
+@keyframes cardSlideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.cs-teaser-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.cs-teaser-title {
+  font-family: var(--font-bowlby), cursive;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+.cs-teaser-desc {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+.cs-teaser-date {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--neon-yellow);
+  margin-bottom: 1.5rem;
+}
+.cs-teaser-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* MISS result */
+.cs-result-miss {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 360px;
+  animation: strikeFadeIn 0.4s ease forwards;
+}
+.cs-miss-headline {
+  font-family: var(--font-bowlby), cursive;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--neon-pink);
+  filter: drop-shadow(0 0 16px rgba(255,46,147,0.4));
+}
+.cs-miss-sub {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
 /* ── Book Lane Section (Home Page) ── */
 .book-lane-section {
   padding: 6rem 2rem;
