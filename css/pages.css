@@ -13,15 +13,22 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-.menu-tab.active, .menu-tab:hover {
+.menu-tab:hover {
+  background: rgba(255, 46, 147, 0.15);
+  color: white;
+  border-color: rgba(255, 46, 147, 0.5);
+  transform: translateY(-1px);
+}
+.menu-tab.active {
   background: var(--neon-pink);
   color: white;
   border-color: var(--neon-pink);
   box-shadow: 0 0 20px rgba(255, 46, 147, 0.4);
+  transform: translateY(-1px);
 }
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
 }
 .menu-item {
@@ -378,9 +385,13 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--neon-pink);
-  background: rgba(255, 46, 147, 0.08);
-  box-shadow: 0 0 20px rgba(255, 46, 147, 0.15);
+  border-color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.12), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(184, 163, 214, 0.45);
 }
 .form-group select option { background: var(--bg-mid); }
 .form-group textarea { min-height: 120px; resize: vertical; }
@@ -397,6 +408,15 @@
 }
 .hours-list li:last-child { border-bottom: none; }
 .hours-list .day { color: var(--text-dim); font-family: 'Space Mono', monospace; font-size: 0.85rem; text-transform: uppercase; }
+
+@media (max-width: 1024px) {
+  .contact-grid { gap: 2.5rem; }
+  .league-row {
+    grid-template-columns: 2fr 1.5fr 1fr 0.8fr 100px;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+}
 
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -611,4 +631,9 @@
   .booking-split { grid-template-columns: 1fr; }
   .booking-preview-features { grid-template-columns: 1fr; }
   .booking-card { padding: 2rem 1.5rem; }
+  .menu-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .pro-shop-hero { padding: 1.5rem; }
+  .about-visual { font-size: 6rem; }
+  .menu-categories { gap: 0.6rem; }
+  .menu-tab { padding: 0.6rem 1rem; font-size: 0.8rem; }
 }

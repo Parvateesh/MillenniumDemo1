@@ -226,6 +226,23 @@ body.glow-mode .glow-switch.active {
   opacity: 1;
 }
 
+/* Reduced motion — disable all animations for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  body::before { animation: none; }
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Pin rain container */
 #pin-rain {
   position: fixed;

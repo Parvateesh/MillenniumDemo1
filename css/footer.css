@@ -20,7 +20,7 @@ footer {
   align-items: center;
 }
 .footer-brand img {
-  height: 56px;
+  height: 48px;
   width: auto;
   display: block;
   filter: drop-shadow(0 0 10px rgba(255, 46, 147, 0.4));
@@ -77,6 +77,16 @@ footer {
   color: var(--text-dim);
 }
 
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+}
+
 @media (max-width: 900px) {
-  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  footer { padding: 3rem 1.5rem 1.5rem; margin-top: 4rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; font-size: 0.8rem; }
 }

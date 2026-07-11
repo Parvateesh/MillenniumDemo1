@@ -181,7 +181,7 @@
   opacity: 0;
 }
 .glow-switch.active .glow-switch-handle {
-  transform: translateX(60px);
+  transform: translateX(54px);
 }
 .glow-switch.active .ball-svg {
   filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.8));

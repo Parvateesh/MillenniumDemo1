@@ -99,7 +99,13 @@
 .admin-loading, .admin-empty { color: var(--text-dim); padding: 3rem 0; text-align: center; }
 
 /* ── Table ── */
-.admin-table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--line); }
+.admin-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  scroll-behavior: smooth;
+}
 .admin-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .admin-table th {
   background: var(--bg-mid);
@@ -198,7 +204,15 @@
 }
 .admin-login-sub { color: var(--text-dim); font-size: 0.85rem; font-family: 'Space Mono', monospace; letter-spacing: 0.15em; margin-bottom: 2rem; text-transform: uppercase; }
 .admin-login-form .form-group { margin-bottom: 1.2rem; }
-.admin-error { color: var(--neon-pink); font-size: 0.85rem; margin-bottom: 1rem; }
+.admin-error {
+  color: var(--neon-pink);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 46, 147, 0.08);
+  border: 1px solid rgba(255, 46, 147, 0.25);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+}
 
 .admin-google-btn {
   width: 100%;
@@ -355,4 +369,10 @@
   .lanes-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
 
   .admin-table th, .admin-table td { padding: 0.65rem 0.75rem; font-size: 0.82rem; }
+}
+
+@media (max-width: 400px) {
+  .admin-nav-item { padding: 0.35rem 0.5rem; font-size: 0.72rem; }
+  .admin-dashboard-grid { grid-template-columns: 1fr; }
+  .admin-main { padding: 1rem 0.75rem; }
 }

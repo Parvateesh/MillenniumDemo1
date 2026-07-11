@@ -101,11 +101,11 @@
 .pin {
   position: absolute;
   font-size: 4rem;
-  opacity: 0.18;
+  opacity: 0.35;
   animation: pinFloat 8s ease-in-out infinite;
   cursor: pointer;
   pointer-events: all;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   user-select: none;
 }
 .pin:nth-child(1) { top: 15%; right: 10%; animation-delay: 0s; }
@@ -126,7 +126,7 @@
   75%      { transform: translateY(-10px) rotate(-3deg); }
 }
 @keyframes pinStrike {
-  0%   { transform: scale(1) rotate(0deg); opacity: 0.18; }
+  0%   { transform: scale(1) rotate(0deg); opacity: 0.35; }
   30%  { transform: scale(1.5) rotate(-30deg); opacity: 0.9; }
   60%  { transform: scale(0.8) rotate(45deg); opacity: 0.5; }
   100% { transform: scale(0) rotate(90deg); opacity: 0; }
@@ -162,6 +162,19 @@
 @media (max-width: 900px) {
   :root { --nav-h: 72px; }
   .hero { min-height: 80vh; padding: 3rem 1.5rem; padding-top: calc(var(--header-h) + 1.5rem); }
-  .hero h1 { font-size: clamp(2.5rem, 12vw, 5rem); }
+  .hero h1 { font-size: clamp(2.5rem, 12vw, 5rem); line-height: 1; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: clamp(2.2rem, 14vw, 3.5rem); line-height: 1.05; }
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; padding-top: 2rem; }
+  .hero-stat-num { font-size: 2rem; }
+  .hero p.lede { font-size: 1rem; }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero { min-height: 100vh; padding-top: calc(var(--header-h) + 1rem); }
+  .hero h1 { font-size: clamp(2rem, 8vw, 4rem); }
+  .hero-stats { margin-top: 2rem; padding-top: 1.5rem; }
 }

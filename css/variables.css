@@ -12,7 +12,13 @@
   --line: rgba(255, 255, 255, 0.1);
   --transition: all 0.3s ease;
 
+  /* Font family fallbacks — overridden by next/font CSS vars at runtime */
+  --font-inter: 'Inter', sans-serif;
+  --font-space-mono: 'Space Mono', monospace;
+  --font-bowlby: 'Bowlby One', cursive;
+
   /* Fixed header heights — update here if nav size changes */
   --nav-h: 96px;
   --header-h: var(--nav-h);
+  --radius-card: 20px;
 }
