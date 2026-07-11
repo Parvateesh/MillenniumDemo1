@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { allMenuItems, foodItems } from '@/lib/menu-data';
+import { allMenuItems } from '@/lib/menu-data';
+import OrderButton from '@/components/OrderButton';
 
 type Category = 'all' | 'pizza' | 'apps' | 'mains' | 'drinks' | 'kitchen' | 'bar';
 
@@ -16,10 +17,10 @@ function isVisible(itemCat: string, activeCat: Category) {
 
 const tabs: { label: string; cat: Category }[] = [
   { label: 'Everything', cat: 'all' },
-  { label: 'Kitchen', cat: 'kitchen' },
-  { label: 'Bar', cat: 'bar' },
+  { label: '🍕 Kitchen', cat: 'kitchen' },
+  { label: '🍺 Bar', cat: 'bar' },
   { label: 'Pizza', cat: 'pizza' },
-  { label: 'Appetizers', cat: 'apps' },
+  { label: 'Starters', cat: 'apps' },
   { label: 'Mains', cat: 'mains' },
   { label: 'Drinks', cat: 'drinks' },
 ];
@@ -31,11 +32,22 @@ export default function MenuPage() {
     <>
       <section className="hero hero-sm">
         <div className="hero-content">
-          <span className="hero-tag">Eat. Drink.</span>
-          <h1><span className="word">Bowl</span> <span className="word">Food.</span> <span className="word">Done Right.</span></h1>
-          <p className="lede">Pizza that&apos;s been called &quot;more delicious than expected from a non-pizza place.&quot; Cold beer. Frozen margaritas. Wings, burgers, and fries that make you forget you came here to bowl.</p>
+          <span className="hero-tag">Kitchen · Bar · Order Online</span>
+          <h1>
+            <span className="word">Eat.</span>{' '}
+            <span className="word">Drink.</span>{' '}
+            <span className="word">Bowl.</span>
+          </h1>
+          <p className="lede">
+            Pizza called &quot;more delicious than expected.&quot; Wings. Cold beer on tap.
+            Frozen margaritas. Everything you need for a great night.
+          </p>
+          <div className="hero-ctas">
+            <OrderButton className="btn btn-primary" />
+          </div>
         </div>
       </section>
+
       <section className="block">
         <div className="container">
           <div className="menu-categories">
@@ -49,6 +61,7 @@ export default function MenuPage() {
               </button>
             ))}
           </div>
+
           <div className="menu-grid" id="menuGrid">
             {allMenuItems.map((item) => (
               <div
@@ -65,6 +78,19 @@ export default function MenuPage() {
                 <p className="menu-item-desc">{item.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="order-cta-banner" data-animate="">
+            <div className="order-cta-left">
+              <div className="order-cta-icon">🛒</div>
+              <div>
+                <div className="order-cta-title">Ready to order?</div>
+                <div className="order-cta-sub">
+                  Order online and pick up at the counter — skip the line.
+                </div>
+              </div>
+            </div>
+            <OrderButton />
           </div>
         </div>
       </section>

@@ -28,9 +28,7 @@ export default function Footer() {
           <ul>
             <li><Link href="/">Home</Link></li>
             <li><Link href="/about">About</Link></li>
-            <li><Link href="/order">Order Food Online</Link></li>
-            <li><Link href="/kitchen">Kitchen Menu</Link></li>
-            <li><Link href="/bar">Bar Menu</Link></li>
+            <li><Link href="/menu">Menu &amp; Order</Link></li>
             <li><Link href="/proshop">Pro Shop</Link></li>
           </ul>
         </div>
