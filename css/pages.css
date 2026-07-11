@@ -461,3 +461,154 @@
   .proshop-online-card { flex-direction: column; align-items: stretch; }
   .proshop-online-card .btn { width: 100%; justify-content: center; text-align: center; }
 }
+
+/* ── Lane Booking Coming Soon ── */
+.booking-preview {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 3rem;
+}
+.booking-preview-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon-cyan);
+  margin-bottom: 1.25rem;
+}
+.booking-preview-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.booking-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+}
+.booking-feature-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+.booking-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.booking-card {
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.booking-card-call {
+  background: linear-gradient(145deg, rgba(0, 240, 255, 0.06), rgba(0, 240, 255, 0.02));
+  border-color: rgba(0, 240, 255, 0.25);
+}
+.booking-card-waitlist {
+  background: linear-gradient(145deg, rgba(255, 46, 147, 0.08), rgba(157, 78, 221, 0.05));
+  border-color: rgba(255, 46, 147, 0.3);
+}
+
+.booking-card-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+}
+.booking-card-call .booking-card-tag {
+  color: var(--neon-cyan);
+  border-color: rgba(0, 240, 255, 0.3);
+  background: rgba(0, 240, 255, 0.06);
+}
+.booking-card-waitlist .booking-card-tag {
+  color: var(--neon-pink);
+  border-color: rgba(255, 46, 147, 0.3);
+  background: rgba(255, 46, 147, 0.06);
+}
+
+.booking-card-icon { font-size: 2.5rem; }
+.booking-card-title {
+  font-family: 'Bowlby One', cursive;
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+.booking-card-sub {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.booking-phone-btn {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 0.06em;
+  justify-content: center;
+  text-decoration: none;
+}
+.booking-email-link {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  margin-top: -0.25rem;
+}
+.booking-email-link:hover { text-decoration: underline; }
+
+.booking-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+  margin-top: 0.25rem;
+}
+.booking-hours > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.booking-waitlist-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.booking-waitlist-success {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.booking-waitlist-success-icon { font-size: 2.5rem; }
+.booking-waitlist-success-title {
+  font-family: 'Bowlby One', cursive;
+  font-size: 1.3rem;
+  color: var(--neon-cyan);
+}
+.booking-waitlist-success p {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .booking-split { grid-template-columns: 1fr; }
+  .booking-preview-features { grid-template-columns: 1fr; }
+  .booking-card { padding: 2rem 1.5rem; }
+}

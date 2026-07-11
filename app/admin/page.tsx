@@ -9,6 +9,7 @@ const sections = [
   { href: '/admin/lanes', icon: '🎿', label: 'Lanes', desc: 'All 32 lanes — status and availability' },
   { href: '/admin/messages', icon: '✉️', label: 'Messages', desc: 'Contact form submissions from customers' },
   { href: '/admin/analytics', icon: '📊', label: 'Analytics', desc: 'Bowl 101 click-throughs from your website' },
+  { href: '/admin/waitlist', icon: '🎳', label: 'Lane Waitlist', desc: 'Customers waiting for online lane booking' },
 ];
 
 export default function AdminDashboard() {

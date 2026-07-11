@@ -11,6 +11,7 @@ const navItems = [
   { href: '/admin/lanes', label: '🎿 Lanes' },
   { href: '/admin/messages', label: '✉️ Messages' },
   { href: '/admin/analytics', label: '📊 Analytics' },
+  { href: '/admin/waitlist', label: '🎳 Lane Waitlist' },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
