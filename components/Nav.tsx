@@ -8,9 +8,9 @@ import { useAuth } from '@/lib/auth-context';
 
 const links = [
   { href: '/', label: 'Home' },
+  { href: '/menu', label: 'Menu' },
   { href: '/parties', label: 'Parties' },
   { href: '/leagues', label: 'Leagues' },
-  { href: '/menu', label: 'Menu' },
   { href: '/proshop', label: 'Pro Shop' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
