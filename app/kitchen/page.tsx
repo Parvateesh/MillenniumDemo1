@@ -53,6 +53,17 @@ export default function KitchenPage() {
               </div>
             ))}
           </div>
+
+          <div className="order-cta-banner" data-animate="">
+            <div className="order-cta-left">
+              <div className="order-cta-icon">🍕</div>
+              <div>
+                <div className="order-cta-title">Ready to order?</div>
+                <div className="order-cta-sub">Order online and pick up at the counter — no waiting in line.</div>
+              </div>
+            </div>
+            <a href="/order" className="btn btn-primary">Order Now →</a>
+          </div>
         </div>
       </section>
     </>

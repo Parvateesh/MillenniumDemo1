@@ -10,6 +10,7 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/parties', label: 'Parties' },
   { href: '/leagues', label: 'Leagues' },
+  { href: '/order', label: 'Order Food' },
   { href: '/kitchen', label: 'Kitchen' },
   { href: '/bar', label: 'Bar' },
   { href: '/proshop', label: 'Pro Shop' },
