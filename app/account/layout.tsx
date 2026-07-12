@@ -10,7 +10,8 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      const next = window.location.pathname + window.location.search;
+      router.push(`/login?redirect=${encodeURIComponent(next)}`);
     }
   }, [user, loading, router]);
 
