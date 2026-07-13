@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LaneBoard from '@/components/LaneBoard';
 
 export default function HomePage() {
   return (
@@ -106,51 +107,9 @@ export default function HomePage() {
       <section className="book-lane-section">
         <div className="book-lane-inner">
 
-          {/* Lane Status Board */}
-          <div className="lane-board" data-animate="">
-            <div className="lane-board-header">
-              <span className="lane-board-title">Tonight&apos;s Lanes · Fri Jul 11</span>
-              <span className="live-badge"><span className="live-dot" />Live</span>
-            </div>
-            <div className="lane-rows">
-              <div className="lane-row">
-                <div className="lane-block open">1<div className="lane-ball" /></div>
-                <div className="lane-block open">2<div className="lane-ball" /></div>
-                <div className="lane-block taken">3</div>
-                <div className="lane-block taken">4</div>
-                <div className="lane-block open">5<div className="lane-ball" /></div>
-                <div className="lane-block taken">6</div>
-              </div>
-              <div className="lane-row">
-                <div className="lane-block taken">7</div>
-                <div className="lane-block glow">8<div className="lane-ball" /></div>
-                <div className="lane-block glow">9<div className="lane-ball" /></div>
-                <div className="lane-block open">10<div className="lane-ball" /></div>
-                <div className="lane-block taken">11</div>
-                <div className="lane-block taken">12</div>
-              </div>
-              <div className="lane-row">
-                <div className="lane-block open">13<div className="lane-ball" /></div>
-                <div className="lane-block taken">14</div>
-                <div className="lane-block taken">15</div>
-                <div className="lane-block open">16<div className="lane-ball" /></div>
-                <div className="lane-block open">17<div className="lane-ball" /></div>
-                <div className="lane-block taken">18</div>
-              </div>
-              <div className="lane-row">
-                <div className="lane-block taken">19</div>
-                <div className="lane-block taken">20</div>
-                <div className="lane-block glow">21<div className="lane-ball" /></div>
-                <div className="lane-block open">22<div className="lane-ball" /></div>
-                <div className="lane-block taken">23</div>
-                <div className="lane-block taken">24</div>
-              </div>
-            </div>
-            <div className="lane-board-legend">
-              <span className="legend-item"><span className="legend-dot open" />Open</span>
-              <span className="legend-item"><span className="legend-dot glow" />Glow Bowl</span>
-              <span className="legend-item"><span className="legend-dot taken" />In Use</span>
-            </div>
+          {/* Lane Status Board — live from Firestore */}
+          <div data-animate="">
+            <LaneBoard />
           </div>
 
           {/* CTA Content */}

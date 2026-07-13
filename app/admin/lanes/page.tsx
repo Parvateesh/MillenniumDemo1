@@ -2,19 +2,21 @@
 
 import { useState, useEffect } from 'react';
 
-type LaneStatus = 'open' | 'reserved' | 'maintenance';
+type LaneStatus = 'open' | 'reserved' | 'maintenance' | 'glow';
 type Lane = { id: string; number: number; status: LaneStatus; notes: string };
 
 const STATUS_COLORS: Record<LaneStatus, string> = {
   open: 'lane-open',
   reserved: 'lane-reserved',
   maintenance: 'lane-maintenance',
+  glow: 'lane-glow',
 };
 
 const STATUS_LABELS: Record<LaneStatus, string> = {
   open: '✅ Open',
   reserved: '🎳 Reserved',
   maintenance: '🔧 Maintenance',
+  glow: '🪩 Glow Bowl',
 };
 
 export default function LanesPage() {
@@ -42,7 +44,7 @@ export default function LanesPage() {
     load();
   }
 
-  const counts = { open: 0, reserved: 0, maintenance: 0 };
+  const counts = { open: 0, reserved: 0, maintenance: 0, glow: 0 };
   lanes.forEach(l => counts[l.status]++);
 
   return (
@@ -58,6 +60,7 @@ export default function LanesPage() {
         <div className="lane-summary-item open">✅ Open <strong>{counts.open}</strong></div>
         <div className="lane-summary-item reserved">🎳 Reserved <strong>{counts.reserved}</strong></div>
         <div className="lane-summary-item maintenance">🔧 Maintenance <strong>{counts.maintenance}</strong></div>
+        <div className="lane-summary-item glow">🪩 Glow Bowl <strong>{counts.glow}</strong></div>
       </div>
 
       {loading ? (
@@ -70,7 +73,7 @@ export default function LanesPage() {
               <div className="lane-status-label">{STATUS_LABELS[lane.status]}</div>
               {lane.notes && <div className="lane-notes">{lane.notes}</div>}
               <div className="lane-actions">
-                {(['open', 'reserved', 'maintenance'] as LaneStatus[]).map(s => (
+                {(['open', 'reserved', 'glow', 'maintenance'] as LaneStatus[]).map(s => (
                   <button
                     key={s}
                     className={`lane-btn ${s === lane.status ? 'active' : ''}`}
