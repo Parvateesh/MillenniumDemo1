@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/firebase-admin';
+import { sendWaitlistNotification } from '@/lib/email';
 
 export async function POST(req: Request) {
   try {
@@ -16,10 +17,16 @@ export async function POST(req: Request) {
     }
 
     await db.collection('booking_waitlist').add({
-      name: name?.trim() || '',
-      email: email.toLowerCase().trim(),
+      name:      name?.trim() || '',
+      email:     email.toLowerCase().trim(),
       timestamp: new Date().toISOString(),
     });
+
+    sendWaitlistNotification({
+      name:  name?.trim() || '',
+      email: email.toLowerCase().trim(),
+    }).catch(err => console.error('[email/waitlist]', err));
+
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error('[waitlist]', e);

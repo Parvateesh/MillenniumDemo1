@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/firebase-admin';
+import { sendLeagueNotification } from '@/lib/email';
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,14 +17,18 @@ export async function POST(req: NextRequest) {
     }
 
     await db.collection('league_interests').add({
-      name,
-      email,
+      name, email,
       phone: phone || '',
-      level,
-      night,
-      type,
+      level, night, type,
       timestamp: new Date().toISOString(),
     });
+
+    sendLeagueNotification({
+      name, email, phone,
+      skill:    level,
+      nights:   night,
+      teamPref: type,
+    }).catch(err => console.error('[email/league]', err));
 
     return NextResponse.json({ ok: true });
   } catch (e) {
