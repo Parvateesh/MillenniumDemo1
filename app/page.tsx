@@ -129,7 +129,6 @@ export default function HomePage() {
               Book a Lane Now
               <span className="btn-arrow">→</span>
             </Link>
-            <p className="book-phone-line">Prefer to call? <a href="tel:+15017919150">(501) 791-9150</a> — we&apos;ll set you up.</p>
           </div>
 
         </div>

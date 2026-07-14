@@ -1300,6 +1300,14 @@
   gap: 1.5rem;
   align-items: start;
 }
+.booking-waitlist-wrap {
+  display: flex;
+  justify-content: center;
+}
+.booking-waitlist-wrap .booking-card-waitlist {
+  max-width: 480px;
+  width: 100%;
+}
 
 .booking-card {
   border-radius: 24px;

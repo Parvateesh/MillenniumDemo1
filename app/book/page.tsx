@@ -50,7 +50,7 @@ export default function BookPage() {
           </h1>
           <p className="lede">
             We&apos;re building real-time lane booking — live availability,
-            instant confirmation, pay online. Launching within the month.
+            instant confirmation, pay online. Be first in line when it launches.
           </p>
         </div>
       </section>
@@ -58,9 +58,9 @@ export default function BookPage() {
       <section className="block">
         <div className="container">
 
-          {/* What's coming preview */}
+          {/* What's coming */}
           <div className="booking-preview" data-animate="">
-            <div className="booking-preview-label">What you&apos;ll be able to do</div>
+            <div className="booking-preview-label">What online booking will include</div>
             <div className="booking-preview-features">
               <div className="booking-feature">
                 <span className="booking-feature-icon">🎯</span>
@@ -68,7 +68,7 @@ export default function BookPage() {
               </div>
               <div className="booking-feature">
                 <span className="booking-feature-icon">⚡</span>
-                <span>Instant booking confirmation — no waiting</span>
+                <span>Instant confirmation — no waiting</span>
               </div>
               <div className="booking-feature">
                 <span className="booking-feature-icon">💳</span>
@@ -81,32 +81,8 @@ export default function BookPage() {
             </div>
           </div>
 
-          {/* Two paths */}
-          <div className="booking-split" data-animate="">
-
-            {/* Path 1 — call now */}
-            <div className="booking-card booking-card-call">
-              <div className="booking-card-tag">Available Right Now</div>
-              <div className="booking-card-icon">📞</div>
-              <h2 className="booking-card-title">Book by Phone</h2>
-              <p className="booking-card-sub">
-                Call us and we&apos;ll lock in your lanes in under 2 minutes.
-                Our staff is ready Mon–Sun during business hours.
-              </p>
-              <a href="tel:5017919150" className="btn btn-primary booking-phone-btn">
-                (501) 791-9150
-              </a>
-              <a href="mailto:info@millenniumbowllr.com" className="booking-email-link">
-                Or email us →
-              </a>
-              <div className="booking-hours">
-                <div><span>Mon–Thu</span><span>9 AM – 12 AM</span></div>
-                <div><span>Fri – Sat</span><span>9 AM – 2 AM</span></div>
-                <div><span>Sun</span><span>10 AM – 12 AM</span></div>
-              </div>
-            </div>
-
-            {/* Path 2 — waitlist */}
+          {/* Waitlist form — centered */}
+          <div className="booking-waitlist-wrap" data-animate="">
             <div className="booking-card booking-card-waitlist">
               <div className="booking-card-tag">Launching Soon</div>
               <div className="booking-card-icon">🎳</div>
@@ -149,8 +125,8 @@ export default function BookPage() {
                 </form>
               )}
             </div>
-
           </div>
+
         </div>
       </section>
     </>
