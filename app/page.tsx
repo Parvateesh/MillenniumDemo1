@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import LaneBoard from '@/components/LaneBoard';
 
 export default function HomePage() {
   return (
@@ -98,35 +97,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="book-lane-section">
-        <div className="book-lane-inner">
-
-          {/* Lane Status Board — live from Firestore */}
-          <div data-animate="">
-            <LaneBoard />
-          </div>
-
-          {/* CTA Content */}
-          <div>
-            <span className="book-cta-eyebrow">Reserve Your Lane</span>
-            <h2 className="book-cta-title">Lanes Fill Up<br />on <span className="accent-gold">Weekends</span></h2>
-            <p className="book-cta-sub">Friday and Saturday nights can book out by 7 PM. Lock in your time in under 60 seconds — no credit card needed to hold your lane.</p>
-            <div className="time-slots">
-              <span className="time-slot avail">Tonight · 6 PM ✓</span>
-              <span className="time-slot avail">Tonight · 7 PM ✓</span>
-              <span className="time-slot full">Tonight · 8 PM — Full</span>
-              <span className="time-slot avail">Tonight · 9 PM ✓</span>
-              <span className="time-slot avail">Tonight · 10 PM ✓</span>
-            </div>
-            <Link className="btn-book-lane" href="/book">
-              <span className="book-lane-icon">🎳</span>
-              Book a Lane Now
-              <span className="btn-arrow">→</span>
-            </Link>
-          </div>
-
-        </div>
-      </section>
 
       <section className="reviews-strip">
         <div className="container">
