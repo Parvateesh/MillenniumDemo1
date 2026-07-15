@@ -17,24 +17,8 @@ export default function TermsPage() {
       <section className="block">
         <div className="container" style={{ maxWidth: '760px' }}>
 
-          <div style={{
-            background: 'rgba(255, 230, 0, 0.08)',
-            border: '1px solid var(--neon-yellow)',
-            borderRadius: '12px',
-            padding: '1rem 1.25rem',
-            marginBottom: '2.5rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.75rem',
-          }}>
-            <span style={{ fontSize: '1.2rem' }}>⚠️</span>
-            <p style={{ margin: 0, color: 'var(--neon-yellow)', fontFamily: 'var(--font-space-mono), monospace', fontSize: '0.82rem', letterSpacing: '0.04em' }}>
-              DRAFT — pending legal review. This document is not yet in effect.
-            </p>
-          </div>
-
           <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', marginBottom: '2.5rem' }}>
-            Last updated: [Date TBD] &nbsp;·&nbsp; Millennium Bowl, 7200 Counts Massie Rd, North Little Rock, AR 72113
+            Effective: July 14, 2026 &nbsp;·&nbsp; Millennium Bowl, 7200 Counts Massie Rd, North Little Rock, AR 72113
           </p>
 
           <div className="legal-section">
