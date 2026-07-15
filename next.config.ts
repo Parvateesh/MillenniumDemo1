@@ -6,6 +6,19 @@ const nextConfig: NextConfig = {
   },
   serverExternalPackages: ['firebase-admin', 'jwks-rsa', 'jose'],
 
+  async headers() {
+    return [
+      {
+        source: '/:path*.(webp|png|jpg|jpeg|svg|ico|woff2|woff)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+    ];
+  },
+
   async redirects() {
     return [
       // Old Hostinger template URLs → new pages (301 permanent)

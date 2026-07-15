@@ -28,8 +28,7 @@ export default function AnimationsProvider() {
     const onMove = (e: MouseEvent) => {
       if (rafId !== null) return;
       rafId = requestAnimationFrame(() => {
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
+        glow.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
         rafId = null;
       });
     };
