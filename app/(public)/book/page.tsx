@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { confettiBurst } from '@/lib/confetti';
 
-type Status = 'idle' | 'sending' | 'done' | 'duplicate';
+type Status = 'idle' | 'sending' | 'done' | 'duplicate' | 'error';
 
 export default function BookPage() {
   const [status, setStatus] = useState<Status>('idle');
@@ -33,7 +33,7 @@ export default function BookPage() {
         }
       }
     } catch {
-      setStatus('idle');
+      setStatus('error');
     }
   }
 
@@ -103,6 +103,15 @@ export default function BookPage() {
                   <div className="booking-waitlist-success-icon">✅</div>
                   <div className="booking-waitlist-success-title">Already got you!</div>
                   <p>You&apos;re already on the list. We&apos;ll be in touch soon.</p>
+                </div>
+              ) : status === 'error' ? (
+                <div className="booking-waitlist-success">
+                  <div className="booking-waitlist-success-icon">⚠️</div>
+                  <div className="booking-waitlist-success-title">Something went wrong</div>
+                  <p>Please try again or call us at <strong>(501) 791-9150</strong>.</p>
+                  <button onClick={() => setStatus('idle')} className="btn btn-ghost" style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }}>
+                    Try Again
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleWaitlist} className="booking-waitlist-form">

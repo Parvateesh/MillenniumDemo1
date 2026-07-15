@@ -1,6 +1,10 @@
+import type { Metadata } from 'next';
 import ComingSoon from '@/components/ComingSoon';
 
-export const metadata = { title: 'Events — Millennium Bowl' };
+export const metadata: Metadata = {
+  title: 'Events — Millennium Bowl',
+  robots: { index: false },
+};
 
 export default function EventsPage() {
   return (
