@@ -82,13 +82,7 @@ export default function HomePage() {
               <div className="price-unit">per game / per person — all day</div>
               <ul className="price-features"><li>All skill levels welcome</li><li>Shoe rental: $4.50</li><li>No reservation needed</li><li>Walk-in priority</li></ul>
             </div>
-            <div className="price-card" data-animate="">
-              <div className="price-day">After 5 PM &amp; Weekends</div>
-              <div className="price-amount">$5<span className="price-sub">.59</span></div>
-              <div className="price-unit">per game / per person</div>
-              <ul className="price-features"><li>All ages welcome</li><li>Shoe rental: $4.50</li><li>Glow Bowl every Friday</li><li>Open late Fri &amp; Sat to 2 AM</li></ul>
-            </div>
-            <div className="price-card" data-animate="">
+<div className="price-card" data-animate="">
               <div className="price-day">Lane Rental</div>
               <div className="price-amount">$33<span className="price-sub">.99</span></div>
               <div className="price-unit">per lane / per hour</div>
