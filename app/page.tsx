@@ -82,17 +82,17 @@ export default function HomePage() {
               <div className="price-unit">per game / per person — all day</div>
               <ul className="price-features"><li>All skill levels welcome</li><li>Shoe rental: $4.50</li><li>No reservation needed</li><li>Walk-in priority</li></ul>
             </div>
-            <div className="price-card featured" data-animate="">
-              <div className="price-day">Fri 5 PM – Close · Sat All Day</div>
-              <div className="price-amount">$33<span className="price-sub">.99</span></div>
-              <div className="price-unit">per lane / per hour</div>
-              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Glow Bowl every Friday</li><li>Open late Fri &amp; Sat to 2 AM</li></ul>
+            <div className="price-card" data-animate="">
+              <div className="price-day">After 5 PM &amp; Weekends</div>
+              <div className="price-amount">$5<span className="price-sub">.59</span></div>
+              <div className="price-unit">per game / per person</div>
+              <ul className="price-features"><li>All ages welcome</li><li>Shoe rental: $4.50</li><li>Glow Bowl every Friday</li><li>Open late Fri &amp; Sat to 2 AM</li></ul>
             </div>
             <div className="price-card" data-animate="">
-              <div className="price-day">Special Rates</div>
-              <div className="price-amount">$3<span className="price-sub">.25+</span></div>
-              <div className="price-unit">per game — seniors, schools &amp; leagues</div>
-              <ul className="price-features"><li>Senior game: $3.25</li><li>School special: $3.50</li><li>League game: $3.75</li><li>Shoe rental: $4.50</li></ul>
+              <div className="price-day">Lane Rental</div>
+              <div className="price-amount">$33<span className="price-sub">.99</span></div>
+              <div className="price-unit">per lane / per hour</div>
+              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Party bookings available</li><li>Open late Fri &amp; Sat to 2 AM</li></ul>
             </div>
           </div>
           <div className="pricing-perks" data-animate="">
