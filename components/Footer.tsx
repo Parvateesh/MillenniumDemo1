@@ -6,7 +6,7 @@ export default function Footer() {
     <footer>
       <div className="footer-grid">
         <div>
-          <div className="footer-brand"><Image src="/logo.png" alt="Millennium Bowl" width={190} height={56} sizes="190px" /></div>
+          <div className="footer-brand"><Image src="/logo.webp" alt="Millennium Bowl" width={190} height={56} sizes="190px" /></div>
           <p className="footer-tagline">North Little Rock&apos;s home for strikes, parties, and Friday nights since 2003.</p>
           <div className="socials">
             <a href="https://www.facebook.com/share/1FysjXKbLz/?mibextid=wwXIfr" className="social-link" title="Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">

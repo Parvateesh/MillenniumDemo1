@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description: "North Little Rock's home for strikes, parties, and Friday nights. 32 lanes · Full bar · F1 simulator · Ebonite Gold Pro Shop.",
     url: 'https://millenniumbowllr.com',
     siteName: 'Millennium Bowl',
-    images: [{ url: '/logo.png', width: 190, height: 56, alt: 'Millennium Bowl logo' }],
+    images: [{ url: '/logo.webp', width: 190, height: 56, alt: 'Millennium Bowl logo' }],
     locale: 'en_US',
     type: 'website',
   },
@@ -45,11 +45,11 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Millennium Bowl — Eat. Drink. Bowl.',
     description: "North Little Rock's home for strikes, parties, and Friday nights.",
-    images: ['/logo.png'],
+    images: ['/logo.webp'],
   },
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/logo.webp',
+    apple: '/logo.webp',
   },
   other: {
     'preconnect-ga': 'https://www.googletagmanager.com',
