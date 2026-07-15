@@ -94,12 +94,6 @@ export default function HomePage() {
               <div className="price-unit">per lane / per hour — after 5 PM</div>
               <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Glow Bowl Fridays</li><li>Late night Fri/Sat to 2 AM</li></ul>
             </div>
-            <div className="price-card" data-animate="">
-              <div className="price-day">Specials</div>
-              <div className="price-amount">10%<span className="price-sub"> off</span></div>
-              <div className="price-unit">military, first responders, students</div>
-              <ul className="price-features"><li>Active duty, retired, reserves</li><li>Police, fire, EMS</li><li>Valid student ID</li><li>Show ID at counter — every visit</li></ul>
-            </div>
           </div>
         </div>
       </section>
