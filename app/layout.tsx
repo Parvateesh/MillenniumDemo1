@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Bowlby_One, Space_Mono, Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
@@ -55,6 +56,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bowlby.variable} ${spaceMono.variable} ${inter.variable}`}>
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-HVS4SJPDDJ" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HVS4SJPDDJ');
+        `}</Script>
+      </head>
       <body>
         <AuthProvider>
           <div className="noise" />
