@@ -33,100 +33,100 @@ export default function LeaguesPage() {
             </div>
             <div className="league-row">
               <div className="league-name">Millennium 1st</div>
-              <div className="league-day">Mon · 6:30 PM</div>
+              <div className="league-day">Mon · 6:30 PM<span className="league-start-date">Starts Aug 3</span></div>
               <div>4 person</div>
-              <div><span className="league-status status-open">Aug 3</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Ball Buster</div>
-              <div className="league-day">Mon · 7:00 PM</div>
+              <div className="league-day">Mon · 7:00 PM<span className="league-start-date">Starts Aug 10</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 10</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Corps of Engineering</div>
-              <div className="league-day">Mon · 6:00 PM</div>
+              <div className="league-day">Mon · 6:00 PM<span className="league-start-date">Starts Aug 7</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 7</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Tuesday 4 League</div>
-              <div className="league-day">Tue · 9:30 AM</div>
+              <div className="league-day">Tue · 9:30 AM<span className="league-start-date">Starts Aug 11</span></div>
               <div>Ladies</div>
-              <div><span className="league-status status-open">Aug 11</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Tuesday Mixed 4 Some</div>
-              <div className="league-day">Tue · 6:30 PM</div>
+              <div className="league-day">Tue · 6:30 PM<span className="league-start-date">Starts Aug 4</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 4</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Tuesday Nite Mixed</div>
-              <div className="league-day">Tue · 6:30 PM</div>
+              <div className="league-day">Tue · 6:30 PM<span className="league-start-date">Starts Aug 4</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 4</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Lakeview Ladies</div>
-              <div className="league-day">Wed · 9:30 AM</div>
+              <div className="league-day">Wed · 9:30 AM<span className="league-start-date">Starts Aug 12</span></div>
               <div>Ladies</div>
-              <div><span className="league-status status-open">Aug 12</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Wednesday Mixed Classic</div>
-              <div className="league-day">Wed · 6:30 PM</div>
+              <div className="league-day">Wed · 6:30 PM<span className="league-start-date">Starts Aug 5</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 5</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Millennium Mixed</div>
-              <div className="league-day">Wed · 6:30 PM</div>
+              <div className="league-day">Wed · 6:30 PM<span className="league-start-date">Starts Aug 12</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 12</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Sr League</div>
-              <div className="league-day">Thu · 11:00 AM</div>
+              <div className="league-day">Thu · 11:00 AM<span className="league-start-date">Starts Aug 14</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 14</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Falcon Jet</div>
-              <div className="league-day">Thu · 6:00 PM</div>
+              <div className="league-day">Thu · 6:00 PM<span className="league-start-date">Starts Aug 7</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 7</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Roosevelt Mixed</div>
-              <div className="league-day">Thu · 6:30 PM</div>
+              <div className="league-day">Thu · 6:30 PM<span className="league-start-date">Starts Aug 6</span></div>
               <div>Any mix</div>
-              <div><span className="league-status status-open">Aug 6</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Saturday Youth</div>
-              <div className="league-day">Sat · 10:00 AM</div>
+              <div className="league-day">Sat · 10:00 AM<span className="league-start-date">Starts Sep 12</span></div>
               <div>Youth</div>
-              <div><span className="league-status status-soon">Sep 12</span></div>
+              <div><span className="league-status status-soon">Coming Soon</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
             <div className="league-row">
               <div className="league-name">Sunday Night Mixed</div>
-              <div className="league-day">Sun · 6:30 PM</div>
+              <div className="league-day">Sun · 6:30 PM<span className="league-start-date">Starts Aug 16</span></div>
               <div>3 person (1 any sex)</div>
-              <div><span className="league-status status-open">Aug 16</span></div>
+              <div><span className="league-status status-open">Open</span></div>
               <div><a className="btn-mini" href="#join">Join</a></div>
             </div>
           </div>
