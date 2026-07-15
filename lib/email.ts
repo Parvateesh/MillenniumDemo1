@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 
 const TO   = 'info@millenniumbowllr.com';
-const FROM = process.env.RESEND_FROM_EMAIL ?? 'Millennium Bowl <onboarding@resend.dev>';
+const FROM = process.env.RESEND_FROM_EMAIL ?? 'Millennium Bowl <info@millenniumbowllr.com>';
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
