@@ -18,31 +18,23 @@ export default function PartiesPage() {
         <div className="container">
           <div className="section-eyebrow">Pick Your Package</div>
           <h2 className="section-title">Birthday <span className="accent">Packages</span></h2>
-          <p className="section-lede">Three tiers, all with bowling, shoes, food, and a dedicated party host. Add-ons: glow bowl, F1 simulator, arcade cards, custom cake.</p>
+          <p className="section-lede">Two packages to choose from. $25 deposit required to hold your date. Extra guests welcome — just $11.99 or $13.99 per additional person.</p>
           <div className="event-types">
             <div className="event-card" data-animate="">
-              <div className="event-card-bg">B</div>
-              <span className="event-tag">Bronze</span>
-              <h3>Strike Package</h3>
-              <div className="event-price">$179 / 8 kids</div>
-              <ul className="event-includes"><li>2 lanes for 90 minutes</li><li>Shoe rental for everyone</li><li>1 large pizza + drinks</li><li>Reserved party table</li><li>Dedicated party host</li></ul>
-              <Link className="btn btn-secondary" href="/book">Reserve →</Link>
+              <div className="event-card-bg">S</div>
+              <span className="event-tag">Package 1</span>
+              <h3>Spare Package</h3>
+              <div className="event-price">$240</div>
+              <ul className="event-includes"><li>Lanes + bowling included</li><li>Extra person: $11.99 each</li><li>$25 deposit to reserve</li></ul>
+              <Link className="btn btn-secondary" href="/contact">Reserve →</Link>
             </div>
             <div className="event-card featured" data-animate="">
               <div className="event-card-bg featured">S</div>
-              <span className="event-tag featured">Silver — Most Popular</span>
-              <h3>Spare Package</h3>
-              <div className="event-price">$249 / 12 kids</div>
-              <ul className="event-includes"><li>3 lanes for 2 hours</li><li>Shoe rental for everyone</li><li>2 large pizzas + unlimited drinks</li><li>Arcade game card ($5/kid)</li><li>Reserved party room</li><li>Goodie bags</li></ul>
-              <Link className="btn btn-primary" href="/book" data-confetti="">Reserve →</Link>
-            </div>
-            <div className="event-card" data-animate="">
-              <div className="event-card-bg">G</div>
-              <span className="event-tag">Gold</span>
-              <h3>Turkey Package</h3>
-              <div className="event-price">$399 / 16 kids</div>
-              <ul className="event-includes"><li>4 lanes for 2.5 hours</li><li>Shoe rental for everyone</li><li>3 large pizzas + unlimited drinks</li><li>Arcade card ($10/kid) + F1 sim slot</li><li>Private party room</li><li>Custom birthday cake included</li><li>Goodie bags + party favors</li></ul>
-              <Link className="btn btn-secondary" href="/book">Reserve →</Link>
+              <span className="event-tag featured">Package 2</span>
+              <h3>Strike Package</h3>
+              <div className="event-price">$280</div>
+              <ul className="event-includes"><li>Lanes + bowling included</li><li>Extra person: $13.99 each</li><li>$25 deposit to reserve</li></ul>
+              <Link className="btn btn-primary" href="/contact" data-confetti="">Reserve →</Link>
             </div>
           </div>
 

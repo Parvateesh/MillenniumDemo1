@@ -21,8 +21,8 @@ export default function HomePage() {
           <p className="lede">32 lanes. A full bar. Arcade games. F1 simulator. The only Ebonite Gold pro shop in central Arkansas. North Little Rock&apos;s home for Friday nights, kids&apos; birthdays, and corporate parties since 2003.</p>
           <div className="hero-deal-badge">
             <span className="hero-deal-dot" />
-            <span>$2.99 per game every Tuesday &amp; Sunday — all day, walk-ins welcome</span>
-            <span className="hero-deal-price">$2.99</span>
+            <span>Group rate $4.00/game — seniors from $3.25, schools $3.50, leagues $3.75</span>
+            <span className="hero-deal-price">$4.00</span>
           </div>
           <div className="hero-ctas">
             <Link className="btn btn-primary" href="/book">Book a Lane <span className="btn-arrow">→</span></Link>
@@ -73,26 +73,26 @@ export default function HomePage() {
       <section className="block pricing-section">
         <div className="container">
           <div className="section-eyebrow">Honest Pricing</div>
-          <h2 className="section-title">Roll For As Little As <span className="accent">$2.99</span></h2>
+          <h2 className="section-title">Roll For As Little As <span className="accent">$3.25</span></h2>
           <p className="section-lede">No hidden fees. No surge pricing. What you see is what you pay.</p>
           <div className="pricing-grid">
             <div className="price-card featured" data-animate="">
-              <div className="price-day">Tuesday + Sunday</div>
-              <div className="price-amount">$2.99</div>
-              <div className="price-unit">per game / per person — all day</div>
-              <ul className="price-features"><li>Shoe rental: $2.99</li><li>All ages welcome</li><li>No reservation needed</li><li>Walk-in priority</li></ul>
+              <div className="price-day">Group Rate</div>
+              <div className="price-amount">$4<span className="price-sub">.00</span></div>
+              <div className="price-unit">per game / per person</div>
+              <ul className="price-features"><li>Best deal for groups</li><li>All ages welcome</li><li>Shoe rental: $2.99</li><li>Socks available: $5.99</li></ul>
             </div>
             <div className="price-card" data-animate="">
-              <div className="price-day">Mon — Fri / Daytime</div>
-              <div className="price-amount">$24<span className="price-sub">.99</span></div>
-              <div className="price-unit">per lane / per hour — 9 AM to 5 PM</div>
-              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Senior Strikes: $5/game Tue/Thu AM</li><li>Homeschool PE: Wed mornings</li></ul>
+              <div className="price-day">Evening Rate</div>
+              <div className="price-amount">$5<span className="price-sub">.59</span></div>
+              <div className="price-unit">per game — Mon, Wed &amp; Thu after 5 PM</div>
+              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $2.99</li><li>Glow Bowl Fridays</li><li>Late night Fri/Sat to 2 AM</li></ul>
             </div>
             <div className="price-card" data-animate="">
-              <div className="price-day">Evenings + Weekends</div>
-              <div className="price-amount">$33<span className="price-sub">.99</span></div>
-              <div className="price-unit">per lane / per hour — after 5 PM</div>
-              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Glow Bowl Fridays</li><li>Late night Fri/Sat to 2 AM</li></ul>
+              <div className="price-day">Special Rates</div>
+              <div className="price-amount">$3<span className="price-sub">.25+</span></div>
+              <div className="price-unit">per game — seniors, schools &amp; leagues</div>
+              <ul className="price-features"><li>Senior game: $3.25</li><li>School special: $3.50</li><li>League game: $3.75</li><li>Shoe rental: $2.99</li></ul>
             </div>
           </div>
         </div>

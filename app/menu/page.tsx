@@ -4,24 +4,20 @@ import { useState } from 'react';
 import { allMenuItems } from '@/lib/menu-data';
 import OrderButton from '@/components/OrderButton';
 
-type Category = 'all' | 'pizza' | 'apps' | 'mains' | 'drinks' | 'kitchen' | 'bar';
-
-const kitchenCats = ['pizza', 'apps', 'mains'];
+type Category = 'all' | 'pizza' | 'apps' | 'salads' | 'mains' | 'basket' | 'drinks';
 
 function isVisible(itemCat: string, activeCat: Category) {
   if (activeCat === 'all') return true;
-  if (activeCat === 'kitchen') return kitchenCats.includes(itemCat);
-  if (activeCat === 'bar') return itemCat === 'drinks';
   return activeCat === itemCat;
 }
 
 const tabs: { label: string; cat: Category }[] = [
   { label: 'Everything', cat: 'all' },
-  { label: '🍕 Kitchen', cat: 'kitchen' },
-  { label: '🍺 Bar', cat: 'bar' },
+  { label: 'Appetizers', cat: 'apps' },
+  { label: 'Salads', cat: 'salads' },
+  { label: 'Entrees', cat: 'mains' },
+  { label: 'Basket', cat: 'basket' },
   { label: 'Pizza', cat: 'pizza' },
-  { label: 'Starters', cat: 'apps' },
-  { label: 'Mains', cat: 'mains' },
   { label: 'Drinks', cat: 'drinks' },
 ];
 
