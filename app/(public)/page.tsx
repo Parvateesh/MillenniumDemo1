@@ -24,7 +24,7 @@ export default function HomePage() {
             <span className="hero-deal-price">$2.99</span>
           </div>
           <div className="hero-ctas">
-            <Link className="btn btn-primary" href="/book">Book a Lane <span className="btn-arrow">→</span></Link>
+            <a className="btn btn-primary" href="tel:5017919150">Call to Reserve <span className="btn-arrow">→</span></a>
             <Link className="btn btn-secondary" href="/menu">View Menu <span className="btn-arrow">→</span></Link>
             <Link className="btn btn-ghost" href="/parties">Plan a Party</Link>
           </div>

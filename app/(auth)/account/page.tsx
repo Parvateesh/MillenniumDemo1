@@ -28,11 +28,6 @@ export default function AccountPage() {
       <section className="block">
         <div className="container">
           <div className="account-grid">
-            <Link href="/book" className="account-card">
-              <div className="account-card-icon">🎳</div>
-              <div className="account-card-title">Book a Lane</div>
-              <div className="account-card-desc">Reserve lanes for your group, party, or league night.</div>
-            </Link>
             <Link href="/account/reservations" className="account-card">
               <div className="account-card-icon">📅</div>
               <div className="account-card-title">My Reservations</div>

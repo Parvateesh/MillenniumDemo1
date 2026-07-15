@@ -86,7 +86,7 @@ export default function AboutPage() {
                 <li><span className="day">Sunday</span><span>10 AM – 12 AM</span></li>
               </ul>
               <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link className="btn btn-primary" href="/book">Book a Lane <span className="btn-arrow">→</span></Link>
+                <a className="btn btn-primary" href="tel:5017919150">Call Us <span className="btn-arrow">→</span></a>
                 <Link className="btn btn-ghost" href="/contact">Get in Touch</Link>
               </div>
             </div>

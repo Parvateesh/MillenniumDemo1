@@ -38,7 +38,7 @@ export default function Footer() {
             <li><Link href="/parties">Birthday Parties</Link></li>
             <li><Link href="/parties">Corporate Events</Link></li>
             <li><Link href="/leagues">Leagues</Link></li>
-            <li><Link href="/book">Book a Lane</Link></li>
+            <li><Link href="/contact">Contact Us</Link></li>
           </ul>
         </div>
         <div className="footer-col">

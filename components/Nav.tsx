@@ -143,9 +143,6 @@ export default function Nav({ user = null }: { user?: NavUser | null }) {
                 <Link href="/login" className="nav-signin">Sign In</Link>
               )}
             </li>
-            <li>
-              <Link className="nav-cta" href="/book">🎳 Book Now</Link>
-            </li>
           </ul>
         </div>
       </nav>

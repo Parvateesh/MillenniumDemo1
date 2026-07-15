@@ -37,6 +37,8 @@ const nextConfig: NextConfig = {
       { source: '/bowling/',          destination: '/',        permanent: true },
       { source: '/order',             destination: '/menu',    permanent: true },
       { source: '/order/',            destination: '/menu',    permanent: true },
+      { source: '/book',              destination: '/contact', permanent: true },
+      { source: '/book/',             destination: '/contact', permanent: true },
     ];
   },
 };
