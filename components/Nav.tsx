@@ -4,11 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-interface NavUser {
-  displayName?: string | null;
-  email?: string | null;
-}
-
 const links = [
   { href: '/', label: 'Home' },
   { href: '/menu', label: 'Menu' },
@@ -20,7 +15,7 @@ const links = [
   { href: '/contact', label: 'Contact' },
 ];
 
-export default function Nav({ user = null }: { user?: NavUser | null }) {
+export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [glowOn, setGlowOn] = useState(false);
@@ -129,19 +124,6 @@ export default function Nav({ user = null }: { user?: NavUser | null }) {
                   </span>
                 </button>
               </div>
-            </li>
-            <li>
-              {user ? (
-                <Link
-                  href="/account"
-                  className="nav-account"
-                  title={user.email ?? 'My Account'}
-                >
-                  {user.displayName ? user.displayName.split(' ')[0] : '👤 Account'}
-                </Link>
-              ) : (
-                <Link href="/login" className="nav-signin">Sign In</Link>
-              )}
             </li>
           </ul>
         </div>
