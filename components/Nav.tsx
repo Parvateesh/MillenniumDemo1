@@ -5,12 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 const links = [
-  { href: '/', label: 'Home' },
+  { href: '/events', label: 'Events' },
   { href: '/menu', label: 'Menu' },
   { href: '/parties', label: 'Parties' },
   { href: '/leagues', label: 'Leagues' },
   { href: '/proshop', label: 'Pro Shop' },
-  { href: '/events', label: 'Events' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
