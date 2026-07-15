@@ -1,9 +1,11 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO   = 'info@millenniumbowllr.com';
 const FROM = process.env.RESEND_FROM_EMAIL ?? 'Millennium Bowl <onboarding@resend.dev>';
+
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 type Fields = Record<string, string | number | boolean | null | undefined>;
 
@@ -33,7 +35,7 @@ function wrap(title: string, body: string) {
 export async function sendContactNotification(fields: {
   name: string; email: string; phone?: string; message: string;
 }) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: TO,
     subject: `New Contact Form — ${fields.name}`,
@@ -50,7 +52,7 @@ export async function sendLeagueNotification(fields: {
   name: string; email: string; phone?: string;
   skill?: string; nights?: string; teamPref?: string;
 }) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: TO,
     subject: `New League Interest — ${fields.name}`,
@@ -68,7 +70,7 @@ export async function sendLeagueNotification(fields: {
 export async function sendWaitlistNotification(fields: {
   name: string; email: string;
 }) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: TO,
     subject: `New Lane Waitlist Signup — ${fields.name}`,
