@@ -135,34 +135,6 @@ export default function LeaguesPage() {
         </div>
       </section>
 
-      {/* Live Leaderboard — coming soon */}
-      <section className="block" style={{ paddingTop: '2rem' }}>
-        <div className="container">
-          <div className="section-eyebrow">Season Standings</div>
-          <h2 className="section-title">Who&apos;s <span className="accent">On Top</span></h2>
-          <p className="section-lede">Live standings updated every week after league play. See your team climb the board.</p>
-          <div className="coming-soon-block" data-animate="">
-            <div className="coming-soon-icon">🏆</div>
-            <div className="coming-soon-label">Coming Soon</div>
-            <p className="coming-soon-desc">2026/2027 Season standings will appear here once the season kicks off. Check back after the first week of play.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Tournament Bracket — coming soon */}
-      <section className="block" style={{ paddingTop: '2rem' }}>
-        <div className="container">
-          <div className="section-eyebrow">Tournament 2026/2027</div>
-          <h2 className="section-title">The <span className="accent">Bracket</span></h2>
-          <p className="section-lede">Single elimination. 8 teams. Prize pool. One champion.</p>
-          <div className="coming-soon-block" data-animate="">
-            <div className="coming-soon-icon">🏅</div>
-            <div className="coming-soon-label">Coming Soon</div>
-            <p className="coming-soon-desc">The tournament bracket will be posted here once the season is underway and teams are registered.</p>
-          </div>
-        </div>
-      </section>
-
       {/* Join a League form */}
       <section className="block" id="join" style={{ paddingTop: '2rem' }}>
         <div className="container">
