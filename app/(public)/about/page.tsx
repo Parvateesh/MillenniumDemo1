@@ -37,58 +37,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Hours + Contact */}
+      {/* CTA */}
       <section className="block" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="section-eyebrow">Visit Us</div>
-          <h2 className="section-title">Find Us in <span className="accent">North Little Rock</span></h2>
-          <div className="contact-grid">
-            <div className="contact-info">
-              <div className="contact-item" data-animate="">
-                <span className="contact-icon">📍</span>
-                <div>
-                  <div className="contact-label">Address</div>
-                  <div className="contact-value">
-                    <a href="https://maps.google.com/?q=7200+Counts+Massie+Rd,+North+Little+Rock,+AR+72113" target="_blank" rel="noopener noreferrer">
-                      7200 Counts Massie Rd<br />North Little Rock, AR 72113
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="contact-item" data-animate="">
-                <span className="contact-icon">📞</span>
-                <div>
-                  <div className="contact-label">Phone</div>
-                  <div className="contact-value"><a href="tel:5017919150">(501) 791-9150</a></div>
-                </div>
-              </div>
-              <div className="contact-item" data-animate="">
-                <span className="contact-icon">✉️</span>
-                <div>
-                  <div className="contact-label">Email</div>
-                  <div className="contact-value"><a href="mailto:info@millenniumbowllr.com">info@millenniumbowllr.com</a></div>
-                </div>
-              </div>
-              <div className="contact-item" data-animate="">
-                <span className="contact-icon">🏆</span>
-                <div>
-                  <div className="contact-label">Pro Shop — Bowl 101</div>
-                  <div className="contact-value"><a href="tel:5013532749">(501) 353-2749</a></div>
-                </div>
-              </div>
+          <div className="events-notify-inner" data-animate="">
+            <div>
+              <h3 className="section-title" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.5rem)', marginBottom: '0.75rem' }}>
+                Come <span className="accent">Bowl With Us</span>
+              </h3>
+              <p style={{ color: 'var(--text-dim)', maxWidth: '480px', lineHeight: 1.6 }}>
+                Off the Maumelle exit in North Little Rock. Open 7 days a week — walk-ins always welcome.
+              </p>
             </div>
-
-            <div data-animate="">
-              <ul className="hours-list">
-                <li><span className="day">Mon – Thu</span><span>9 AM – 12 AM</span></li>
-                <li><span className="day">Friday</span><span>9 AM – 2 AM</span></li>
-                <li><span className="day">Saturday</span><span>9 AM – 2 AM</span></li>
-                <li><span className="day">Sunday</span><span>10 AM – 12 AM</span></li>
-              </ul>
-              <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <a className="btn btn-primary" href="tel:5017919150">Call Us <span className="btn-arrow">→</span></a>
-                <Link className="btn btn-ghost" href="/contact">Get in Touch</Link>
-              </div>
+            <div className="events-notify-actions">
+              <Link className="btn btn-primary" href="/contact">Get in Touch <span className="btn-arrow">→</span></Link>
+              <a className="btn btn-ghost" href="https://maps.google.com/?q=7200+Counts+Massie+Rd,+North+Little+Rock,+AR+72113" target="_blank" rel="noopener noreferrer">Get Directions</a>
             </div>
           </div>
         </div>
