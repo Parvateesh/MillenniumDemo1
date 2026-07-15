@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import '@/css/admin.css';
 
 const navItems = [
   { href: '/admin', label: '🏠 Dashboard', exact: true },

@@ -51,21 +51,27 @@ export const metadata: Metadata = {
     icon: '/logo.png',
     apple: '/logo.png',
   },
+  other: {
+    'preconnect-ga': 'https://www.googletagmanager.com',
+    'preconnect-ga2': 'https://www.google-analytics.com',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bowlby.variable} ${spaceMono.variable} ${inter.variable}`}>
       <head>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-HVS4SJPDDJ" strategy="afterInteractive" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+      </head>
+      <body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-HVS4SJPDDJ" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-HVS4SJPDDJ');
         `}</Script>
-      </head>
-      <body>
         <AuthProvider>
           <div className="noise" />
           <Nav />
