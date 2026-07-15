@@ -69,7 +69,7 @@ export default function Nav({ user = null }: { user?: NavUser | null }) {
     <>
       <nav className="nav">
         <div className="nav-inner">
-          <Link className="logo" href="/"><Image src="/logo.webp" alt="Millennium Bowl" width={160} height={48} sizes="160px" priority /></Link>
+          <Link className="logo" href="/"><Image src="/logo.webp" alt="Millennium Bowl" width={160} height={48} sizes="160px" loading="eager" /></Link>
           <button
             className="mobile-toggle"
             id="mobileToggle"

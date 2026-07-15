@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Bowlby_One, Space_Mono, Inter } from 'next/font/google';
+import { Bowlby_One, Space_Mono } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 
@@ -15,12 +15,6 @@ const spaceMono = Space_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-space-mono',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -51,11 +45,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bowlby.variable} ${spaceMono.variable} ${inter.variable}`}>
+    <html lang="en" className={`${bowlby.variable} ${spaceMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preload" as="image" href="/logo.webp" fetchPriority="high" />
       </head>
       <body>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-HVS4SJPDDJ" strategy="afterInteractive" />

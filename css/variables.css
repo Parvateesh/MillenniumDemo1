@@ -13,7 +13,7 @@
   --transition: all 0.3s ease;
 
   /* Font family fallbacks — overridden by next/font CSS vars at runtime */
-  --font-inter: 'Inter', sans-serif;
+  --font-inter: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-space-mono: 'Space Mono', monospace;
   --font-bowlby: 'Bowlby One', cursive;
 
