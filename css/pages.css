@@ -1859,6 +1859,21 @@
   .menu-tab { padding: 0.6rem 1rem; font-size: 0.8rem; }
 }
 
+@media (max-width: 600px) {
+  .contact-form { padding: 1.5rem; }
+  .booking-preview { padding: 1.5rem; }
+  .booking-card { padding: 1.5rem 1.25rem; }
+  .contact-item { padding: 1.1rem; gap: 0.9rem; }
+  .contact-icon { font-size: 1.4rem; }
+  .about-stat-num { font-size: 2rem; }
+  .league-form-wrap { padding: 1.5rem; }
+  .book-cta-title { font-size: clamp(1.7rem, 6vw, 2.8rem); }
+  .book-lane-section { padding: 4rem 1.2rem; }
+  .events-notify-inner { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+  .events-notify-actions { width: 100%; }
+  .events-notify-actions .btn { width: 100%; justify-content: center; }
+}
+
 /* ── Legal pages (Privacy / Terms) ── */
 .legal-section {
   margin-bottom: 2.5rem;

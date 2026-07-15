@@ -379,6 +379,18 @@ section.block {
   .order-item-grid { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 600px) {
+  section.block { padding: 3.5rem 1.2rem; }
+  .section-lede { font-size: 1rem; margin-bottom: 2.5rem; }
+  .experiences,
+  .pricing-grid,
+  .reviews-grid,
+  .event-types { grid-template-columns: 1fr; }
+  .price-card.featured { transform: none; }
+  .pricing-perks { padding: 1.25rem; gap: 0.75rem 1rem; }
+  .section-title { font-size: clamp(1.8rem, 7vw, 3rem); }
+}
+
 /* Failsafe for small phones — force single column so grids never overflow */
 @media (max-width: 480px) {
   section.block { padding: 3rem 1.2rem; }
