@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import StrikeEngine from '@/components/StrikeEngine';
-import TournamentBracket from '@/components/TournamentBracket';
 import LeagueSignupForm from '@/components/LeagueSignupForm';
 
 export const metadata = {
@@ -150,13 +149,17 @@ export default function LeaguesPage() {
         </div>
       </section>
 
-      {/* Tournament Bracket */}
+      {/* Tournament Bracket — coming soon */}
       <section className="block" style={{ paddingTop: '2rem' }}>
         <div className="container">
-          <div className="section-eyebrow">Summer Tournament 2026</div>
+          <div className="section-eyebrow">Tournament 2026/2027</div>
           <h2 className="section-title">The <span className="accent">Bracket</span></h2>
-          <p className="section-lede">Single elimination. 8 teams. $1,800 prize pool. One champion.</p>
-          <TournamentBracket />
+          <p className="section-lede">Single elimination. 8 teams. Prize pool. One champion.</p>
+          <div className="coming-soon-block" data-animate="">
+            <div className="coming-soon-icon">🏅</div>
+            <div className="coming-soon-label">Coming Soon</div>
+            <p className="coming-soon-desc">The tournament bracket will be posted here once the season is underway and teams are registered.</p>
+          </div>
         </div>
       </section>
 
