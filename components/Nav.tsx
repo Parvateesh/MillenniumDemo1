@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 const links = [
+  { href: '/', label: 'Home' },
   { href: '/events', label: 'Events' },
   { href: '/menu', label: 'Menu' },
   { href: '/parties', label: 'Parties' },
