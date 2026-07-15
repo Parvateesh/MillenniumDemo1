@@ -80,20 +80,26 @@ export default function HomePage() {
               <div className="price-day">Tuesday + Sunday</div>
               <div className="price-amount">$2.99</div>
               <div className="price-unit">per game / per person — all day</div>
-              <ul className="price-features"><li>Shoe rental: $2.99</li><li>All ages welcome</li><li>No reservation needed</li><li>Walk-in priority</li></ul>
+              <ul className="price-features"><li>All skill levels welcome</li><li>Shoe rental: $4.50</li><li>No reservation needed</li><li>Walk-in priority</li></ul>
             </div>
-            <div className="price-card" data-animate="">
-              <div className="price-day">Evening Rate</div>
-              <div className="price-amount">$5<span className="price-sub">.59</span></div>
-              <div className="price-unit">per game — Mon, Wed &amp; Thu after 5 PM</div>
-              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $2.99</li><li>Glow Bowl Fridays</li><li>Late night Fri/Sat to 2 AM</li></ul>
+            <div className="price-card featured" data-animate="">
+              <div className="price-day">Fri 5 PM – Close · Sat All Day</div>
+              <div className="price-amount">$33<span className="price-sub">.99</span></div>
+              <div className="price-unit">per lane / per hour</div>
+              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Glow Bowl every Friday</li><li>Open late Fri &amp; Sat to 2 AM</li></ul>
             </div>
             <div className="price-card" data-animate="">
               <div className="price-day">Special Rates</div>
               <div className="price-amount">$3<span className="price-sub">.25+</span></div>
               <div className="price-unit">per game — seniors, schools &amp; leagues</div>
-              <ul className="price-features"><li>Senior game: $3.25</li><li>School special: $3.50</li><li>League game: $3.75</li><li>Shoe rental: $2.99</li></ul>
+              <ul className="price-features"><li>Senior game: $3.25</li><li>School special: $3.50</li><li>League game: $3.75</li><li>Shoe rental: $4.50</li></ul>
             </div>
+          </div>
+          <div className="pricing-perks" data-animate="">
+            <div className="pricing-perk"><span>🎳</span> All skill levels welcome — beginner to pro</div>
+            <div className="pricing-perk"><span>🍕</span> Snack bar with pizza, drinks, and more</div>
+            <div className="pricing-perk"><span>🎉</span> Party bookings for birthdays &amp; events</div>
+            <div className="pricing-perk"><span>👟</span> Shoe rental $4.50</div>
           </div>
         </div>
       </section>

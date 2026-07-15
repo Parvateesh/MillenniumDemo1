@@ -398,6 +398,24 @@ section.block {
 /* ── Pricing ── */
 .price-sub { font-size: 1.5rem; }
 .pricing-section { background: linear-gradient(180deg,transparent,rgba(157,78,221,0.05)); }
+.pricing-perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.pricing-perk {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+.pricing-perk span { font-size: 1.1rem; }
 
 /* ── Event card featured (replacing inline styles) ── */
 .event-card.featured { border-color: var(--neon-pink); box-shadow: 0 0 30px rgba(255,46,147,0.2); }
