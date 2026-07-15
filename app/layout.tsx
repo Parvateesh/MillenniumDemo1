@@ -2,10 +2,6 @@ import type { Metadata } from 'next';
 import { Bowlby_One, Space_Mono, Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
-import AnimationsProvider from '@/components/AnimationsProvider';
-import { AuthProvider } from '@/lib/auth-context';
 
 const bowlby = Bowlby_One({
   weight: '400',
@@ -51,10 +47,6 @@ export const metadata: Metadata = {
     icon: '/logo.webp',
     apple: '/logo.webp',
   },
-  other: {
-    'preconnect-ga': 'https://www.googletagmanager.com',
-    'preconnect-ga2': 'https://www.google-analytics.com',
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -73,13 +65,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('js', new Date());
           gtag('config', 'G-HVS4SJPDDJ');
         `}</Script>
-        <AuthProvider>
-          <div className="noise" />
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-          <AnimationsProvider />
-        </AuthProvider>
+        <div className="noise" />
+        {children}
       </body>
     </html>
   );

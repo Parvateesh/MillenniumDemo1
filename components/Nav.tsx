@@ -4,7 +4,10 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useAuth } from '@/lib/auth-context';
+interface NavUser {
+  displayName?: string | null;
+  email?: string | null;
+}
 
 const links = [
   { href: '/', label: 'Home' },
@@ -17,11 +20,10 @@ const links = [
   { href: '/contact', label: 'Contact' },
 ];
 
-export default function Nav() {
+export default function Nav({ user = null }: { user?: NavUser | null }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [glowOn, setGlowOn] = useState(false);
-  const { user } = useAuth();
 
   function openNav() {
     setMenuOpen(true);
