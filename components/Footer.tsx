@@ -48,6 +48,8 @@ export default function Footer() {
             <li><a href="tel:5017919150">(501) 791-9150</a></li>
             <li><a href="mailto:info@millenniumbowllr.com">Email</a></li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=7200+Counts+Massie+Rd+North+Little+Rock+AR+72113" target="_blank" rel="noopener noreferrer">Directions</a></li>
+            <li><Link href="/privacy">Privacy Policy</Link></li>
+            <li><Link href="/terms">Terms of Service</Link></li>
           </ul>
         </div>
       </div>

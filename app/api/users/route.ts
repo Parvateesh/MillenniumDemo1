@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { uid, email, name } = await req.json();
+    const { uid, email, name, marketingConsent, marketingConsentAt } = await req.json();
 
     // Secure check: ensure users can only register/modify their own database profile
     if (uid !== decoded.uid) {
@@ -41,6 +41,8 @@ export async function POST(req: NextRequest) {
     if (!doc.exists) {
       await userRef.set({
         ...dataToSave,
+        marketingConsent: marketingConsent ?? false,
+        marketingConsentAt: marketingConsentAt || new Date().toISOString(),
         createdAt: new Date().toISOString(),
       });
       console.log(`[api/users] Created new Firestore profile for user: ${uid}`);

@@ -17,10 +17,11 @@ function SignupForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState<'email' | 'google' | null>(null);
 
-  async function syncUserFirestore(user: any, nameOverride?: string) {
+  async function syncUserFirestore(user: any, nameOverride?: string, consent?: boolean) {
     try {
       const token = await user.getIdToken();
       await fetch('/api/users', {
@@ -33,6 +34,8 @@ function SignupForm() {
           uid: user.uid,
           email: user.email,
           name: nameOverride || user.displayName || '',
+          marketingConsent: consent ?? false,
+          marketingConsentAt: new Date().toISOString(),
         }),
       });
     } catch (e) {
@@ -47,7 +50,7 @@ function SignupForm() {
     try {
       const cred = await createUserWithEmailAndPassword(clientAuth, email, password);
       if (name) await updateProfile(cred.user, { displayName: name });
-      await syncUserFirestore(cred.user, name);
+      await syncUserFirestore(cred.user, name, marketingConsent);
       router.push(redirect);
     } catch (err: unknown) {
       const code = (err as { code?: string }).code;
@@ -64,7 +67,7 @@ function SignupForm() {
     setLoading('google');
     try {
       const cred = await signInWithPopup(clientAuth, googleProvider);
-      await syncUserFirestore(cred.user);
+      await syncUserFirestore(cred.user, undefined, marketingConsent);
       router.push(redirect);
     } catch (err: unknown) {
       const code = (err as { code?: string }).code;
@@ -157,6 +160,17 @@ function SignupForm() {
             </div>
           </div>
           {error && <p className="auth-error">{error}</p>}
+          <div className="consent-row">
+            <input
+              type="checkbox"
+              id="marketingConsent"
+              checked={marketingConsent}
+              onChange={e => setMarketingConsent(e.target.checked)}
+            />
+            <label className="consent-label" htmlFor="marketingConsent">
+              Yes, send me deals, events, and offers from Millennium Bowl by email and text. Msg &amp; data rates may apply. Reply STOP to unsubscribe.
+            </label>
+          </div>
           <button
             type="submit"
             className="btn btn-primary"
@@ -165,6 +179,11 @@ function SignupForm() {
           >
             {loading === 'email' ? 'Creating account…' : 'Create Account →'}
           </button>
+          <p className="auth-legal">
+            By creating an account you agree to our{' '}
+            <Link href="/terms">Terms of Service</Link> and{' '}
+            <Link href="/privacy">Privacy Policy</Link>.
+          </p>
         </form>
 
         <p className="auth-switch">
