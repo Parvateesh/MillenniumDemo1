@@ -3,13 +3,15 @@
 import { useState } from 'react';
 import { foodItems } from '@/lib/menu-data';
 
-type FoodCat = 'all' | 'pizza' | 'apps' | 'mains';
+type FoodCat = 'all' | 'pizza' | 'apps' | 'salads' | 'mains' | 'basket';
 
 const tabs: { label: string; cat: FoodCat }[] = [
   { label: 'Everything', cat: 'all' },
-  { label: 'Pizza', cat: 'pizza' },
   { label: 'Appetizers', cat: 'apps' },
-  { label: 'Mains', cat: 'mains' },
+  { label: 'Salads', cat: 'salads' },
+  { label: 'Entrees', cat: 'mains' },
+  { label: 'Basket', cat: 'basket' },
+  { label: 'Pizza', cat: 'pizza' },
 ];
 
 export default function KitchenPage() {
@@ -62,7 +64,7 @@ export default function KitchenPage() {
                 <div className="order-cta-sub">Order online and pick up at the counter — no waiting in line.</div>
               </div>
             </div>
-            <a href="/order" className="btn btn-primary">Order Now →</a>
+            <a href="https://millenniumbowl.square.site" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Order Now →</a>
           </div>
         </div>
       </section>

@@ -3,7 +3,8 @@ import StrikeEngine from '@/components/StrikeEngine';
 import LeagueSignupForm from '@/components/LeagueSignupForm';
 
 export const metadata = {
-  title: 'Leagues — Millennium Bowl',
+  title: 'Leagues — Millennium Bowl | North Little Rock, AR',
+  description: 'Join a bowling league at Millennium Bowl. 14 leagues across all skill levels — Monday through Sunday. League members get pro shop discounts and priority lane access.',
 };
 
 export default function LeaguesPage() {
@@ -13,7 +14,7 @@ export default function LeaguesPage() {
         <div className="hero-content">
           <span className="hero-tag">Leagues + Tournaments</span>
           <h1><span className="word">Roll</span> <span className="word">With</span> <span className="word">Us.</span></h1>
-          <p className="lede">Whether you&apos;ve never bowled a real game or you&apos;re carrying a 200 average, we&apos;ve got a league for you. Friendly competition, prize pools, and a community that&apos;s been bowling together for 22 years.</p>
+          <p className="lede">Whether you&apos;ve never bowled a real game or you&apos;re carrying a 200 average, we&apos;ve got a league for you. Friendly competition, prize pools, and a community that&apos;s been bowling together for 23 years.</p>
         </div>
       </section>
 
@@ -21,7 +22,7 @@ export default function LeaguesPage() {
       <section className="block">
         <div className="container">
           <div className="section-eyebrow">Current Leagues</div>
-          <h2 className="section-title">2026/2027 Winter <span className="accent">Season</span></h2>
+          <h2 className="section-title">Fall 2026 <span className="accent">Season</span></h2>
           <p className="section-lede">Sign up at the front desk or use the form below. League members get pro shop discounts and priority lane access during prime time.</p>
           <div className="league-table" data-animate="">
             <div className="league-row header">
@@ -150,7 +151,7 @@ export default function LeaguesPage() {
               <div className="league-perk"><span className="league-perk-icon">🏆</span><div><strong>Season prize pools</strong><p>Cash payouts at the end of each season for top teams.</p></div></div>
               <div className="league-perk"><span className="league-perk-icon">🛒</span><div><strong>Pro shop discount</strong><p>10% off everything at Bowl 101 for active league members.</p></div></div>
               <div className="league-perk"><span className="league-perk-icon">📈</span><div><strong>Track your average</strong><p>Your handicap is tracked and updated every week.</p></div></div>
-              <div className="league-perk"><span className="league-perk-icon">🤝</span><div><strong>Community</strong><p>Same lanes, same faces, 22+ years of Friday night legends.</p></div></div>
+              <div className="league-perk"><span className="league-perk-icon">🤝</span><div><strong>Community</strong><p>Same lanes, same faces, 23+ years of Friday night legends.</p></div></div>
             </div>
 
             {/* Form */}

@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Parties & Events — Millennium Bowl',
+  title: 'Parties & Events — Millennium Bowl | North Little Rock, AR',
+  description: 'Birthday parties and corporate events at Millennium Bowl. Packages from $179. 32 lanes, full catering, setup included — you just bring the people.',
 };
 
 export default function PartiesPage() {

@@ -131,7 +131,7 @@ export default function AnimationsProvider() {
 
       setTimeout(() => {
         pin.classList.remove('struck');
-        pin.style.opacity = '0.18';
+        pin.style.opacity = '';
         pin.style.animationPlayState = 'running';
       }, 600);
     }

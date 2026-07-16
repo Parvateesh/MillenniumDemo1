@@ -111,7 +111,7 @@ export default function LeagueSignupForm() {
           </div>
         </div>
       </div>
-      {errMsg && <p className="admin-error">{errMsg}</p>}
+      {errMsg && <p className="form-error">{errMsg}</p>}
       <button
         ref={btnRef}
         type="submit"

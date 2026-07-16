@@ -36,7 +36,6 @@ export default function Nav() {
   useEffect(() => {
     if (glowOn) {
       document.body.classList.add('glow-mode');
-      showToast("🪩 Glow Bowl Mode ON — It's Friday Night!");
     } else {
       document.body.classList.remove('glow-mode');
     }

@@ -30,7 +30,7 @@ export default function HomePage() {
           </div>
           <div className="hero-stats">
             <div><div className="hero-stat-num" data-count="32">0</div><div className="hero-stat-label">Lanes</div></div>
-            <div><div className="hero-stat-num" data-count="22">0</div><div className="hero-stat-label">Years Strong</div></div>
+            <div><div className="hero-stat-num" data-count="23">0</div><div className="hero-stat-label">Years Strong</div></div>
             <div><div className="hero-stat-num" data-count="4.2" data-suffix="★">0</div><div className="hero-stat-label">1,076 Reviews</div></div>
             <div><div className="hero-stat-num">2 AM</div><div className="hero-stat-label">Fri/Sat Late</div></div>
           </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
         <div className="container">
           <div className="section-eyebrow">Loved By Locals</div>
           <h2 className="section-title">1,076 Google <span className="accent">Reviews</span></h2>
-          <div className="google-badge"><span className="stars">★★★★½</span><span>4.2 / 5 on Google · 22 years in NLR</span></div>
+          <div className="google-badge"><span className="stars">★★★★½</span><span>4.2 / 5 on Google · 23 years in NLR</span></div>
           <div className="reviews-grid">
             <div className="review-card" data-animate=""><div className="review-stars">★★★★★</div><p className="review-text">&quot;Such a fun time for our 4 yr old&apos;s birthday. Bowling, pizza, ice cream… what more could you want! The arcade is also a big hit, naturally. Would recommend.&quot;</p><div className="review-author">— Birthday Party Family</div></div>
             <div className="review-card" data-animate=""><div className="review-stars">★★★★★</div><p className="review-text">&quot;The staff is warm and welcoming. The pizza was really quite delicious. Steven at the concessions bar goes the extra mile to be helpful. Definitely will return.&quot;</p><div className="review-author">— Returning Regular</div></div>

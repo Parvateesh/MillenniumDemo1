@@ -90,7 +90,7 @@
   color: var(--text-dim);
   cursor: pointer;
   transition: var(--transition);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-space-mono), monospace;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -194,7 +194,7 @@
 }
 .league-start-date {
   font-size: 0.75rem;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-space-mono), monospace;
   color: var(--neon-pink);
   opacity: 0.8;
   letter-spacing: 0.04em;
@@ -208,7 +208,7 @@
   padding: 0.3rem 0.8rem;
   border-radius: 50px;
   font-size: 0.75rem;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-space-mono), monospace;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -296,6 +296,74 @@
 }
 .strike-engine-btn:active { transform: translateY(0); }
 
+/* StrikeEngine stats strip */
+.se-wrap {
+  margin-top: 2rem;
+}
+.se-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.se-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  min-width: 60px;
+}
+.se-stat-val {
+  font-family: var(--font-bowlby), cursive;
+  font-size: 1.5rem;
+  color: var(--neon-cyan);
+  line-height: 1;
+}
+.se-stat-streak { color: var(--neon-pink); }
+.se-stat-label {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.se-combo-badge {
+  margin-left: auto;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--neon-yellow);
+  background: rgba(255, 230, 0, 0.1);
+  border: 1px solid rgba(255, 230, 0, 0.3);
+  border-radius: 50px;
+  padding: 0.3rem 0.9rem;
+}
+.se-charging-hint {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  background: rgba(255, 46, 147, 0.15);
+  border: 1px solid rgba(255, 46, 147, 0.4);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--neon-pink);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: hintBlink 0.6s infinite;
+}
+
 /* ── Pro Shop page ── */
 .pro-shop-hero {
   background: linear-gradient(135deg, var(--bg-card), var(--bg-mid));
@@ -323,7 +391,7 @@
   background: linear-gradient(135deg, #ffd700, #ffaa00);
   color: #1a0a35;
   border-radius: 50px;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-space-mono), monospace;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -375,7 +443,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Bowlby One', cursive;
+  font-family: var(--font-bowlby), cursive;
   font-size: 12rem;
   color: rgba(255,255,255,0.9);
   text-shadow: 0 10px 60px rgba(0,0,0,0.4);
@@ -432,7 +500,7 @@
 .form-group { margin-bottom: 1.5rem; }
 .form-group label {
   display: block;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-space-mono), monospace;
   font-size: 0.75rem;
   color: var(--text-dim);
   text-transform: uppercase;
@@ -448,7 +516,7 @@
   border: 1px solid var(--line);
   border-radius: 12px;
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 0.95rem;
   transition: var(--transition);
 }
@@ -465,6 +533,21 @@
 .form-group select option { background: var(--bg-mid); }
 .form-group textarea { min-height: 120px; resize: vertical; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-error {
+  color: #ff6464;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  background: rgba(255, 100, 100, 0.1);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  border-radius: 8px;
+}
+.form-note {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 0.75rem;
+}
 
 /* ── Hours ── */
 .hours-list { list-style: none; padding: 0; }
