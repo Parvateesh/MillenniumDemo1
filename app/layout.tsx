@@ -51,12 +51,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
       <body>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-HVS4SJPDDJ" strategy="afterInteractive" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-BZE7931L84" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-HVS4SJPDDJ');
+          gtag('config', 'G-BZE7931L84');
         `}</Script>
         <div className="noise" />
         {children}
