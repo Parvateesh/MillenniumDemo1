@@ -1,3 +1,41 @@
+/* ── 404 / Error page ── */
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+.not-found-inner { max-width: 480px; }
+.not-found-icon { font-size: 4rem; margin-bottom: 1rem; }
+.not-found-code {
+  font-family: var(--font-bowlby), cursive;
+  font-size: clamp(4rem, 15vw, 8rem);
+  color: var(--neon-pink);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 30px rgba(255, 46, 147, 0.5));
+}
+.not-found-title {
+  font-family: var(--font-bowlby), cursive;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.not-found-desc {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.not-found-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ── Layout ── */
 section.block {
   padding: 6rem 2rem;
