@@ -20,7 +20,7 @@ export default function HomePage() {
           <p className="lede">32 lanes. A full bar. Arcade games. F1 simulator. The only Ebonite Gold pro shop in central Arkansas. North Little Rock&apos;s home for Friday nights, kids&apos; birthdays, and corporate parties since 2003.</p>
           <div className="hero-deal-badge">
             <span className="hero-deal-dot" />
-            <span>$2.99 per game every Tuesday &amp; Sunday — all day, walk-ins welcome</span>
+            <span>$2.99 per game + shoes every Tuesday &amp; Sunday — all day, walk-ins welcome</span>
             <span className="hero-deal-price">$2.99</span>
           </div>
           <div className="hero-ctas">
@@ -78,8 +78,8 @@ export default function HomePage() {
             <div className="price-card featured" data-animate="">
               <div className="price-day">Tuesday + Sunday</div>
               <div className="price-amount">$2.99</div>
-              <div className="price-unit">per game / per person — all day</div>
-              <ul className="price-features"><li>All skill levels welcome</li><li>Shoe rental: $4.50</li><li>No reservation needed</li><li>Walk-in priority</li></ul>
+              <div className="price-unit">per game + shoes / per person — all day</div>
+              <ul className="price-features"><li>All skill levels welcome</li><li>Shoes included</li><li>No reservation needed</li><li>Walk-in priority</li></ul>
             </div>
 <div className="price-card" data-animate="">
               <div className="price-day">Lane Rental</div>
@@ -92,7 +92,7 @@ export default function HomePage() {
             <div className="pricing-perk"><span>🎳</span> All skill levels welcome — beginner to pro</div>
             <div className="pricing-perk"><span>🍕</span> Snack bar with pizza, drinks, and more</div>
             <div className="pricing-perk"><span>🎉</span> Party bookings for birthdays &amp; events</div>
-            <div className="pricing-perk"><span>👟</span> Shoe rental $4.50</div>
+            <div className="pricing-perk"><span>👟</span> Shoes included Tue &amp; Sun · $4.50 other days</div>
           </div>
         </div>
       </section>
