@@ -67,6 +67,7 @@ export default function PrivacyPage() {
             <p>We do not sell your personal information. We may share it with:</p>
             <ul>
               <li><strong style={{ color: 'var(--text)' }}>Service providers</strong> — Firebase (data storage) and Resend (email delivery), solely to operate this website. These providers are contractually prohibited from using your data for any other purpose.</li>
+              <li><strong style={{ color: 'var(--text)' }}>Square, Inc.</strong> — payment processing for online orders, deposits, and bookings. When you make a payment, your payment card information is collected and processed directly by Square under Square&apos;s Privacy Policy and Square&apos;s terms. We do not store your full payment card details on our servers.</li>
               <li><strong style={{ color: 'var(--text)' }}>Law enforcement</strong> — when required by applicable law, court order, or government authority.</li>
               <li><strong style={{ color: 'var(--text)' }}>Business transfers</strong> — if Millennium Bowl is sold or merged, your data may be transferred as part of that transaction. We will notify you before your data becomes subject to a different privacy policy.</li>
             </ul>
