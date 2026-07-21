@@ -3,6 +3,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Pro Shop — Bowl 101 at Millennium Bowl | North Little Rock, AR',
   description: 'Bowl 101 — the only Ebonite Gold Exclusive pro shop in central Arkansas. Custom drilling, expert fitting, all major brands. Located inside Millennium Bowl.',
+  alternates: { canonical: '/proshop' },
 };
 
 export default function ProShopPage() {

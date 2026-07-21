@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Events — Millennium Bowl | North Little Rock, AR',
   description: 'Glow Bowl nights, $2.99 game days, league nights, and private events at Millennium Bowl in North Little Rock. Something happening every night of the week.',
+  alternates: { canonical: '/events' },
 };
 
 export default function EventsPage() {

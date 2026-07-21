@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     description: "North Little Rock's home for strikes, parties, and Friday nights.",
     images: ['/og'],
   },
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: '/logo.webp',
     apple: '/logo.webp',
