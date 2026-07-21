@@ -43,12 +43,69 @@ export const metadata: Metadata = {
   },
 };
 
+const schemaMarkup = {
+  '@context': 'https://schema.org',
+  '@type': 'BowlingAlley',
+  name: 'Millennium Bowl',
+  url: 'https://millenniumbowllr.com',
+  logo: 'https://millenniumbowllr.com/logo.webp',
+  image: 'https://millenniumbowllr.com/og',
+  description:
+    "32 lanes of strikes, an arcade, F1 simulator, full bar, and the area's only Ebonite Gold Pro Shop. Birthday parties, corporate events, and league bowling in North Little Rock, AR.",
+  telephone: '+15017919150',
+  email: 'info@millenniumbowllr.com',
+  foundingDate: '2003',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '7200 Counts Massie Rd',
+    addressLocality: 'North Little Rock',
+    addressRegion: 'AR',
+    postalCode: '72113',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 34.7954,
+    longitude: -92.2718,
+  },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '09:00', closes: '00:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday', 'Saturday'], opens: '09:00', closes: '02:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Sunday'], opens: '10:00', closes: '00:00' },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.2',
+    reviewCount: '1076',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  priceRange: '$$',
+  currenciesAccepted: 'USD',
+  paymentAccepted: 'Cash, Credit Card',
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: '32 Bowling Lanes', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Full Bar', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Arcade', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'F1 Simulator', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Pro Shop', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Private Party Rooms', value: true },
+  ],
+  sameAs: [
+    'https://millenniumbowl.square.site',
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bowlby.variable} ${spaceMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        />
       </head>
       <body>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-HVS4SJPDDJ" strategy="afterInteractive" />
