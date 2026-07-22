@@ -166,7 +166,7 @@ export default function EventsPage() {
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a
               className="btn btn-primary"
-              href="https://www.facebook.com/share/1FysjXKbLz/?mibextid=wwXIfr"
+              href="https://www.facebook.com/millennium1/"
               target="_blank"
               rel="noopener noreferrer"
             >

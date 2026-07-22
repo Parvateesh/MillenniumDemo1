@@ -96,6 +96,7 @@ const schemaMarkup = {
   ],
   sameAs: [
     'https://millenniumbowl.square.site',
+    'https://www.facebook.com/millennium1/',
   ],
 };
 
