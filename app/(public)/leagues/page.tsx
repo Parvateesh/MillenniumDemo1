@@ -5,6 +5,7 @@ import LeagueSignupForm from '@/components/LeagueSignupForm';
 export const metadata = {
   title: 'Leagues — Millennium Bowl | North Little Rock, AR',
   description: 'Join a bowling league at Millennium Bowl. 14 leagues across all skill levels — Monday through Sunday. League members get pro shop discounts and priority lane access.',
+  alternates: { canonical: '/leagues' },
 };
 
 export default function LeaguesPage() {

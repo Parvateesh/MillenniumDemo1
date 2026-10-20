@@ -4,11 +4,63 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Events — Millennium Bowl | North Little Rock, AR',
   description: 'Glow Bowl nights, $2.99 game days, league nights, and private events at Millennium Bowl in North Little Rock. Something happening every night of the week.',
+  alternates: { canonical: '/events' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is Glow Bowl Night at Millennium Bowl?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Glow Bowl Night runs every Friday and Saturday after 9 PM — black lights, neon pins, and music turned up. Walk-ins are welcome but lanes fill fast on weekends, so call ahead to (501) 791-9150.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When is $2.99 Game Day at Millennium Bowl?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Every Tuesday and Sunday, all day. Just $2.99 per game per person — no coupon needed, no limit. Shoe rental is also $2.99 on those days.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What arcade games and attractions are available at Millennium Bowl?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The arcade is open every day during all hours and includes pool tables, shuffleboard, skee-ball, classic arcade games, and the only Formula 1 racing simulator in central Arkansas.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I find out about upcoming tournaments and special events?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Follow Millennium Bowl on Facebook or call (501) 791-9150. Tournaments, charity nights, and holiday specials are announced there throughout the year.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Millennium Bowl host private events?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — birthday parties, corporate outings, school groups, and team nights are all available. Packages start at $179 with lanes, food, and setup included. Visit the Parties page or contact us at info@millenniumbowllr.com for details.',
+      },
+    },
+  ],
 };
 
 export default function EventsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="hero hero-sm">
         <div className="hero-content">
           <span className="hero-tag">Something Every Night</span>
@@ -114,7 +166,7 @@ export default function EventsPage() {
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a
               className="btn btn-primary"
-              href="https://www.facebook.com/share/1FysjXKbLz/?mibextid=wwXIfr"
+              href="https://www.facebook.com/millennium1/"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -6,6 +6,7 @@ import OrderButton from '@/components/OrderButton';
 export const metadata: Metadata = {
   title: 'Menu — Millennium Bowl | North Little Rock, AR',
   description: 'Pizza, wings, burgers, salads, and cold drinks at Millennium Bowl. Order online for pickup at the counter.',
+  alternates: { canonical: '/menu' },
 };
 
 export default function MenuPage() {

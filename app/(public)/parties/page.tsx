@@ -3,11 +3,87 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Parties & Events — Millennium Bowl | North Little Rock, AR',
   description: 'Birthday parties and corporate events at Millennium Bowl. Packages from $179. 32 lanes, full catering, setup included — you just bring the people.',
+  alternates: { canonical: '/parties' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much does a birthday party cost at Millennium Bowl?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We offer two birthday packages — the Spare Package and the Strike Package — to fit different group sizes and budgets. Email info@millenniumbowllr.com or call (501) 791-9150 for current pricing and availability.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I book a birthday party at Millennium Bowl?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Email info@millenniumbowllr.com or call (501) 791-9150. We respond within 1 business day with pricing, availability, and everything you need to know. A deposit is required to hold your date.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How far in advance should I book a party?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We recommend booking at least 2–3 weeks in advance, especially for weekend dates. Friday and Saturday evenings fill up quickly — contact us as early as possible to secure your preferred time.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I bring my own cake or outside food to the party?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Outside cakes are welcome for birthday parties. Additional food and beverages are handled by our kitchen and bar. Contact us for details on what is included in each package.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you host corporate events and team-building activities?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. We offer a half-buyout for up to 60 people (16 lanes) and a full-buyout for up to 120 people (all 32 lanes) for corporate events, holiday parties, and team-building outings. Email info@millenniumbowllr.com for a custom quote.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What types of events does Millennium Bowl host?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We host birthday parties for all ages, corporate team-building events, holiday parties, school field trips, lock-ins, bachelor and bachelorette parties, fundraisers, and bowling tournaments.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is there a deposit required to reserve a party?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, a deposit is required to hold your date. Contact us at info@millenniumbowllr.com or call (501) 791-9150 for deposit amounts and payment details.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is Millennium Bowl located?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Millennium Bowl is located at 7200 Counts Massie Rd, North Little Rock, AR 72113. We are open Monday–Thursday 9 AM–12 AM, Friday–Saturday 9 AM–2 AM, and Sunday 10 AM–12 AM.',
+      },
+    },
+  ],
 };
 
 export default function PartiesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="hero hero-md">
         <div className="hero-content">
           <span className="hero-tag">Birthday + Corporate Events</span>

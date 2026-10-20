@@ -1,6 +1,7 @@
 export const metadata = {
   title: 'Bar — Millennium Bowl | North Little Rock, AR',
   description: 'Full bar at Millennium Bowl. Cold beer on tap, frozen margaritas, cocktails, and premium spirits. Happy hour weeknights. 21+ after 10 PM Fri &amp; Sat.',
+  alternates: { canonical: '/bar' },
 };
 
 import { drinkItems } from '@/lib/menu-data';

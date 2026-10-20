@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'About — Millennium Bowl | North Little Rock, AR',
   description: 'Millennium Bowl has been North Little Rock\'s home for bowling since 2003. 32 lanes, full bar, F1 simulator, and the only Ebonite Gold pro shop in central Arkansas.',
+  alternates: { canonical: '/about' },
 };
 
 export default function AboutPage() {
