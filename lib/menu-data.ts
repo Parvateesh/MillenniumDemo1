@@ -85,7 +85,6 @@ export const drinkItems: MenuItem[] = [
   { name: 'Coffee', price: '$2.49', desc: 'Hot coffee.', cat: 'drinks' },
   { name: 'Hot Cocoa', price: '$2.99', desc: 'Warm hot chocolate.', cat: 'drinks' },
   { name: 'Refill', price: '$1.00', desc: 'Drink refill.', cat: 'drinks' },
-  { name: 'BeatBox', price: '$6.00', desc: 'BeatBox party punch.', cat: 'drinks' },
 ];
 
 // Bar menu (matches Square, Oct 2026). Shown on /bar only.
