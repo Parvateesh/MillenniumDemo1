@@ -61,7 +61,7 @@ export default function HomePage() {
           <p className="section-lede">Five reasons this is the best entertainment center in central Arkansas — and why people drive in from Little Rock, Maumelle, Sherwood, and Cabot every weekend.</p>
           <div className="experiences">
             <div className="exp-card" data-animate=""><div className="exp-icon">🎳</div><h3>32 Pro Lanes</h3><p>State-of-the-art automatic scoring, glow lighting, kid bumpers, league-grade equipment. Casual or competitive — pick your vibe.</p></div>
-            <div className="exp-card" data-animate=""><div className="exp-icon">🍻</div><h3>Full Bar</h3><p>Cold beer on tap, handcrafted cocktails, premium spirits. Happy hour weeknights. 21+ after 10 PM Fridays and Saturdays.</p></div>
+            <div className="exp-card" data-animate=""><div className="exp-icon">🍻</div><h3>Full Bar</h3><p>Cold beer on tap, handcrafted cocktails, premium spirits. 21+ after 10 PM Fridays and Saturdays.</p></div>
             <div className="exp-card" data-animate=""><div className="exp-icon">🕹️</div><h3>Arcade &amp; F1 Sim</h3><p>Pool tables, shuffleboard, skee-ball, classic and modern arcade games. Plus a full Formula 1 racing simulator nobody else in the metro has.</p></div>
             <div className="exp-card" data-animate=""><div className="exp-icon">🎉</div><h3>Private Parties</h3><p>Birthday packages from $179. Corporate buyouts. School field trips. Lock-ins. We handle setup, food, and the fun — you just show up.</p></div>
             <div className="exp-card" data-animate=""><div className="exp-icon">🏆</div><h3>Bowl 101 Pro Shop</h3><p>The only Ebonite Gold Exclusive pro shop in central Arkansas. Custom drilling, expert fitting, all major brands. Ranked 5.0 on Google.</p></div>
@@ -75,6 +75,12 @@ export default function HomePage() {
           <h2 className="section-title">Roll For As Little As <span className="accent">$2.99</span></h2>
           <p className="section-lede">No hidden fees. No surge pricing. What you see is what you pay.</p>
           <div className="pricing-grid">
+            <div className="price-card" data-animate="">
+              <div className="price-day">Weekday Games</div>
+              <div className="price-amount">$4.99</div>
+              <div className="price-unit">per game / per person — Mon, Wed, Thu &amp; Fri before 5 PM</div>
+              <ul className="price-features"><li>$5.59 per game Mon, Wed &amp; Thu after 5 PM</li><li>$5.59 per game Saturday before 5 PM</li><li>Seniors $3.25 · School special $3.50</li><li>Group rate $4.00 per game</li></ul>
+            </div>
             <div className="price-card featured" data-animate="">
               <div className="price-day">Tuesday + Sunday</div>
               <div className="price-amount">$2.99</div>
@@ -84,15 +90,15 @@ export default function HomePage() {
 <div className="price-card" data-animate="">
               <div className="price-day">Lane Rental</div>
               <div className="price-amount">$33<span className="price-sub">.99</span></div>
-              <div className="price-unit">per lane / per hour</div>
-              <ul className="price-features"><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Party bookings available</li><li>Open late Fri &amp; Sat to 2 AM</li></ul>
+              <div className="price-unit">per lane / per hour — evenings &amp; weekends</div>
+              <ul className="price-features"><li>$24.99 per hour Mon–Fri before 5 PM</li><li>Up to 6 bowlers per lane</li><li>Shoe rental: $4.50</li><li>Fri &amp; Sat after 5 PM: lane rental only · open to 2 AM</li></ul>
             </div>
           </div>
           <div className="pricing-perks" data-animate="">
             <div className="pricing-perk"><span>🎳</span> All skill levels welcome — beginner to pro</div>
             <div className="pricing-perk"><span>🍕</span> Snack bar with pizza, drinks, and more</div>
             <div className="pricing-perk"><span>🎉</span> Party bookings for birthdays &amp; events</div>
-            <div className="pricing-perk"><span>👟</span> Shoe rental $2.99 Tue &amp; Sun · $4.50 other days</div>
+            <div className="pricing-perk"><span>👟</span> Shoe rental $2.99 Tue &amp; Sun · $4.50 other days · Socks $5.99</div>
           </div>
         </div>
       </section>
