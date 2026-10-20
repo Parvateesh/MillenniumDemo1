@@ -3,7 +3,8 @@ export const metadata = {
   description: 'Full bar at Millennium Bowl. Cold beer on tap, frozen margaritas, cocktails, and premium spirits. Happy hour weeknights. 21+ after 10 PM Fri &amp; Sat.',
 };
 
-import { drinkItems } from '@/lib/menu-data';
+import { barItems, drinkItems } from '@/lib/menu-data';
+import BarFilter from '@/components/BarFilter';
 
 export default function BarPage() {
   return (
@@ -19,17 +20,7 @@ export default function BarPage() {
         <div className="container">
           <div className="section-eyebrow">What We Pour</div>
           <h2 className="section-title">The <span className="accent">Bar Menu</span></h2>
-          <div className="menu-grid">
-            {drinkItems.map((item) => (
-              <div key={item.name} className="menu-item" data-animate="">
-                <div className="menu-item-head">
-                  <div className="menu-item-name">{item.name}</div>
-                  <div className="menu-item-price">{item.price}</div>
-                </div>
-                <p className="menu-item-desc">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <BarFilter items={[...barItems, ...drinkItems]} />
         </div>
       </section>
     </>

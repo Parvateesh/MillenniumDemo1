@@ -2,7 +2,7 @@ export interface MenuItem {
   name: string;
   price: string;
   desc: string;
-  cat: 'pizza' | 'apps' | 'salads' | 'mains' | 'basket' | 'drinks';
+  cat: 'pizza' | 'apps' | 'salads' | 'mains' | 'basket' | 'drinks' | 'draft' | 'bottles' | 'buckets' | 'wine' | 'coolers' | 'liquor';
 }
 
 export const foodItems: MenuItem[] = [
@@ -86,6 +86,73 @@ export const drinkItems: MenuItem[] = [
   { name: 'Hot Cocoa', price: '$2.99', desc: 'Warm hot chocolate.', cat: 'drinks' },
   { name: 'Refill', price: '$1.00', desc: 'Drink refill.', cat: 'drinks' },
   { name: 'BeatBox', price: '$6.00', desc: 'BeatBox party punch.', cat: 'drinks' },
+];
+
+// Bar menu (matches Square, Oct 2026). Shown on /bar only.
+export const barItems: MenuItem[] = [
+  { name: 'Bud Light Draft', price: '$5.00 / $7.50', desc: 'Draft beer. Short / tall pour.', cat: 'draft' },
+  { name: 'Mich Ultra Draft', price: '$5.00 / $7.50', desc: 'Draft beer. Short / tall pour.', cat: 'draft' },
+  { name: 'Miller Lite Draft', price: '$5.00 / $7.50', desc: 'Draft beer. Short / tall pour.', cat: 'draft' },
+  { name: 'IPA', price: '$5.50 / $8.00', desc: 'Draft beer. Short / tall pour.', cat: 'draft' },
+  { name: 'Lost 40', price: '$5.50 / $8.00', desc: 'Draft beer. Short / tall pour.', cat: 'draft' },
+  { name: 'Seasonal Draft', price: '$5.50 / $8.00', desc: 'Draft beer. Short / tall pour.', cat: 'draft' },
+  { name: 'Shiner Bock Draft', price: '$5.50 / $8.00', desc: 'Draft beer. Short / tall pour.', cat: 'draft' },
+  { name: 'Budweiser', price: '$4.25', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Bud Light', price: '$4.25', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Bud Lime', price: '$4.25', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Bud Platinum', price: '$4.75', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Busch Light Apple', price: '$4.25', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Coors Light', price: '$4.25', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Coors Banquet', price: '$4.25', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Michelob Ultra', price: '$4.50', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Miller High Life', price: '$4.25', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Miller Lite', price: '$4.25', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Yuengling', price: '$4.75', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Amber Bock', price: '$4.75', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Mango Cart', price: '$4.75', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'PBR Light', price: '$3.00', desc: 'Domestic bottle.', cat: 'bottles' },
+  { name: 'Angry Orchard', price: '$5.00', desc: 'Import bottle.', cat: 'bottles' },
+  { name: 'Black Apple Can', price: '$5.00', desc: 'Import can.', cat: 'bottles' },
+  { name: 'Blue Moon', price: '$5.00', desc: 'Import bottle.', cat: 'bottles' },
+  { name: 'Corona', price: '$4.75', desc: 'Import bottle.', cat: 'bottles' },
+  { name: 'Dos Equis Green', price: '$4.75', desc: 'Import bottle.', cat: 'bottles' },
+  { name: 'Modelo', price: '$4.75', desc: 'Import bottle.', cat: 'bottles' },
+  { name: 'Pacifico', price: '$4.75', desc: 'Import bottle.', cat: 'bottles' },
+  { name: 'Stella', price: '$4.75', desc: 'Import bottle.', cat: 'bottles' },
+  { name: 'VooDoo Ranger', price: '$5.50', desc: 'Import bottle.', cat: 'bottles' },
+  { name: 'Domestic Bucket', price: '$20.00', desc: 'Bucket of domestic beer.', cat: 'buckets' },
+  { name: 'White Claw Bucket', price: '$22.00', desc: 'Bucket of White Claw.', cat: 'buckets' },
+  { name: 'Wine Cooler Bucket', price: '$25.00', desc: 'Bucket of wine coolers.', cat: 'buckets' },
+  { name: 'Cabernet', price: '$6.00', desc: 'Wine by the glass.', cat: 'wine' },
+  { name: 'Chardonnay', price: '$6.00', desc: 'Wine by the glass.', cat: 'wine' },
+  { name: 'Merlot', price: '$6.00', desc: 'Wine by the glass.', cat: 'wine' },
+  { name: 'Moscato', price: '$6.00', desc: 'Wine by the glass.', cat: 'wine' },
+  { name: 'Pink Moscato', price: '$6.00', desc: 'Wine by the glass.', cat: 'wine' },
+  { name: 'Pinot Grigio', price: '$6.00', desc: 'Wine by the glass.', cat: 'wine' },
+  { name: 'Red Moscato', price: '$6.00', desc: 'Wine by the glass.', cat: 'wine' },
+  { name: 'White Zinfandel', price: '$6.00', desc: 'Wine by the glass.', cat: 'wine' },
+  { name: 'Champagne', price: '$7.50', desc: 'Champagne by the glass.', cat: 'wine' },
+  { name: 'Mimosa', price: '$7.00', desc: 'Mimosa by the glass.', cat: 'wine' },
+  { name: 'Beatbox', price: '$6.00', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: "Mike's Hard Lemonade", price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: "Seagram's Blueberry Acai", price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: "Seagram's Jamaican", price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: "Seagram's Peach Bellini", price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'Smirnoff Apple', price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'Smirnoff Grape', price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'Smirnoff Ice', price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'Smirnoff Screwdriver', price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'Smirnoff Triple Black', price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'Twisted Tea', price: '$6.00', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'Vodka Can', price: '$6.00', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'White Claw', price: '$5.75', desc: 'Wine cooler, hard seltzer or malt beverage.', cat: 'coolers' },
+  { name: 'House Drink', price: '$8.50', desc: 'Mixed drink with house liquor.', cat: 'liquor' },
+  { name: 'Premium Drink', price: '$10.00', desc: 'Mixed drink with premium liquor.', cat: 'liquor' },
+  { name: 'Frozen Drink', price: '$8.00', desc: 'Frozen cocktail.', cat: 'liquor' },
+  { name: 'House Shot', price: '$7.50', desc: 'Shot of house liquor.', cat: 'liquor' },
+  { name: 'Premium Shot', price: '$9.00', desc: 'Shot of premium liquor.', cat: 'liquor' },
+  { name: 'Jello Shot', price: '$4.00', desc: 'Jello shot.', cat: 'liquor' },
+  { name: 'Pickle Shot', price: '$4.00', desc: 'Pickle shot.', cat: 'liquor' },
 ];
 
 export const allMenuItems: MenuItem[] = [...foodItems, ...drinkItems];
