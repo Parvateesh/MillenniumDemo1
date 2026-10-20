@@ -68,14 +68,14 @@ export default function EventsPage() {
             </div>
 
             <div className="recurring-card">
-              <span className="recurring-emoji">🍻</span>
+              <span className="recurring-emoji">☀️</span>
               <div>
                 <div className="recurring-when">
                   <span className="recurring-day">Mon – Fri</span>
-                  <span className="recurring-time">Until 7 PM</span>
+                  <span className="recurring-time">Before 5 PM</span>
                 </div>
-                <div className="recurring-title">Happy Hour</div>
-                <p className="recurring-desc">Discounted drinks at the bar on weeknights. Bowl a game, grab a beer — that&apos;s a Tuesday.</p>
+                <div className="recurring-title">Weekday Daytime Rates</div>
+                <p className="recurring-desc">Rent a lane for $24.99 an hour before 5 PM. Games are $4.99 Mon, Wed, Thu &amp; Fri.</p>
               </div>
             </div>
 
@@ -114,7 +114,7 @@ export default function EventsPage() {
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a
               className="btn btn-primary"
-              href="https://www.facebook.com/share/1FysjXKbLz/?mibextid=wwXIfr"
+              href="https://www.facebook.com/millennium1/"
               target="_blank"
               rel="noopener noreferrer"
             >
