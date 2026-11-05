@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import GiftCardSection from '@/components/GiftCardSection';
 
 export default function HomePage() {
   return (
@@ -23,6 +24,7 @@ export default function HomePage() {
             <span>$2.99 per game · $2.99 shoes every Tuesday &amp; Sunday — all day, walk-ins welcome</span>
             <span className="hero-deal-price">$2.99</span>
           </div>
+          <Link className="gift-hero-chip" href="/gift-cards">🎁 New: Gift cards &amp; eGift cards are here <span>→</span></Link>
           <div className="hero-ctas">
             <a className="btn btn-primary" href="tel:5017919150">Call to Reserve <span className="btn-arrow">→</span></a>
             <Link className="btn btn-secondary" href="/menu">View Menu <span className="btn-arrow">→</span></Link>
@@ -49,6 +51,7 @@ export default function HomePage() {
               <b>Bar</b><span className="marquee-sep">◆</span>
               <b>32 Lanes</b><span className="marquee-sep">◆</span>
               <b>Arcade</b><span className="marquee-sep">◆</span>
+              <b>🎁 Gift Cards</b><span className="marquee-sep">◆</span>
             </span>
           ))}
         </div>
@@ -103,6 +106,8 @@ export default function HomePage() {
         </div>
       </section>
 
+
+      <GiftCardSection />
 
       <section className="reviews-strip">
         <div className="container">
