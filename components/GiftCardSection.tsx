@@ -53,9 +53,10 @@ export default function GiftCardSection({ showMoreLink = true }: { showMoreLink?
               <a className="btn btn-secondary" href="tel:5017919150">Call (501) 791-9150</a>
             </div>
 
-            {showMoreLink && (
-              <p className="gift-more"><Link href="/gift-cards">Gift card details &amp; FAQ →</Link></p>
-            )}
+            <p className="gift-more">
+              {showMoreLink && (<><Link href="/gift-cards">Gift card details &amp; FAQ →</Link><span className="gift-more-sep">·</span></>)}
+              <a href={EGIFT_URL} target="_blank" rel="noopener noreferrer">Check your balance →</a>
+            </p>
           </div>
         </div>
       </div>

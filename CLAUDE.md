@@ -43,6 +43,7 @@ app/
       layout.tsx              — Metadata for client component page
       page.tsx                — 'use client' — contact form with API call
     events/page.tsx
+    gift-cards/page.tsx       — Gift cards & eGift cards (uses GiftCardSection) + FAQ
     leagues/page.tsx          — Schedule table + StrikeEngine + LeagueSignupForm
     menu/page.tsx             — Full menu (food + drinks); uses MenuFilter client component
     parties/page.tsx
@@ -84,7 +85,7 @@ app/
     waitlist/route.ts
     auth/login/route.ts
     auth/logout/route.ts
-  sitemap.ts                  — 14 public URLs (incl. /bar, /kitchen)
+  sitemap.ts                  — public URLs (incl. /gift-cards) (incl. /bar, /kitchen)
   robots.ts                   — Allows /, blocks /api/, /admin/, /kitchen/
 
 components/
@@ -96,6 +97,7 @@ components/
   StrikeEngine.tsx            — 'use client'; interactive canvas bowling game on Leagues page
   LeagueSignupForm.tsx        — 'use client'; league interest form → /api/leagues/interest
   OrderButton.tsx             — 'use client'; links to Square ordering site
+  GiftCardSection.tsx         — Server component; gift card promo (home + /gift-cards); exports EGIFT_URL
   ConfirmModal.tsx            — 'use client'; success modal for contact form
   LaneBoard.tsx               — Admin lane board
   LeagueLeaderboard.tsx       — Admin leaderboard
@@ -128,6 +130,7 @@ css/
 | `/bar` | `(public)/bar/page.tsx` | Drinks menu (server, no filter) |
 | `/contact` | `(public)/contact/page.tsx` | Contact form; metadata in `contact/layout.tsx` |
 | `/events` | `(public)/events/page.tsx` | Recurring events + special event CTA |
+| `/gift-cards` | `(public)/gift-cards/page.tsx` | Gift cards & eGift cards; buttons link to Square eGift page |
 | `/kitchen` | `kitchen/page.tsx` | Food-only menu with category filter (pizza, apps, salads, mains, basket) |
 | `/leagues` | `(public)/leagues/page.tsx` | Schedule table + StrikeEngine + join form |
 | `/menu` | `(public)/menu/page.tsx` | Full menu (all categories); uses `MenuFilter` |
@@ -281,4 +284,5 @@ Local dev: `.env.local` is gitignored and already populated (run `vercel env pul
 - **Google Reviews:** 1,076 reviews · 4.2 stars
 - **Pro Shop (Bowl 101):** (501) 353-2749 · Brian Kennedy · Ebonite Gold Exclusive
 - **Online ordering:** https://millenniumbowl.square.site
+- **eGift cards & balance check:** https://millenniumbowl.square.site/s/gift-cards
 - **Bowl 101 online store:** https://www.bowl101.net
