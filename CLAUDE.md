@@ -85,7 +85,7 @@ app/
     waitlist/route.ts
     auth/login/route.ts
     auth/logout/route.ts
-  sitemap.ts                  — public URLs (incl. /gift-cards) (incl. /bar, /kitchen)
+  sitemap.ts                  — public URLs (incl. /bar, /kitchen, /gift-cards)
   robots.ts                   — Allows /, blocks /api/, /admin/, /kitchen/
 
 components/
