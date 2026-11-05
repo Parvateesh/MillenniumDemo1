@@ -713,3 +713,77 @@
   font-size: 0.55rem;
   top: 0.45em;
 }
+
+/* ── Gift cards ── */
+.gift-section { overflow: hidden; }
+.gift-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: center;
+}
+.gift-card-visual { position: relative; }
+.gift-card-visual::before {
+  content: '';
+  position: absolute;
+  inset: 10% 5%;
+  background: radial-gradient(closest-side, rgba(255, 46, 147, 0.45), rgba(0, 240, 255, 0.18), transparent);
+  filter: blur(40px);
+  z-index: 0;
+}
+.gift-card-visual img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  transform: rotate(-4deg);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15), 0 0 50px rgba(255, 46, 147, 0.45), 0 30px 60px rgba(0, 0, 0, 0.55);
+  transition: var(--transition);
+}
+.gift-card-visual img:hover { transform: rotate(-1deg) scale(1.02); }
+.gift-lede { color: var(--text-dim); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 560px; }
+.gift-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(255, 46, 147, 0.12), rgba(157, 78, 221, 0.06));
+  border: 1px solid rgba(255, 46, 147, 0.35);
+  border-radius: 16px;
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 1rem;
+}
+.gift-option-alt {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(0, 240, 255, 0.03));
+  border-color: rgba(0, 240, 255, 0.35);
+}
+.gift-option-text { flex: 1 1 240px; }
+.gift-option-text h3 { font-family: var(--font-bowlby), cursive; font-size: 1.15rem; margin-bottom: 0.3rem; }
+.gift-option-text p { color: var(--text-dim); font-size: 0.92rem; margin: 0; line-height: 1.5; }
+.gift-more { margin-top: 1.2rem; font-family: var(--font-space-mono), monospace; font-size: 0.85rem; letter-spacing: 0.05em; }
+.gift-more a { color: var(--neon-cyan); text-decoration: none; }
+.gift-more a:hover { text-decoration: underline; }
+.gift-faq-block { padding-top: 2rem; }
+.gift-faq { max-width: 800px; margin-top: 3rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.gift-faq details {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.1rem 1.4rem;
+}
+.gift-faq summary { cursor: pointer; font-weight: 700; list-style: none; }
+.gift-faq summary::-webkit-details-marker { display: none; }
+.gift-faq summary::after { content: '+'; float: right; color: var(--neon-pink); font-weight: 700; }
+.gift-faq details[open] summary::after { content: '–'; }
+.gift-faq details p { color: var(--text-dim); margin: 0.8rem 0 0; line-height: 1.6; }
+.gift-faq details a { color: var(--neon-cyan); }
+@media (max-width: 900px) {
+  .gift-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .gift-card-visual { max-width: 520px; margin: 0 auto; }
+}
+@media (max-width: 480px) {
+  .gift-option { padding: 1.2rem; }
+  .gift-option .btn { width: 100%; justify-content: center; }
+}

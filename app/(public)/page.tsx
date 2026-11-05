@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import GiftCardSection from '@/components/GiftCardSection';
 
 export default function HomePage() {
   return (
@@ -103,6 +104,8 @@ export default function HomePage() {
         </div>
       </section>
 
+
+      <GiftCardSection />
 
       <section className="reviews-strip">
         <div className="container">

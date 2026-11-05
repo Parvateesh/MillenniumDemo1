@@ -11,6 +11,7 @@ const links = [
   { href: '/parties', label: 'Parties' },
   { href: '/leagues', label: 'Leagues' },
   { href: '/proshop', label: 'Pro Shop' },
+  { href: '/gift-cards', label: 'Gift Cards' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
