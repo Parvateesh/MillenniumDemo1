@@ -835,3 +835,7 @@
   .gift-hero-chip { font-size: 0.75rem; }
   .gift-sparkle.s3 { right: 2%; }
 }
+.gift-more-sep { margin: 0 0.7rem; color: var(--text-dim); }
+.gift-balance-note { margin-top: 1.2rem; font-family: var(--font-space-mono), monospace; font-size: 0.85rem; color: var(--text-dim); }
+.gift-balance-note a { color: var(--neon-cyan); text-decoration: none; }
+.gift-balance-note a:hover { text-decoration: underline; }

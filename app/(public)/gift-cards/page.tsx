@@ -17,6 +17,7 @@ export default function GiftCardsPage() {
             <a className="btn btn-primary" href={EGIFT_URL} target="_blank" rel="noopener noreferrer" data-confetti="">Buy an eGift Card <span className="btn-arrow">→</span></a>
             <a className="btn btn-secondary" href="tel:5017919150">Call the Front Desk</a>
           </div>
+          <p className="gift-balance-note">Already have a card? <a href={EGIFT_URL} target="_blank" rel="noopener noreferrer">Check your balance online →</a></p>
         </div>
       </section>
 
@@ -47,7 +48,7 @@ export default function GiftCardsPage() {
             </details>
             <details>
               <summary>Can I check my balance?</summary>
-              <p>Ask at the front desk or call us at <a href="tel:5017919150">(501) 791-9150</a> and we&apos;ll look it up for you.</p>
+              <p>Yes, online any time. Open our <a href={EGIFT_URL} target="_blank" rel="noopener noreferrer">gift card page</a>, tap <strong>&ldquo;Need to check gift card balance?&rdquo;</strong> and enter your card number (and PIN, if your card has one). You can also ask at the front desk or call <a href="tel:5017919150">(501) 791-9150</a>.</p>
             </details>
           </div>
         </div>
