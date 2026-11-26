@@ -20,7 +20,10 @@ BOWLING
 - Kids Bowl Free is no longer offered.
 
 PARTIES AND GROUPS
-- Birthday parties start at $179. For package details, call (501) 791-9150 or leave your details for the party team.
+- Birthday packages (prices before tax; a deposit is required to reserve):
+  - Spare Package: $240. Lanes and bowling included. Ideal for smaller groups.
+  - Strike Package: $280. Lanes and bowling included. Great for larger groups.
+  For exactly what each package includes, availability and booking, call (501) 791-9150 or leave your details for the party team.
 - Group, company and school events: call (501) 791-9150 or leave your details and the team will put a package together. Do not quote group prices.
 
 FOOD AND BAR
