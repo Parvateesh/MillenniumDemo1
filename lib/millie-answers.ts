@@ -83,7 +83,7 @@ export const TOPICS: Topic[] = [
   },
   {
     id: 'bar',
-    keywords: ['bar', 'beer', 'drink', 'alcohol', 'cocktail', 'margarita', 'liquor', 'wine', '21', 'age', 'adult', 'kids allowed', 'kids', 'kid', 'children', 'child', 'minor', 'family', 'teen', 'under 21'],
+    keywords: ['bar', 'beer', 'drink', 'alcohol', 'cocktail', 'margarita', 'liquor', 'wine', '21', 'age', 'adult', 'kids allowed', 'kids', 'children', 'minor', 'family', 'teen', 'under 21'],
     answer: 'Everyone is welcome! All 32 lanes and the kitchen are open to all ages, kids and families included, at all hours. Only the bar is adults only (21+).',
   },
   {
