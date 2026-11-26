@@ -1,14 +1,15 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { TOPICS, FALLBACK, findAnswer, type Topic } from '@/lib/millie-answers';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
 const GREETING: Msg = {
   role: 'assistant',
-  content: "Hi! I'm Millie, Millennium Bowl's helper. Ask me about lane prices, hours, parties, leagues or gift cards.",
+  content: "Hi! I'm Millie, Millennium Bowl's helper. Tap a topic or type a question about hours, prices, parties, gift cards, leagues and more.",
 };
-const QUICK = ["Today's hours", 'Lane prices', 'Gift cards', 'Leagues'];
+const QUICK = TOPICS.filter((t) => t.label);
 
 function PinIcon() {
   return (
@@ -23,35 +24,26 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([GREETING]);
   const [input, setInput] = useState('');
-  const [busy, setBusy] = useState(false);
+  const [showChips, setShowChips] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [sent, setSent] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' });
-  }, [messages, showForm, sent, open]);
+  }, [messages, showForm, sent, open, showChips]);
 
-  async function ask(text: string) {
+  function reply(question: string, topic: Topic | null) {
+    setMessages((m) => [...m, { role: 'user', content: question }, { role: 'assistant', content: topic ? topic.answer : FALLBACK }]);
+    setShowChips(!topic);
+    if (topic?.showPartyForm && !sent) setShowForm(true);
+  }
+
+  function ask(text: string) {
     const q = text.trim();
-    if (!q || busy) return;
-    const next: Msg[] = [...messages, { role: 'user', content: q }];
-    setMessages(next);
+    if (!q) return;
     setInput('');
-    setBusy(true);
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ messages: next.filter((m) => m !== GREETING) }),
-      });
-      const data = await res.json();
-      setMessages([...next, { role: 'assistant', content: data.reply }]);
-    } catch {
-      setMessages([...next, { role: 'assistant', content: 'Sorry, something went wrong. Please call (501) 791-9150.' }]);
-    } finally {
-      setBusy(false);
-    }
+    reply(q, findAnswer(q));
   }
 
   async function sendParty(e: React.FormEvent<HTMLFormElement>) {
@@ -90,15 +82,6 @@ export default function ChatWidget() {
             {messages.map((m, i) => (
               <div key={i} className={m.role === 'user' ? 'millie-msg millie-user' : 'millie-msg millie-bot'}>{m.content}</div>
             ))}
-            {messages.length === 1 && (
-              <div className="millie-chips">
-                {QUICK.map((q) => (
-                  <button key={q} className="millie-chip" onClick={() => ask(q)}>{q}</button>
-                ))}
-                <button className="millie-chip millie-chip-pink" onClick={() => setShowForm(true)}>Plan a party</button>
-              </div>
-            )}
-            {busy && <div className="millie-msg millie-bot millie-typing">Millie is typing…</div>}
             {showForm && (
               <form className="millie-form" onSubmit={sendParty}>
                 <span className="millie-form-title">Party request</span>
@@ -114,16 +97,25 @@ export default function ChatWidget() {
               </form>
             )}
             {sent && <div className="millie-msg millie-bot">Thanks! Our party team will contact you soon. Questions now? Call (501) 791-9150.</div>}
+            {showChips ? (
+              <div className="millie-chips">
+                {QUICK.map((t) => (
+                  <button key={t.id} className={t.showPartyForm ? 'millie-chip millie-chip-pink' : 'millie-chip'} onClick={() => reply(t.label as string, t)}>{t.label}</button>
+                ))}
+              </div>
+            ) : (
+              <button className="millie-more" onClick={() => setShowChips(true)}>See all topics</button>
+            )}
           </div>
 
           <form className="millie-input" onSubmit={(e) => { e.preventDefault(); ask(input); }}>
             <label htmlFor="millie-text" className="millie-sr">Message</label>
-            <input id="millie-text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask Millie a question…" maxLength={500} autoComplete="off" />
-            <button type="submit" aria-label="Send" disabled={busy || !input.trim()}>
+            <input id="millie-text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask Millie a question…" maxLength={300} autoComplete="off" />
+            <button type="submit" aria-label="Send" disabled={!input.trim()}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </button>
           </form>
-          <p className="millie-foot">Answers come from Millennium Bowl&apos;s info. For bookings call (501) 791-9150.</p>
+          <p className="millie-foot">For bookings and anything else, call (501) 791-9150.</p>
         </div>
       )}
       <button className="millie-launcher" aria-label={open ? 'Close chat with Millie' : 'Chat with Millie'} onClick={() => setOpen(!open)}>
