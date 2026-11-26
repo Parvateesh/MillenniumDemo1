@@ -98,7 +98,7 @@ export default function EventsPage() {
                   <span className="recurring-day">By Appointment</span>
                 </div>
                 <div className="recurring-title">Birthday Parties</div>
-                <p className="recurring-desc">Packages starting at $179 with lanes, food, and setup included. Book any day of the week.</p>
+                <p className="recurring-desc">Birthday packages starting at $240 with lanes and bowling included. Book any day of the week.</p>
               </div>
             </div>
           </div>

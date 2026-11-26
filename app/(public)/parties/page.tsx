@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Parties & Events — Millennium Bowl | North Little Rock, AR',
-  description: 'Birthday parties and corporate events at Millennium Bowl. Packages from $179. 32 lanes, full catering, setup included — you just bring the people.',
+  description: 'Birthday parties and corporate events at Millennium Bowl. Birthday packages from $240. 32 lanes, full catering, setup included — you just bring the people.',
 };
 
 export default function PartiesPage() {
@@ -21,36 +21,38 @@ export default function PartiesPage() {
 
           <div className="section-eyebrow">Pick Your Package</div>
           <h2 className="section-title">Birthday <span className="accent">Packages</span></h2>
-          <p className="section-lede">We have packages for every group size and budget. Email us for pricing, availability, and to hold your date.</p>
+          <p className="section-lede">We have packages for every group size and budget. Email or call to check availability and hold your date.</p>
 
           <div className="event-types">
             <div className="event-card" data-animate="">
               <div className="event-card-bg">S</div>
               <span className="event-tag">Package 1</span>
               <h3>Spare Package</h3>
+              <div className="event-price" style={{ fontFamily: 'var(--font-bowlby)', fontSize: '2rem', color: 'var(--neon-yellow)', margin: '0.25rem 0 0.75rem' }}>$240 <span style={{ fontSize: '0.9rem', color: 'var(--text-dim)', fontFamily: 'var(--font-inter)' }}>+ tax</span></div>
               <ul className="event-includes">
                 <li>Lanes + bowling included</li>
                 <li>Ideal for smaller groups</li>
                 <li>Deposit required to reserve</li>
               </ul>
-              <a className="btn btn-secondary" href="mailto:info@millenniumbowllr.com?subject=Birthday Party Inquiry — Spare Package">Email for Pricing →</a>
+              <a className="btn btn-secondary" href="mailto:info@millenniumbowllr.com?subject=Birthday Party Inquiry — Spare Package">Email to Book →</a>
             </div>
             <div className="event-card featured" data-animate="">
               <div className="event-card-bg featured">S</div>
               <span className="event-tag featured">Package 2</span>
               <h3>Strike Package</h3>
+              <div className="event-price" style={{ fontFamily: 'var(--font-bowlby)', fontSize: '2rem', color: 'var(--neon-yellow)', margin: '0.25rem 0 0.75rem' }}>$280 <span style={{ fontSize: '0.9rem', color: 'var(--text-dim)', fontFamily: 'var(--font-inter)' }}>+ tax</span></div>
               <ul className="event-includes">
                 <li>Lanes + bowling included</li>
                 <li>Great for larger groups</li>
                 <li>Deposit required to reserve</li>
               </ul>
-              <a className="btn btn-primary" href="mailto:info@millenniumbowllr.com?subject=Birthday Party Inquiry — Strike Package" data-confetti="">Email for Pricing →</a>
+              <a className="btn btn-primary" href="mailto:info@millenniumbowllr.com?subject=Birthday Party Inquiry — Strike Package" data-confetti="">Email to Book →</a>
             </div>
           </div>
 
           <div style={{ textAlign: 'center', margin: '2rem 0 0', padding: '1.5rem', background: 'rgba(255,46,147,0.05)', border: '1px solid rgba(255,46,147,0.15)', borderRadius: '12px' }} data-animate="">
             <p style={{ color: 'var(--text-dim)', margin: '0 0 1rem', fontSize: '0.95rem' }}>
-              Ready to book? Email us and we&apos;ll get back to you within 1 business day with pricing, availability, and everything you need to know.
+              Ready to book? Email us and we&apos;ll get back to you within 1 business day with availability and everything you need to know.
             </p>
             <a className="btn btn-primary" href="mailto:info@millenniumbowllr.com?subject=Birthday Party Inquiry" data-confetti="">
               info@millenniumbowllr.com →
