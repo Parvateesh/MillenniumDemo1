@@ -65,7 +65,7 @@ export default function HomePage() {
           <p className="section-lede">Five reasons this is the best entertainment center in central Arkansas — and why people drive in from Little Rock, Maumelle, Sherwood, and Cabot every weekend.</p>
           <div className="experiences">
             <div className="exp-card" data-animate=""><div className="exp-icon">🎳</div><h3>32 Pro Lanes</h3><p>State-of-the-art automatic scoring, glow lighting, kid bumpers, league-grade equipment. Casual or competitive — pick your vibe.</p></div>
-            <div className="exp-card" data-animate=""><div className="exp-icon">🍻</div><h3>Full Bar</h3><p>Cold beer on tap, handcrafted cocktails, premium spirits. 21+ after 10 PM Fridays and Saturdays.</p></div>
+            <div className="exp-card" data-animate=""><div className="exp-icon">🍻</div><h3>Full Bar</h3><p>Cold beer on tap, handcrafted cocktails, premium spirits.</p></div>
             <div className="exp-card" data-animate=""><div className="exp-icon">🕹️</div><h3>Arcade &amp; F1 Sim</h3><p>Pool tables, shuffleboard, skee-ball, classic and modern arcade games. Coming soon: a full Formula 1 racing simulator nobody else in the metro has.</p></div>
             <div className="exp-card" data-animate=""><div className="exp-icon">🎉</div><h3>Private Parties</h3><p>Birthday packages from $179. Corporate buyouts. School field trips. Lock-ins. We handle setup, food, and the fun — you just show up.</p></div>
             <div className="exp-card" data-animate=""><div className="exp-icon">🏆</div><h3>Bowl 101 Pro Shop</h3><p>The only Ebonite Gold Exclusive pro shop in central Arkansas. Custom drilling, expert fitting, all major brands. Ranked 5.0 on Google.</p></div>
