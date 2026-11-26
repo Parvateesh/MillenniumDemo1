@@ -754,3 +754,38 @@ section.block {
   .order-cta-banner { flex-direction: column; align-items: flex-start; }
   .order-cta-banner .btn { width: 100%; justify-content: center; }
 }
+
+/* ── Millie website chat ─────────────────────────────── */
+.millie-launcher { position: fixed; right: 24px; bottom: 24px; z-index: 150; width: 62px; height: 62px; border-radius: 50%; border: 2px solid var(--neon-cyan); background: var(--neon-pink); color: #fff; font-size: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 24px rgba(255, 46, 147, 0.7); }
+.millie-launcher svg { width: 28px; height: 28px; }
+.millie-panel { position: fixed; right: 24px; bottom: 100px; z-index: 150; width: 380px; max-width: calc(100vw - 32px); height: 580px; max-height: calc(100vh - 140px); display: flex; flex-direction: column; background: var(--bg-mid); border: 1px solid rgba(255, 46, 147, 0.55); border-radius: 20px; box-shadow: 0 0 40px rgba(255, 46, 147, 0.35), 0 24px 60px rgba(0, 0, 0, 0.6); overflow: hidden; font-family: var(--font-inter); color: var(--text); }
+.millie-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: linear-gradient(90deg, #2a0f4a, #12204a); border-bottom: 1px solid var(--line); }
+.millie-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-deep); border: 2px solid var(--neon-cyan); color: var(--neon-pink); box-shadow: 0 0 12px rgba(0, 240, 255, 0.6); }
+.millie-title { display: flex; flex-direction: column; flex: 1; }
+.millie-name { font-family: var(--font-bowlby); font-size: 18px; }
+.millie-sub { font-size: 12px; color: #9cf3ff; }
+.millie-close { width: 44px; height: 44px; border: 0; background: transparent; color: var(--text-dim); font-size: 24px; cursor: pointer; }
+.millie-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.millie-msg { max-width: 85%; padding: 10px 13px; font-size: 14px; line-height: 1.5; white-space: pre-wrap; }
+.millie-bot { align-self: flex-start; background: #221a4d; border-radius: 4px 16px 16px 16px; }
+.millie-user { align-self: flex-end; background: linear-gradient(135deg, var(--neon-pink), #b02eff); border-radius: 16px 4px 16px 16px; }
+.millie-typing { color: var(--text-dim); font-style: italic; }
+.millie-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.millie-chip { padding: 8px 12px; border-radius: 50px; border: 1px solid var(--neon-cyan); background: transparent; color: #9cf3ff; font-family: var(--font-space-mono); font-size: 12px; cursor: pointer; }
+.millie-chip-pink { border-color: var(--neon-pink); color: #ff9bdb; }
+.millie-form { display: flex; flex-direction: column; gap: 8px; padding: 14px; background: #1b1442; border: 1px solid rgba(0, 240, 255, 0.4); border-radius: 14px; }
+.millie-form-title { font-family: var(--font-space-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--neon-cyan); }
+.millie-form label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--text-dim); min-width: 0; }
+.millie-form input { height: 38px; padding: 0 10px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.15); background: var(--bg-deep); color: #fff; font-size: 14px; min-width: 0; }
+.millie-form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.millie-submit { height: 44px; border-radius: 12px; border: 0; background: var(--neon-pink); color: #fff; font-weight: 700; cursor: pointer; }
+.millie-input { display: flex; gap: 8px; padding: 10px 12px 4px; border-top: 1px solid var(--line); }
+.millie-input input { flex: 1; min-width: 0; height: 44px; padding: 0 14px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15); background: var(--bg-deep); color: #fff; font-size: 16px; }
+.millie-input button { width: 44px; height: 44px; border-radius: 12px; border: 0; background: var(--neon-pink); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.millie-input button:disabled { opacity: 0.5; cursor: default; }
+.millie-foot { margin: 0; padding: 4px 12px 10px; font-size: 11px; color: var(--text-dim); text-align: center; }
+.millie-sr { position: absolute; left: -9999px; }
+@media (max-width: 480px) {
+  .millie-panel { right: 8px; left: 8px; width: auto; max-width: none; bottom: 88px; height: calc(100vh - 110px); max-height: none; }
+  .millie-launcher { right: 16px; bottom: 16px; }
+}
