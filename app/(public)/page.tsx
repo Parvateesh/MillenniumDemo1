@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import GiftCardSection from '@/components/GiftCardSection';
+import HeroTag from '@/components/HeroTag';
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
           <div className="pin" title="Click me!" role="button" tabIndex={0}>🎳</div>
         </div>
         <div className="hero-content">
-          <span className="hero-tag">Open Fri &amp; Sat Until 2 AM</span>
+          <HeroTag />
           <h1>
             <span className="word">Eat.</span>
             <span className="word">Drink.</span>
