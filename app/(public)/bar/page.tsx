@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Bar — Millennium Bowl | North Little Rock, AR',
-  description: 'Full bar at Millennium Bowl. Cold beer on tap, frozen margaritas, cocktails, and premium spirits.',
+  description: 'Full bar at Millennium Bowl. Cold beer on tap, frozen margaritas, cocktails, and premium spirits. The bar is 21+.',
 };
 
 import { barItems, drinkItems } from '@/lib/menu-data';
@@ -13,7 +13,7 @@ export default function BarPage() {
         <div className="hero-content">
           <span className="hero-tag">Full Bar</span>
           <h1><span className="word">Drink.</span> <span className="word">Cheers.</span> <span className="word">Bowl.</span></h1>
-          <p className="lede">Cold beer on tap, frozen margaritas, house cocktails, and premium spirits.</p>
+          <p className="lede">Cold beer on tap, frozen margaritas, house cocktails, and premium spirits. The bar is 21+; bowling and the kitchen are open to all ages.</p>
         </div>
       </section>
       <section className="block">
