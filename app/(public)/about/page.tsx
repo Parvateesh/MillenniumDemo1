@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About — Millennium Bowl | North Little Rock, AR',
-  description: 'Millennium Bowl has been North Little Rock\'s home for bowling since 2003. 32 lanes, full bar, F1 simulator, and the only Ebonite Gold pro shop in central Arkansas.',
+  description: 'Millennium Bowl has been North Little Rock\'s home for bowling since 2003. 32 lanes, full bar, an F1 simulator coming soon, and the only Ebonite Gold pro shop in central Arkansas.',
 };
 
 export default function AboutPage() {
@@ -25,7 +25,7 @@ export default function AboutPage() {
               <div className="section-eyebrow">23 Years Strong</div>
               <h2 className="section-title">Where Central <span className="accent">Arkansas Bowls</span></h2>
               <p className="about-text">Millennium Bowl opened off the Maumelle exit in 2003 with a simple idea: a real bowling center should be more than just lanes. It should be where your kid had their seventh birthday party, where your team built itself on Tuesday nights, and where your Friday started.</p>
-              <p className="about-text">23 years later, we&apos;re still here. 32 lanes. A full bar. The only Ebonite Gold pro shop in central Arkansas. An F1 simulator nobody else has. And 1,076 Google reviews from the families, teams, and weekend warriors who keep coming back.</p>
+              <p className="about-text">23 years later, we&apos;re still here. 32 lanes. A full bar. The only Ebonite Gold pro shop in central Arkansas. An F1 simulator nobody else has, coming soon. And 1,076 Google reviews from the families, teams, and weekend warriors who keep coming back.</p>
               <div className="about-stats">
                 <div><div className="about-stat-num">2003</div><div className="about-stat-label">Year founded</div></div>
                 <div><div className="about-stat-num" data-count="32">0</div><div className="about-stat-label">Lanes</div></div>

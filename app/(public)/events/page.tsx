@@ -86,8 +86,8 @@ export default function EventsPage() {
                   <span className="recurring-day">Every Day</span>
                   <span className="recurring-time">All Hours</span>
                 </div>
-                <div className="recurring-title">Arcade &amp; F1 Simulator</div>
-                <p className="recurring-desc">Open whenever we are. Pool, shuffleboard, skee-ball, and the only Formula 1 racing simulator in central Arkansas.</p>
+                <div className="recurring-title">Arcade &amp; F1 Simulator (Coming Soon)</div>
+                <p className="recurring-desc">Open whenever we are. Pool, shuffleboard and skee-ball. Coming soon: the only Formula 1 racing simulator in central Arkansas.</p>
               </div>
             </div>
 

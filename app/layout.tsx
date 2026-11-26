@@ -21,10 +21,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://millenniumbowllr.com'),
   title: 'Millennium Bowl — Eat. Drink. Bowl. | North Little Rock, AR',
   description:
-    "32 lanes of strikes, an arcade, F1 simulator, full bar, and the area's only Ebonite Gold Pro Shop. Birthday parties, corporate events, and league bowling in North Little Rock, AR.",
+    "32 lanes of strikes, an arcade, full bar, an F1 simulator coming soon, and the area's only Ebonite Gold Pro Shop. Birthday parties, corporate events, and league bowling in North Little Rock, AR.",
   openGraph: {
     title: 'Millennium Bowl — Eat. Drink. Bowl.',
-    description: "North Little Rock's home for strikes, parties, and Friday nights. 32 lanes · Full bar · F1 simulator · Ebonite Gold Pro Shop.",
+    description: "North Little Rock's home for strikes, parties, and Friday nights. 32 lanes · Full bar · F1 simulator coming soon · Ebonite Gold Pro Shop.",
     url: 'https://millenniumbowllr.com',
     siteName: 'Millennium Bowl',
     images: [{ url: '/og', width: 1200, height: 630, alt: 'Millennium Bowl — Eat. Drink. Bowl.' }],

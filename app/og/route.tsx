@@ -38,7 +38,7 @@ export async function GET() {
 
         {/* Stat pills */}
         <div style={{ display: 'flex', gap: '16px' }}>
-          {['32 Lanes', 'Full Bar', 'F1 Simulator', 'Bowl 101 Pro Shop'].map((s) => (
+          {['32 Lanes', 'Full Bar', 'F1 Sim Coming Soon', 'Bowl 101 Pro Shop'].map((s) => (
             <div
               key={s}
               style={{
