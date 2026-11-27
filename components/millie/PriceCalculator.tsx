@@ -50,7 +50,7 @@ export default function PriceCalculator({ memory, remember, act }: ToolApi) {
     <div className={best ? 'millie-option is-best' : 'millie-option'}>
       <div className="millie-option-head">
         <span>{o.label}</span>
-        {best && <span className="millie-badge">Best value</span>}
+        {best && <span className="millie-badge">Lower price</span>}
       </div>
       <ul>{o.lines.map((l) => <li key={l}>{l}</li>)}</ul>
       <div className="millie-option-total">
@@ -89,7 +89,7 @@ export default function PriceCalculator({ memory, remember, act }: ToolApi) {
         {option(r.lane, r.best === 'lane')}
       </div>
       {r.perGame && r.savings > 0 && (
-        <p className="millie-save">{r.best === 'perGame' ? 'Paying per game' : 'Renting lanes'} saves about {money(r.savings)} for your group.</p>
+        <p className="millie-save">{r.best === 'perGame' ? 'Paying per game' : 'Renting lanes'} is about {money(r.savings)} less for what you picked.</p>
       )}
       <ul className="millie-notes">{r.notes.map((n) => <li key={n}>{n}</li>)}</ul>
 

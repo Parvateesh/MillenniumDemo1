@@ -114,6 +114,9 @@ export function calculate(raw: CalcInput): CalcResult {
   const savings = perGame ? round(Math.abs(perGame.subtotal - lane.subtotal)) : 0;
 
   const notes: string[] = [];
+  if (perGame && best === 'lane') {
+    notes.push(`Lane rental is charged by time, not games. Check your group can finish ${i.games} game${i.games > 1 ? 's' : ''} each in ${i.hours} hour${i.hours > 1 ? 's' : ''}; if not, add hours or pay per game.`);
+  }
   if (rates.perGame === null) notes.push('Friday and Saturday after 5 PM are lane rental only.');
   if (rates.special) notes.push('Tuesday and Sunday special: $2.99 games and $2.99 shoes all day.');
   if (i.seniors > 0) notes.push('Senior citizen rate is $3.25 per game. Please ask at the front desk.');
