@@ -2,6 +2,7 @@ export interface MenuItem {
   name: string;
   price: string;
   desc: string;
+  image?: string; // optional photo path under /public (e.g. /menu/wings.webp); Millie and menus show it when set
   cat: 'pizza' | 'apps' | 'salads' | 'mains' | 'basket' | 'drinks' | 'draft' | 'bottles' | 'buckets' | 'wine' | 'coolers' | 'liquor';
 }
 

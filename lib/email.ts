@@ -9,10 +9,15 @@ function getResend() {
 
 type Fields = Record<string, string | number | boolean | null | undefined>;
 
+// Visitor-typed text goes into HTML emails, so escape it to stop HTML/link injection.
+export function esc(v: unknown): string {
+  return String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
+}
+
 function table(fields: Fields) {
   return Object.entries(fields)
     .filter(([, v]) => v != null && v !== '')
-    .map(([k, v]) => `<tr><td style="padding:6px 12px 6px 0;color:#888;white-space:nowrap">${k}</td><td style="padding:6px 0"><strong>${v}</strong></td></tr>`)
+    .map(([k, v]) => `<tr><td style="padding:6px 12px 6px 0;color:#888;white-space:nowrap">${k}</td><td style="padding:6px 0"><strong>${esc(v)}</strong></td></tr>`)
     .join('');
 }
 
@@ -44,28 +49,31 @@ function wrap(title: string, body: string, includeUnsubscribe = false) {
 }
 
 export async function sendContactNotification(fields: {
-  name: string; email: string; phone?: string; message: string;
+  name: string; email: string; phone?: string; message: string; source?: string;
 }) {
-  await Promise.all([
+  const sends: Promise<unknown>[] = [
     // Staff notification
     getResend().emails.send({
       from: FROM,
       to: TO,
-      subject: `New Contact Form — ${fields.name}`,
+      subject: `New ${fields.source?.startsWith('chatbot') ? 'Millie Chat Request' : 'Contact Form'} — ${fields.name.replace(/[\r\n]/g, ' ')}`,
       html: wrap('New Contact Form Submission', table({
         Name:    fields.name,
         Email:   fields.email,
         Phone:   fields.phone,
+        Source:  fields.source,
         Message: fields.message,
       })),
     }),
-    // Customer confirmation
-    getResend().emails.send({
+  ];
+  // Customer confirmation, only when they gave an email address
+  if (fields.email) {
+    sends.push(getResend().emails.send({
       from: FROM,
       to: fields.email,
       subject: `We got your message — Millennium Bowl`,
       html: wrap(
-        `Thanks, ${fields.name}!`,
+        `Thanks, ${esc(fields.name)}!`,
         `<tr><td style="padding:8px 0;color:#ccc;line-height:1.7">
           We received your message and will get back to you within 1 business day.<br /><br />
           In the meantime, feel free to call us at <strong>(501) 791-9150</strong> or
@@ -73,8 +81,9 @@ export async function sendContactNotification(fields: {
         </td></tr>`,
         true,
       ),
-    }),
-  ]);
+    }));
+  }
+  await Promise.all(sends);
 }
 
 export async function sendLeagueNotification(fields: {
@@ -102,7 +111,7 @@ export async function sendLeagueNotification(fields: {
       to: fields.email,
       subject: `League sign-up received — Millennium Bowl`,
       html: wrap(
-        `You&apos;re on the list, ${fields.name}!`,
+        `You&apos;re on the list, ${esc(fields.name)}!`,
         `<tr><td style="padding:8px 0;color:#ccc;line-height:1.7">
           We received your league interest form. Our league coordinator will reach out
           within 2 business days to confirm your spot and night.<br /><br />
@@ -135,7 +144,7 @@ export async function sendWaitlistNotification(fields: {
       to: fields.email,
       subject: `You&apos;re on the waitlist — Millennium Bowl`,
       html: wrap(
-        `Got it, ${fields.name}!`,
+        `Got it, ${esc(fields.name)}!`,
         `<tr><td style="padding:8px 0;color:#ccc;line-height:1.7">
           You&apos;re on our lane waitlist. We&apos;ll reach out as soon as a spot opens up.<br /><br />
           <strong>Want to check availability now?</strong> Call us at <strong>(501) 791-9150</strong>.<br />
