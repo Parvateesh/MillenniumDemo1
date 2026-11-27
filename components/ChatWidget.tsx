@@ -10,6 +10,9 @@ const GREETING: Msg = {
   content: "Hi! I'm Millie, Millennium Bowl's helper. Tap a topic or type a question about hours, prices, parties, gift cards, leagues and more.",
 };
 const QUICK = TOPICS.filter((t) => t.label);
+const TEASER_IDS = ['hours', 'prices', 'birthday'];
+const TEASER = TEASER_IDS.map((id) => TOPICS.find((t) => t.id === id)).filter((t): t is Topic => Boolean(t && t.label));
+const TEASER_KEY = 'millie-teaser-dismissed';
 
 function PinIcon() {
   return (
@@ -27,7 +30,27 @@ export default function ChatWidget() {
   const [showChips, setShowChips] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [sent, setSent] = useState(false);
+  const [teaser, setTeaser] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let dismissed = false;
+    try { dismissed = sessionStorage.getItem(TEASER_KEY) === '1'; } catch { /* storage unavailable */ }
+    if (dismissed) return;
+    const t = window.setTimeout(() => setTeaser(true), 2500);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  function hideTeaser() {
+    setTeaser(false);
+    try { sessionStorage.setItem(TEASER_KEY, '1'); } catch { /* storage unavailable */ }
+  }
+
+  function openChat(topic?: Topic) {
+    hideTeaser();
+    setOpen(true);
+    if (topic) reply(topic.label as string, topic);
+  }
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' });
@@ -73,7 +96,7 @@ export default function ChatWidget() {
             <div className="millie-avatar"><PinIcon /></div>
             <div className="millie-title">
               <span className="millie-name">Millie</span>
-              <span className="millie-sub">Millennium Bowl helper</span>
+              <span className="millie-sub"><span className="millie-dot" aria-hidden="true" />Chat bot · instant answers</span>
             </div>
             <button className="millie-close" aria-label="Close chat" onClick={() => setOpen(false)}>×</button>
           </div>
@@ -118,8 +141,33 @@ export default function ChatWidget() {
           <p className="millie-foot">For bookings and anything else, call (501) 791-9150.</p>
         </div>
       )}
-      <button className="millie-launcher" aria-label={open ? 'Close chat with Millie' : 'Chat with Millie'} onClick={() => setOpen(!open)}>
-        {open ? <span aria-hidden="true">×</span> : <PinIcon />}
+      {teaser && !open && (
+        <div className="millie-teaser" role="status">
+          <button className="millie-teaser-x" aria-label="Hide message" onClick={hideTeaser}>×</button>
+          <p className="millie-teaser-hi"><span aria-hidden="true">👋</span> Hi, I&apos;m Millie!</p>
+          <p className="millie-teaser-text">I&apos;m Millennium Bowl&apos;s chat bot. Ask me anything about bowling, food, parties or gift cards.</p>
+          <div className="millie-teaser-chips">
+            {TEASER.map((t) => (
+              <button key={t.id} className="millie-chip" onClick={() => openChat(t)}>{t.label}</button>
+            ))}
+          </div>
+        </div>
+      )}
+      <button
+        className={open ? 'millie-launcher is-open' : 'millie-launcher'}
+        aria-label={open ? 'Close chat with Millie' : 'Chat with Millie, our chat bot'}
+        onClick={() => (open ? setOpen(false) : openChat())}
+      >
+        <span className="millie-launch-icon">
+          {open ? <span aria-hidden="true">×</span> : <PinIcon />}
+          {!open && <span className="millie-launch-badge" aria-hidden="true">?</span>}
+        </span>
+        {!open && (
+          <span className="millie-launch-text" aria-hidden="true">
+            <span className="millie-launch-title">Ask Millie</span>
+            <span className="millie-launch-sub"><span className="millie-dot" />Chat bot · online</span>
+          </span>
+        )}
       </button>
     </>
   );
