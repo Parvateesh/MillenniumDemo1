@@ -7,7 +7,7 @@ type Msg = { role: 'user' | 'assistant'; content: string };
 
 const GREETING: Msg = {
   role: 'assistant',
-  content: "Hi! I'm Millie, Millennium Bowl's helper. Tap a topic or type a question about hours, prices, parties, gift cards, leagues and more.",
+  content: "Hi! I'm Millie, Millennium Bowl's chat bot 🎳 Tap a topic or type a question about hours, prices, parties, gift cards, leagues and more.",
 };
 const QUICK = TOPICS.filter((t) => t.label);
 const TEASER_IDS = ['hours', 'prices', 'birthday'];
@@ -59,7 +59,7 @@ export default function ChatWidget() {
   function reply(question: string, topic: Topic | null) {
     setMessages((m) => [...m, { role: 'user', content: question }, { role: 'assistant', content: topic ? topic.answer : FALLBACK }]);
     setShowChips(!topic);
-    if (topic?.showPartyForm && !sent) setShowForm(true);
+    setShowForm(Boolean(topic?.showPartyForm && !sent));
   }
 
   function ask(text: string) {
